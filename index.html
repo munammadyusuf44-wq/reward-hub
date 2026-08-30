@@ -75,7 +75,7 @@ body{background:#0f172a;color:#fff;font-family:sans-serif;padding:15px;padding-b
 </div>
 
 <script>
-const MY_WHATSAPP_NUMBER = "2348031234567";
+const MY_WHATSAPP_NUMBER = "2347070079526";
 const REWARD_PER_AD = 10;
 const MIN_WITHDRAW = 100;
 const MAX_TASKS = 5;
@@ -168,8 +168,8 @@ document.getElementById('withAmount').value='';
 
 function sendWhatsApp(){
 if(!lastWithdrawData){alert('Da farko cika suna da adadi sannan danna Ajiye!');return;}
-let text = `*SABON BUKATAR CIRE KUDI*%0A👤 Sunan: ${encodeURIComponent(lastWithdrawData.name)}%0A💳 Lamba: ${encodeURIComponent(lastWithdrawData.num)}%0A💰 Adadi: ₦${encodeURIComponent(lastWithdrawData.amt)}%0A📅 Lokaci: ${encodeURIComponent(lastWithdrawData.date)}`;
-let url = `https://wa.me/${07070079526}?text=${text}`;
+let text = `*SABON BUKATAR CIRE KUDI*%0A👤 Sunan: ${encodeURIComponent(lastWithdrawData.name)}%0A💳 Lamba: ${encodeURIComponent(lastWithdrawData.num)}%0A💰 Adadi: ₦${encodeURIComponent(lastWithdrawData.amt)}%0A📅 Lokaci: ${encodeURIComponent(lastWithdrawData.date)}%0A📱 Balance: ₦${balance}`;
+let url = `https://wa.me/2347070079526?text=${text}`;
 window.open(url, '_blank');
 }
 render();
