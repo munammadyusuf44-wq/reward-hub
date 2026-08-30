@@ -66,6 +66,7 @@ body{background:#0f172a;color:#fff;font-family:sans-serif;padding:15px;padding-b
 <div style="background:#0f172a;border-radius:12px;padding:20px;margin:16px 0;min-height:140px;display:flex;flex-direction:column;justify-content:center">
 <div style="color:#22c55e;font-size:13px;font-weight:800">✅ Tallan tsafta zai bude!</div>
 <a id="adLink" href="https://www.profitableratecpm.com/30988296" target="_blank" style="display:inline-block;margin-top:12px;background:#22c55e;color:#000;padding:12px 22px;border-radius:10px;font-weight:900;text-decoration:none">🔗 BUDE TALLA TSAFTA</a>
+<div style="font-size:11px;color:#94a3b8;margin-top:10px">Idan bai bude ba, jira 15s kacal - zaka samu ₦10!</div>
 </div>
 <div class="timer"><div class="timerFill" id="timerFill"></div></div>
 <div style="display:flex;justify-content:space-between;font-size:12px"><span id="timerText">15s</span><span>₦10</span></div>
@@ -121,7 +122,7 @@ btn.innerText = '⏳ Jira 15s...';
 timeLeft = AD_TIME;
 document.getElementById('timerFill').style.width = '0%';
 document.getElementById('timerText').innerText = timeLeft+'s';
-window.open(ADSTERRA_DIRECT_LINK, '_blank');
+try{ window.open(ADSTERRA_DIRECT_LINK, '_blank'); }catch(e){}
 timerInt = setInterval(()=>{
 timeLeft--;
 document.getElementById('timerText').innerText = timeLeft+'s';
