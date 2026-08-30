@@ -1,76 +1,177 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="ha">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reward Hub - ₦10</title>
+<title>Reward Hub - ₦10 - Cirewa ₦100</title>
 <style>
-body{background:#0f172a;color:#fff;font-family:sans-serif;padding:15px;padding-bottom:80px}
-.card{background:#1e293b;border-radius:16px;padding:18px;margin-bottom:14px}
-.task{background:#0f172a;border-radius:12px;padding:14px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;border:1px solid #334155}
-.btn{background:#22c55e;color:#000;border:0;padding:9px 16px;border-radius:8px;font-weight:900;cursor:pointer}
-.btn:disabled{background:#334155;color:#64748b}
-input{width:100%;background:#0f172a;border:1px solid #334155;color:#fff;padding:12px;border-radius:10px;margin-top:10px}
-.btnMain{width:100%;background:#22c55e;color:#000;border:0;padding:14px;border-radius:10px;font-weight:900;margin-top:10px;cursor:pointer}
-#adModal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.92);display:none;justify-content:center;align-items:center;z-index:99}
-#adBox{background:#1e293b;padding:22px;border-radius:18px;width:92%;max-width:380px;text-align:center;border:1px solid #334155}
-.timerBar{background:#0f172a;height:8px;border-radius:10px;overflow:hidden;margin:12px 0}
-.timerFill{background:#22c55e;height:100%;width:0%;transition:width 1s linear}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#fff;font-family:sans-serif;padding:15px;padding-bottom:100px}
+.balCard{background:#1e293b;border-radius:20px;padding:20px;margin-bottom:15px;border:1px solid #22c55e44}
+.balAmount{font-size:42px;font-weight:900}
+.progressBar{background:#0f172a;height:8px;border-radius:10px;margin-top:8px;overflow:hidden}
+.progressFill{background:#22c55e;height:100%;width:0%;transition:0.4s}
+.task{background:#1e293b;border-radius:14px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;border:1px solid #334155}
+.btnSmall{background:#22c55e;color:#000;border:0;padding:10px 18px;border-radius:10px;font-weight:900;cursor:pointer}
+.btnSmall:disabled{background:#334155;color:#64748b}
+.withdrawCard{background:#1e293b;border-radius:20px;padding:20px;margin-top:20px;border:2px solid #22c55e44}
+.input{width:100%;background:#0f172a;border:1px solid #334155;color:#fff;padding:14px;border-radius:12px;margin-top:10px;font-size:15px}
+.btnMain{width:100%;border:0;padding:16px;border-radius:12px;font-weight:900;margin-top:12px;cursor:pointer;font-size:16px;transition:0.3s}
+.btnDisabled{background:#334155;color:#94a3b8;cursor:not-allowed;}
+.btnEnabled{background:#22c55e;color:#000;cursor:pointer;box-shadow:0 0 20px #22c55e66;animation:pulse 1s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+.btnWA{width:100%;background:#25D366;color:#000;border:0;padding:16px;border-radius:12px;font-weight:900;margin-top:10px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.adModal{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:none;justify-content:center;align-items:center;z-index:99}
+.adBox{background:#1e293b;border-radius:20px;padding:22px;width:92%;max-width:380px;text-align:center;border:1px solid #334155}
+.timer{height:8px;background:#0f172a;border-radius:10px;overflow:hidden;margin:14px 0}
+.timerFill{height:100%;background:#22c55e;width:0%;transition:width 1s linear}
 </style>
 </head>
 <body>
-<div style="display:flex;justify-content:space-between;margin-bottom:12px"><b>💰 Reward Hub</b><span style="color:#22c55e;border:1px solid #22c55e;padding:4px 10px;border-radius:20px;font-size:11px">● LIVE - ₦10 kowanne</span></div>
-<div class="card">
-<div style="font-size:12px;color:#94a3b8">BALANCE DINKA</div>
-<div id="bal" style="font-size:36px;font-weight:900">₦0</div>
-<div id="prog" style="font-size:12px;color:#94a3b8;margin-top:8px">₦0 / ₦100</div>
+<div style="display:flex;justify-content:space-between;margin-bottom:16px"><b>💰 Reward Hub</b><span style="color:#22c55e;border:1px solid #22c55e;padding:4px 10px;border-radius:20px;font-size:12px">● MAINSTREAM TSAFTA ✅</span></div>
+
+<div class="balCard">
+<div style="color:#22c55e;font-size:11px;font-weight:900">✅ MAINSTREAM - BABU BATSA - ID 30988296</div>
+<div style="color:#94a3b8;font-size:12px;margin-top:6px">BALANCE DINKA</div>
+<div class="balAmount" id="bal">₦0</div>
+<div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-top:14px"><span>Ci gaba zuwa cirewa ₦100</span><span id="progressText">₦0 / ₦100</span></div>
+<div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+<div style="display:flex;gap:10px;margin-top:14px">
+<div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b id="todayEarn" style="color:#facc15">₦0</b><br><small style="color:#94a3b8">Yau</small></div>
+<div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b style="color:#facc15">₦10</b><br><small style="color:#94a3b8">Kowanne</small></div>
+<div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b id="taskCount" style="color:#facc15">0/5</b><br><small style="color:#94a3b8">Ayyuka</small></div>
 </div>
-<div style="font-weight:800;margin:14px 0">⭐ Ayyukan Yau <span style="background:#22c55e22;color:#22c55e;font-size:11px;padding:4px 8px;border-radius:20px">₦10 kowanne</span></div>
+</div>
+
+<div style="font-weight:800;margin:18px 0 10px;display:flex;justify-content:space-between">⭐ Ayyukan Yau <span style="background:#22c55e22;color:#22c55e;font-size:11px;padding:5px 10px;border-radius:20px">₦10 kowanne - TSAFTA</span></div>
 <div id="tasksList"></div>
-<div class="card" style="margin-top:18px">
-<div style="font-size:12px">Mafi karanci: <b style="color:#22c55e">₦100</b> - Opay/Banki - 24h</div>
-<input id="opayName" placeholder="Sunan Opay">
-<input id="opayNum" placeholder="Lambar Opay 11 digits">
-<input id="withAmount" placeholder="Adadi (₦100 - Balance)">
-<button class="btnMain" onclick="withdraw()">Nemi Cire Kudi</button>
-<div id="withMsg" style="font-size:12px;margin-top:8px;text-align:center;color:#facc15"></div>
+
+<div style="font-weight:800;margin:22px 0 10px">💳 Cire Kudi - ₦100 Kacal!</div>
+<div class="withdrawCard">
+<div style="font-size:13px;color:#22c55e;font-weight:800">✅ Ka kai ₦100? Ka cire yanzu via WhatsApp!</div>
+<input class="input" id="opayName" placeholder="Sunan ka (Opay/ Bank)">
+<input class="input" id="opayNum" placeholder="Lambar Opay ko Asusun Banki">
+<input class="input" id="withAmount" placeholder="Adadi - misali 100">
+<div id="withMsg" style="font-size:12px;margin-top:10px;text-align:center;color:#facc15;white-space:pre-line"></div>
+<button class="btnMain" style="background:#22c55e;color:#000" onclick="withdraw()">1. Ajiye Bukatar Cirewa</button>
+<button class="btnWA" onclick="sendWhatsApp()">💬 2. Tura min a WhatsApp Yanzu</button>
 </div>
-<div id="adModal"><div id="adBox">
-<div style="font-weight:900;font-size:18px">📺 Kallon Talla</div>
-<div style="font-size:12px;color:#94a3b8;margin-top:4px">Danna BUDE TALLA - jira 15s - ka dawo</div>
-<div style="background:#0f172a;border-radius:12px;padding:20px;margin:16px 0">
-<a id="adLink" href="https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862" target="_blank" style="display:inline-block;background:#22c55e;color:#000;padding:12px 20px;border-radius:10px;font-weight:900;text-decoration:none;font-size:15px">🔗 BUDE TALLA NAN</a>
-<div style="font-size:10px;color:#64748b;margin-top:8px">Zai bude talla a sabon shafi</div>
+
+<div id="history" style="color:#94a3b8;font-size:12px;margin-top:15px">Babu Tarihi</div>
+
+<div class="adModal" id="adModal">
+<div class="adBox">
+<div style="font-weight:900;font-size:18px">📺 Kallon Talla - TSAFTA ✅</div>
+<div style="font-size:11px;color:#22c55e;margin-top:4px;font-weight:700">MAINSTREAM - Babu batsa!</div>
+<div style="background:#0f172a;border-radius:12px;padding:20px;margin:16px 0;min-height:140px;display:flex;flex-direction:column;justify-content:center">
+<div style="color:#22c55e;font-size:13px;font-weight:800">✅ Tallan tsafta zai bude!</div>
+<a id="adLink" href="https://www.profitableratecpm.com/30988296" target="_blank" style="display:inline-block;margin-top:12px;background:#22c55e;color:#000;padding:12px 22px;border-radius:10px;font-weight:900;text-decoration:none">🔗 BUDE TALLA TSAFTA</a>
 </div>
-<div class="timerBar"><div class="timerFill" id="timerFill"></div></div>
+<div class="timer"><div class="timerFill" id="timerFill"></div></div>
 <div style="display:flex;justify-content:space-between;font-size:12px"><span id="timerText">15s</span><span>₦10</span></div>
-<button id="closeBtn" class="btnMain" style="display:none" onclick="claim()">✅ Karbi ₦10 Yanzu</button>
+<button class="btnMain btnDisabled" id="closeAdBtn" disabled onclick="claimReward()">⏳ Jira 15s...</button>
 <button onclick="closeModal()" style="background:none;border:0;color:#94a3b8;margin-top:10px;font-size:12px">Rufe</button>
-</div></div>
+</div>
+</div>
+
 <script>
-var AD_LINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
-var REWARD = 10; var MIN = 100; var MAX = 5;
-var balance = parseInt(localStorage.getItem('rh_bal')||'0');
-var done = JSON.parse(localStorage.getItem('rh_tasks')||'[]');
-var last = localStorage.getItem('rh_last'); var today = new Date().toDateString();
-if(last !== today){localStorage.setItem('rh_tasks','[]');localStorage.setItem('rh_last',today);done=[];}
-if(!last){localStorage.setItem('rh_last',today);}
-var cur = null; var t = 15; var ti = null;
-function save(){localStorage.setItem('rh_bal',balance);localStorage.setItem('rh_tasks',JSON.stringify(done));}
+const MY_WHATSAPP_NUMBER = "2348031234567";
+const REWARD_PER_AD = 10;
+const MIN_WITHDRAW = 100;
+const MAX_TASKS = 5;
+const AD_TIME = 15;
+const ADSTERRA_DIRECT_LINK = "https://www.profitableratecpm.com/30988296";
+
+let balance = parseInt(localStorage.getItem('rh_bal')||'0');
+let tasksToday = JSON.parse(localStorage.getItem('rh_tasks')||'[]');
+let withdrawHistory = JSON.parse(localStorage.getItem('rh_with')||'[]');
+let last = localStorage.getItem('rh_last');
+let today = new Date().toDateString();
+let curTask = null;
+let timerInt = null;
+let timeLeft = AD_TIME;
+let lastWithdrawData = null;
+
+if(last !== today){localStorage.setItem('rh_tasks', JSON.stringify([]));localStorage.setItem('rh_last', today);tasksToday = [];}
+if(!last) localStorage.setItem('rh_last', today);
+function save(){localStorage.setItem('rh_bal', balance);localStorage.setItem('rh_tasks', JSON.stringify(tasksToday));localStorage.setItem('rh_with', JSON.stringify(withdrawHistory));}
+
 function render(){
-document.getElementById('bal').innerText = '₦' + balance;
-document.getElementById('prog').innerText = '₦' + balance + ' / ₦' + MIN;
-var h = ''; for(var i=1;i<=MAX;i++){
-var isDone = done.indexOf(i) !== -1;
-h += '<div class="task"><div><b>Talla '+i+'</b><br><small style="color:#94a3b8">Kalli 15s - ₦'+REWARD+'</small></div><button class="btn" '+(isDone?'disabled':'')+' onclick="openAd('+i+')">'+(isDone?'An Yi ✓':'Kalli')+'</button></div>';
+document.getElementById('bal').innerText = `₦${balance}`;
+document.getElementById('todayEarn').innerText = `₦${tasksToday.length * REWARD_PER_AD}`;
+document.getElementById('taskCount').innerText = `${tasksToday.length}/${MAX_TASKS}`;
+document.getElementById('progressText').innerText = `₦${balance} / ₦${MIN_WITHDRAW}`;
+document.getElementById('progressFill').style.width = Math.min(100, (balance/MIN_WITHDRAW)*100) + '%';
+let html = '';
+for(let i=1;i<=MAX_TASKS;i++){let done = tasksToday.includes(i);html += `<div class="task" style="${done?'opacity:0.5':''}"><div><b>Talla ${i} ✅</b><br><small style="color:#94a3b8">Kalli 15s - samu ₦${REWARD_PER_AD}</small></div><button class="btnSmall" ${done?'disabled':''} onclick="openAd(${i})">${done?'An Yi ✓':'Kalli'}</button></div>`;}
+document.getElementById('tasksList').innerHTML = html;
+let hHtml = withdrawHistory.length ? withdrawHistory.map(h=>`<div style="background:#1e293b;padding:10px;border-radius:10px;margin-bottom:6px;border:1px solid #334155">💸 ₦${h.amt} - ${h.name} - ${h.date}</div>`).join('') : 'Babu Tarihi';
+document.getElementById('history').innerHTML = hHtml;
 }
-document.getElementById('tasksList').innerHTML = h;
+
+function openAd(id){
+if(tasksToday.includes(id)) return;
+curTask = id;
+document.getElementById('adLink').href = ADSTERRA_DIRECT_LINK;
+document.getElementById('adModal').style.display = 'flex';
+let btn = document.getElementById('closeAdBtn');
+btn.disabled = true;
+btn.className = 'btnMain btnDisabled';
+btn.innerText = '⏳ Jira 15s...';
+timeLeft = AD_TIME;
+document.getElementById('timerFill').style.width = '0%';
+document.getElementById('timerText').innerText = timeLeft+'s';
+window.open(ADSTERRA_DIRECT_LINK, '_blank');
+timerInt = setInterval(()=>{
+timeLeft--;
+document.getElementById('timerText').innerText = timeLeft+'s';
+document.getElementById('timerFill').style.width = ((AD_TIME-timeLeft)/AD_TIME*100)+'%';
+btn.innerText = `⏳ Jira ${timeLeft}s...`;
+if(timeLeft<=0){
+ clearInterval(timerInt);
+ btn.disabled = false;
+ btn.className = 'btnMain btnEnabled';
+ btn.innerText = '✅ Karbi ₦10 Yanzu - Danna Nan!';
 }
-function openAd(id){ if(done.indexOf(id) !== -1) return; cur = id; document.getElementById('adModal').style.display = 'flex'; document.getElementById('closeBtn').style.display = 'none'; t = 15; document.getElementById('timerText').innerText = t + 's'; document.getElementById('timerFill').style.width = '0%'; window.open(AD_LINK,'_blank'); ti = setInterval(function(){ t--; document.getElementById('timerText').innerText = t + 's'; document.getElementById('timerFill').style.width = ((15-t)/15*100)+'%'; if(t<=0){clearInterval(ti);document.getElementById('closeBtn').style.display='block';document.getElementById('timerText').innerText='An kammala!';} },1000); }
-function closeModal(){clearInterval(ti);document.getElementById('adModal').style.display='none';}
-function claim(){ if(cur===null) return; if(done.indexOf(cur) !== -1) return; clearInterval(ti); done.push(cur); balance += REWARD; save(); render(); document.getElementById('adModal').style.display='none'; cur=null; alert('🎉 Ka samu ₦'+REWARD+'! Balance yanzu ₦'+balance); }
-function withdraw(){ var name = document.getElementById('opayName').value.trim(); var num = document.getElementById('opayNum').value.trim(); var amt = parseInt(document.getElementById('withAmount').value); var msg = document.getElementById('withMsg'); if(!name || num.length<10){msg.innerText='Cika suna da lamba!';return;} if(isNaN(amt) || amt < MIN){msg.innerText='Mafi karanci ₦'+MIN+'!';return;} if(amt > balance){msg.innerText='Balance bai kai ba!';return;} balance -= amt; save(); render(); msg.innerText='✅ An karbi bukatar ₦'+amt+' zuwa '+name+' - 24h'; document.getElementById('withAmount').value=''; }
+},1000);
+}
+
+function closeModal(){clearInterval(timerInt);document.getElementById('adModal').style.display='none';}
+
+function claimReward(){
+if(!curTask || tasksToday.includes(curTask)) return;
+clearInterval(timerInt);
+tasksToday.push(curTask);
+balance += REWARD_PER_AD;
+save();render();
+document.getElementById('adModal').style.display = 'none';
+curTask = null;
+alert(`🎉 Ka samu ₦${REWARD_PER_AD}!`);
+}
+
+function withdraw(){
+let name=document.getElementById('opayName').value.trim();
+let num=document.getElementById('opayNum').value.trim();
+let amt=parseInt(document.getElementById('withAmount').value);
+let msg=document.getElementById('withMsg');
+if(!name || num.length<8){msg.innerText='❌ Cika suna da lamba!';return;}
+if(isNaN(amt) || amt < MIN_WITHDRAW){msg.innerText=`❌ Mafi karanci ₦${MIN_WITHDRAW}!`;return;}
+if(amt > balance){msg.innerText=`❌ Balance bai kai ba! Kana da ₦${balance}`;return;}
+balance -= amt;
+let data = {name:name, num:num, amt:amt, date:new Date().toLocaleString(), status:'Ana jira'};
+withdrawHistory.unshift(data);
+lastWithdrawData = data;
+save();render();
+msg.innerText=`✅ An ajiye! Yanzu danna WhatsApp!`;
+document.getElementById('withAmount').value='';
+}
+
+function sendWhatsApp(){
+if(!lastWithdrawData){alert('Da farko cika suna da adadi sannan danna Ajiye!');return;}
+let text = `*SABON BUKATAR CIRE KUDI*%0A👤 Sunan: ${encodeURIComponent(lastWithdrawData.name)}%0A💳 Lamba: ${encodeURIComponent(lastWithdrawData.num)}%0A💰 Adadi: ₦${encodeURIComponent(lastWithdrawData.amt)}%0A📅 Lokaci: ${encodeURIComponent(lastWithdrawData.date)}`;
+let url = `https://wa.me/${07070079526}?text=${text}`;
+window.open(url, '_blank');
+}
 render();
 </script>
 </body>
