@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reward Hub - 5 Talla</title>
+<title>Reward Hub - ₦10 per Kalli</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh}
@@ -23,9 +23,9 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 #adModal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:9999;justify-content:center;align-items:center;padding:16px}
 .adBox{background:#1e293b;border:1px solid #22c55e44;border-radius:20px;padding:20px;max-width:400px;width:100%;text-align:center}
 </style>
-<!-- POPUNDER - zai bude a baya -->
+<!-- POPUNDER -->
 <script src="https://pl31085646.profitableratecpmnetwork.com/ed/48/20/ed48207c42d9e7fc9fd210a6a7331bcb.js"></script>
-<!-- SOCIAL BAR - zai bayyana a cikin shafi -->
+<!-- SOCIAL BAR - shi ke bayyana -->
 <script src="https://pl31085647.profitableratecpmnetwork.com/43/fb/1d/43fb1d68af6651b11b45eb1cfe7d443c.js"></script>
 </head>
 <body>
@@ -35,55 +35,55 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 <div class="balCard">
 <div style="color:#94a3b8;font-size:11px;font-weight:800">💎 BALANCE DINKA</div>
 <div class="balAmount">₦<span id="balNum">0</span></div>
-<div style="display:flex;align-items:center;color:#64748b;font-size:13px;margin-top:8px"><span id="balText">₦0 / ₦25</span><div class="progress"><b id="prog" style="width:0%"></b></div></div>
+<div style="display:flex;align-items:center;color:#64748b;font-size:13px;margin-top:8px"><span id="balText">₦0 / ₦50</span><div class="progress"><b id="prog" style="width:0%"></b></div></div>
 </div>
 
-<div style="margin:18px 4px 12px;font-weight:800">⭐ Ayyuka 5 - ₦5 kowanne = ₦25</div>
+<div style="margin:18px 4px 12px;font-weight:800">⭐ Ayyuka 5 - ₦10 kowanne = ₦50</div>
 <div id="tasks"></div>
 
 <div class="withdrawCard">
-<div style="font-weight:800;margin-bottom:12px">💸 Cika Opay - idan ya kai ₦25</div>
+<div style="font-weight:800;margin-bottom:8px">💸 Cire Kudi - ₦50</div>
+<div style="background:#f59e0b15;border:1px solid #f59e0b33;border-radius:10px;padding:10px;margin-bottom:10px;font-size:11px;color:#fbbf24">⚠️ Za a tantance kuma a biya cikin 24-48h. Adsterra na biyan mu bayan 15 kwanaki.</div>
 <input class="input" id="opayName" placeholder="👤 Sunan Opay">
 <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
-<button class="btn-with" id="withBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button>
-<div style="margin-top:10px;font-size:11px;color:#86efac;background:#25D36615;border:1px dashed #25D36644;padding:8px;border-radius:8px;text-align:center">✅ Zai tura zuwa WhatsApp: 07070079526</div>
+<button class="btn-with" id="withBtn" onclick="withdraw()">📤 Aika Bukatar Cire Kudi</button>
+<div id="pendingMsg" style="display:none;background:#22c55e15;border:1px solid #22c55e33;padding:12px;border-radius:10px;margin-top:10px;font-size:12px">✅ Bukata ta tafi! ID: <b id="reqId"></b> - Jira 24-48h</div>
+<div style="margin-top:10px;font-size:11px;color:#86efac;text-align:center">✅ Zai tura zuwa: 07070079526</div>
 </div>
 </div>
 
 <div id="adModal">
 <div class="adBox">
-<div style="font-weight:900;color:#22c55e">📺 Kalli Talla 10s</div>
-<div style="width:100%;height:200px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-weight:900;color:#22c55e">📺 Kalli Talla 10s - ₦10</div>
+<div style="width:100%;height:180px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
 <div style="font-size:40px">⏳</div>
 <div style="font-weight:800;margin-top:8px">Talla na gudana...</div>
-<div style="color:#64748b;font-size:11px;margin-top:6px;text-align:center">Social Bar zai bayyana a kasa<br>Popunder zai bude a baya</div>
+<div style="color:#64748b;font-size:11px">Social Bar a kasa - Popunder a baya</div>
 </div>
 <div style="font-size:36px;font-weight:900;color:#facc15" id="modalTimer">10s</div>
-<button id="closeAd" style="display:none;margin-top:14px;width:100%;background:#22c55e;color:#000;border:none;padding:14px;border-radius:12px;font-weight:900" onclick="claimReward()">✅ Karbi ₦5</button>
+<button id="closeAd" style="display:none;margin-top:14px;width:100%;background:#22c55e;color:#000;border:none;padding:14px;border-radius:12px;font-weight:900" onclick="claimReward()">✅ Karbi ₦10</button>
 </div>
 </div>
 
 <script>
 const WHATSAPP_NUM = "2347070079526";
-let balance = parseInt(localStorage.getItem('rh_5_both')||'0');
-let done = JSON.parse(localStorage.getItem('rh_done_5_both')||'null') || Array(5).fill(false);
+let balance = parseInt(localStorage.getItem('rh_10_final')||'0');
+let done = JSON.parse(localStorage.getItem('rh_done_10_final')||'null') || Array(5).fill(false);
 let currentTask = -1;
-
-function save(){localStorage.setItem('rh_5_both',balance);localStorage.setItem('rh_done_5_both',JSON.stringify(done));}
+function save(){localStorage.setItem('rh_10_final',balance);localStorage.setItem('rh_done_10_final',JSON.stringify(done));}
 function render(){
  let h='';
  for(let i=0;i<5;i++){
-  h+=`<div class="taskCard"><div>Talla ${i+1} <span style="color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px">₦5</span></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" onclick="startAd(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
+  h+=`<div class="taskCard"><div>Talla ${i+1} <span style="color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px">₦10</span></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" onclick="startAd(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
  }
  document.getElementById('tasks').innerHTML=h;
  document.getElementById('balNum').innerText=balance;
- document.getElementById('balText').innerText='₦'+balance+' / ₦25';
- document.getElementById('prog').style.width=(balance/25*100)+'%';
- document.getElementById('withBtn').innerText = balance>=25? '🚀 A SHIRYE! Tura WhatsApp Yanzu' : '🚀 Nemi Cire (Yanzu ₦'+balance+')';
+ document.getElementById('balText').innerText='₦'+balance+' / ₦50';
+ document.getElementById('prog').style.width=(balance/50*100)+'%';
+ document.getElementById('withBtn').innerText = balance>=50? '🚀 A SHIRYE! Tura WhatsApp' : '📤 Aika (Yanzu ₦'+balance+')';
  save();
 }
 render();
-
 function startAd(i){
  if(done[i]) return;
  currentTask=i;
@@ -98,19 +98,25 @@ function startAd(i){
 }
 function claimReward(){
  done[currentTask]=true;
- balance+=5;
+ balance+=10; // YANZU ₦10
  document.getElementById('adModal').style.display='none';
  render();
- if(balance>=25) alert('🎉 Ka kai ₦25! Cika Opay ka tura WhatsApp!');
- else alert('✅ Ka samu ₦5! Yanzu ₦'+balance);
+ if(balance>=50) alert('🎉 Ka kai ₦50! Cika Opay ka aika bukata!');
+ else alert('✅ Ka samu ₦10! Yanzu ₦'+balance);
 }
 function withdraw(){
  let name=document.getElementById('opayName').value.trim();
  let num=document.getElementById('opayNum').value.trim();
- if(balance<25){alert('❌ Sai ka kai ₦25! Yanzu ₦'+balance);return;}
- if(!name||!num){alert('⚠️ Cika suna da lamba');return;}
- let msg = `Salam! Ina so in cire kudi\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n📅 Lokaci: ${new Date().toLocaleString()}`;
+ if(balance<50){alert('❌ Sai ka kai ₦50! Yanzu ₦'+balance);return;}
+ if(!name||!num){alert('⚠️ Cika bayanai');return;}
+ if(localStorage.getItem('withdraw_10_done')){alert('⚠️ Ka riga ka aika! Jira 24h');return;}
+ let reqId='RH'+Date.now().toString().slice(-6);
+ localStorage.setItem('withdraw_10_done',reqId);
+ let msg=`🔔 BUKATAR CIRE KUDI - ₦${balance}\n\n🆔 ID: ${reqId}\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n📅 ${new Date().toLocaleString()}\n\n⚠️ Ka tantance Adsterra kafin ka biya!`;
  window.open('https://wa.me/'+WHATSAPP_NUM+'?text='+encodeURIComponent(msg),'_blank');
+ document.getElementById('pendingMsg').style.display='block';
+ document.getElementById('reqId').innerText=reqId;
+ document.getElementById('withBtn').disabled=true;
 }
 </script>
 </body>
