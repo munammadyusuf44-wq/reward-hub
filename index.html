@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reward Hub - Samu Kudi</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<title>Reward Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh}
@@ -16,90 +16,76 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 .balCard{background:linear-gradient(135deg,#1e293b 0%,#0f172a 50%,#1a2338 100%);border:1px solid #ffffff0f;border-radius:24px;padding:22px}
 .balLabel{color:#94a3b8;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:8px}
 .balAmount{font-size:56px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
-.balSub{color:#64748b;font-size:13px;margin-top:10px;font-weight:700;display:flex;align-items:center;gap:8px}
+.balSub{color:#64748b;font-size:13px;margin-top:10px;display:flex;align-items:center;gap:8px}
 .progress{flex:1;height:6px;background:#020617;border-radius:10px;overflow:hidden}
-.progress b{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:10px;transition:width 0.3s}
+.progress b{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);transition:width 0.3s}
 .taskTitle{font-size:16px;font-weight:800;margin:22px 4px 12px}
 .taskCard{background:linear-gradient(135deg,#1a2338 0%,#131c33 100%);border:1px solid #ffffff0a;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .taskCard.done{opacity:0.45}
-.taskName{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
-.taskName span{color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px;font-weight:900;border:1px solid #22c55e22}
+.taskName{font-size:15px;font-weight:700;display:flex;gap:8px}
+.taskName span{color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px;font-weight:900}
 .btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;font-size:13px;cursor:pointer;min-width:78px}
 .btn-kalli{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000}
 .btn-done{background:#0f172a;color:#22c55e;border:1px solid #22c55e33}
 .withdrawCard{background:#131c33;border:1px solid #ffffff0a;border-radius:24px;padding:22px;margin-top:20px}
-.input{width:100%;background:#020617;border:1px solid #1e2a44;border-radius:14px;padding:15px 16px;color:#fff;font-size:14px;margin-bottom:12px}
-.btn-withdraw{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:17px;font-weight:900;font-size:16px;cursor:pointer}
+.input{width:100%;background:#020617;border:1px solid #1e2a44;border-radius:14px;padding:15px 16px;color:#fff;margin-bottom:12px}
+.btn-withdraw{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:17px;font-weight:900;font-size:16px}
 </style>
-<!-- POPUNDER - SAFE - Ba Naira Rain -->
+<!-- SAKA TALLAN KA ANAN 👇 -->
+<!-- Ka saka script dinka anan, misali:
 <script src="https://pl31085646.profitableratecpmnetwork.com/ed/48/20/ed48207c42d9e7fc9fd210a6a7331bcb.js"></script>
+-->
 </head>
 <body>
 <div class="wrap">
   <div class="top"><div class="logo"><i>₦</i> Reward Hub</div><div class="live">● LIVE</div></div>
-  <div class="balCard"><div class="balLabel">💎 BALANCE DINKA</div><div class="balAmount">₦<span id="balNum">0</span></div><div class="balSub"><span id="balText">₦0 / ₦100</span><div class="progress"><b id="prog" style="width:0%"></b></div></div></div>
-  <div class="taskTitle">⭐ Ayyukan Yau - ₦20 kowanne</div>
+  <div class="balCard"><div class="balLabel">💎 BALANCE</div><div class="balAmount">₦<span id="balNum">0</span></div><div class="balSub"><span id="balText">₦0 / ₦100</span><div class="progress"><b id="prog" style="width:0%"></b></div></div></div>
+  <div class="taskTitle">⭐ Ayyukan Yau - ₦5 kowanne</div>
   <div id="tasks"></div>
-  <div class="withdrawCard"><div style="font-weight:800;margin-bottom:14px">💸 Mafi karanci: <b style="color:#22c55e">₦100</b></div><input class="input" id="opayName" placeholder="👤 Sunan Opay"><input class="input" id="opayNum" placeholder="💳 Lambar Opay"><button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button></div>
+  <div class="withdrawCard"><div style="font-weight:800;margin-bottom:12px">💸 Mafi karanci: <b style="color:#22c55e">₦100</b></div><input class="input" id="opayName" placeholder="👤 Sunan Opay"><input class="input" id="opayNum" placeholder="💳 Lambar Opay"><button class="btn-withdraw" onclick="withdraw()">🚀 Nemi Cire Kudi</button></div>
 </div>
 <script>
-const MY_WHATSAPP_NUMBER = "2347070079526";
-// FARA DAGA ZERO - BA TARE DA SMARTLINK BA
-let balance = 0;
-let done = [false,false,false,false,false];
-
-function save(){ localStorage.setItem('rh_bal_zero', balance); localStorage.setItem('rh_done_zero', JSON.stringify(done)); }
-function load(){
-  let b = localStorage.getItem('rh_bal_zero');
-  let d = localStorage.getItem('rh_done_zero');
-  if(b!==null) balance = parseInt(b);
-  if(d!==null){ try{ done = JSON.parse(d); }catch(e){} }
-}
-load();
-function updateBalance(){
-  document.getElementById('balNum').innerText = balance;
-  document.getElementById('balText').innerText = '₦'+balance+' / ₦100';
-  document.getElementById('prog').style.width = balance+'%';
-  document.getElementById('withdrawBtn').innerText = balance>=100? '🚀 Nemi Cire Kudi - A SHIRYE!' : `🚀 Nemi Cire Kudi (Yanzu ₦${balance})`;
-  save();
-}
+let balance = parseInt(localStorage.getItem('zero5')||'0');
+let done = JSON.parse(localStorage.getItem('done_zero5')||'null') || Array(20).fill(false);
+if(done.length!=20) done=Array(20).fill(false);
+function save(){localStorage.setItem('zero5',balance);localStorage.setItem('done_zero5',JSON.stringify(done));}
 function render(){
   let h='';
-  for(let i=0;i<5;i++){
-    h+= `<div class="taskCard ${done[i]?'done':''}"><div class="taskName">Talla ${i+1} <span>₦20</span> <small id="timer${i}" style="color:#facc15;margin-left:6px"></small></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" onclick="doTask(${i})" id="btn${i}">${done[i]?'An Yi':'Kalli'}</button></div>`;
+  for(let i=0;i<20;i++){
+    h+=`<div class="taskCard ${done[i]?'done':''}"><div class="taskName">Talla ${i+1} <span>₦5</span> <small id="t${i}" style="color:#facc15"></small></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" id="b${i}" onclick="doTask(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
   }
   document.getElementById('tasks').innerHTML=h;
-  updateBalance();
+  document.getElementById('balNum').innerText=balance;
+  document.getElementById('balText').innerText='₦'+balance+' / ₦100';
+  document.getElementById('prog').style.width=balance+'%';
+  save();
 }
 render();
 function doTask(i){
   if(done[i]) return;
   let sec=10;
-  let btn=document.getElementById('btn'+i);
+  let btn=document.getElementById('b'+i);
   btn.disabled=true;
   let iv=setInterval(()=>{
-    document.getElementById('timer'+i).innerText=`(${sec}s)`;
-    btn.innerText=`⏳ ${sec}s`;
+    document.getElementById('t'+i).innerText='('+sec+'s)';
+    btn.innerText='⏳ '+sec+'s';
     sec--;
     if(sec<0){
       clearInterval(iv);
       done[i]=true;
-      balance+=20;
+      balance+=5;
       render();
-      alert(balance>=100?'🎉 YAYI! Ka kai ₦100':'✅ Ka samu ₦20! Yanzu ₦'+balance);
+      alert('Ka samu ₦5! Yanzu ₦'+balance);
     }
   },1000);
 }
 function withdraw(){
-  let name=document.getElementById('opayName').value.trim();
-  let num=document.getElementById('opayNum').value.trim();
-  if(balance<100){ alert('❌ Sai ka kai ₦100! Yanzu ₦'+balance); return; }
-  if(!name||!num){ alert('⚠️ Cika suna da lamba'); return; }
-  let msg=`Salam! Ina so in cire kudi\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}`;
-  window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
+  if(balance<100){alert('Sai ka kai ₦100! Yanzu ₦'+balance);return;}
+  let n=document.getElementById('opayName').value;
+  let m=document.getElementById('opayNum').value;
+  if(!n||!m){alert('Cika suna da lamba');return;}
+  window.open('https://wa.me/2347070079526?text='+encodeURIComponent('Suna:'+n+' Opay:'+m+' Kudi:₦'+balance),'_blank');
 }
 </script>
-<!-- Social Bar - SAFE -->
-<script src="https://www.profitableratecpm.com/43fb1d68b4e8e8c9a1d2e3f4a5b6c7d8/invoke.js"></script>
 </body>
 </html>
