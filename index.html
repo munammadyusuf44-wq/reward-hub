@@ -1,67 +1,166 @@
 <!DOCTYPE html>
-<html lang="ha"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RewardHub - Social Bar Fix</title>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reward Hub - Samu Kudi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900;800;700;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#fff;font-family:sans-serif;padding:15px;padding-bottom:90px}
-.card{background:#1e293b;border-radius:18px;padding:18px;margin-bottom:12px;border:1px solid #22c55e33}
-.bal{font-size:42px;font-weight:900}.bar{height:8px;background:#0f172a;border-radius:10px;margin-top:8px;overflow:hidden}.fill{height:100%;background:#22c55e;width:0%;transition:0.4s}
-.task{background:#1e293b;border-radius:12px;padding:14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;border:1px solid #334155}
-.btn{background:#22c55e;color:#000;border:0;padding:11px 18px;border-radius:10px;font-weight:900;cursor:pointer}.btn:disabled{background:#334155;color:#64748b}
-.input{width:100%;background:#0f172a;border:1px solid #334155;color:#fff;padding:13px;border-radius:10px;margin-top:8px}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,0.93);display:none;justify-content:center;align-items:center;z-index:999}
-#box{background:#1e293b;border-radius:18px;padding:20px;width:92%;max-width:360px;text-align:center;border:1px solid #334155}
-.tbar{height:8px;background:#0f172a;border-radius:10px;margin:12px 0;overflow:hidden}.tfill{height:100%;background:#22c55e;width:0%;transition:width 1s linear}
-.btnMain{width:100%;border:0;padding:15px;border-radius:12px;font-weight:900;margin-top:10px;cursor:pointer}
-.btnDis{background:#334155;color:#94a3b8}.btnGo{background:#22c55e;color:#000;box-shadow:0 0 18px #22c55e66;animation:pulse 1s infinite}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
-.adShow{background:#0f172a;border:1px dashed #22c55e;border-radius:12px;padding:15px;margin:12px 0}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh;position:relative;overflow-x:hidden}
+body:before{content:'';position:fixed;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,#22c55e22 0%,transparent 70%);filter:blur(40px);pointer-events:none}
+.wrap{max-width:430px;margin:0 auto;padding:14px 16px 40px;position:relative;z-index:1}
+.top{display:flex;justify-content:space-between;align-items:center;padding:10px 4px 18px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif}
+.logo i{width:34px;height:34px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;display:flex;align-items:center;justify-content:center;border-radius:10px;font-style:normal;box-shadow:0 0 20px #22c55e66}
+.live{font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.live dot{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.balCard{background:linear-gradient(135deg,#1e293b 0%,#0f172a 50%,#1a2338 100%);border:1px solid #ffffff0f;box-shadow:0 20px 40px #00000066, inset 0 1px 0 #ffffff12;border-radius:24px;padding:22px 22px;position:relative;overflow:hidden}
+.balCard:after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,#22c55e15 0%,transparent 70%);pointer-events:none}
+.balLabel{color:#94a3b8;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.balAmount{font-size:56px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;font-family:'Space Grotesk',sans-serif;background:linear-gradient(180deg,#fff 0%,#cbd5e1 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.balSub{color:#64748b;font-size:13px;margin-top:10px;font-weight:700;display:flex;align-items:center;gap:8px}
+.progress{flex:1;height:6px;background:#020617;border-radius:10px;overflow:hidden}
+.progress b{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:10px;box-shadow:0 0 10px #22c55e66}
+.taskTitle{font-size:16px;font-weight:800;margin:22px 4px 12px;display:flex;align-items:center;gap:8px}
+.taskCard{background:linear-gradient(135deg,#1a2338 0%,#131c33 100%);border:1px solid #ffffff0a;box-shadow:0 8px 20px #00000033;border-radius:18px;padding:16px 16px 16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;transition:0.3s}
+.taskCard:hover{transform:translateY(-2px);border-color:#22c55e33;box-shadow:0 12px 30px #00000055,0 0 0 1px #22c55e22}
+.taskCard.done{opacity:0.5;filter:grayscale(0.3)}
+.taskName{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.taskName span{color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px;font-weight:900;border:1px solid #22c55e22}
+.taskIcon{width:32px;height:32px;background:#020617;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid #1e2a44}
+.btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;font-size:13px;cursor:pointer;min-width:78px;transition:0.25s;letter-spacing:0.3px}
+.btn-kalli{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;box-shadow:0 6px 16px #22c55e44}
+.btn-kalli:hover{transform:scale(1.05);box-shadow:0 8px 20px #22c55e66}
+.btn-done{background:#0f172a;color:#22c55e;border:1px solid #22c55e33}
+.withdrawCard{background:linear-gradient(180deg,#131c33 0%,#0f172a 100%);border:1px solid #ffffff0a;box-shadow:0 20px 40px #00000044;border-radius:24px;padding:22px;margin-top:20px}
+.withdrawTitle{font-size:15px;font-weight:800;margin-bottom:16px;color:#e2e8f0;display:flex;align-items:center;gap:8px}
+.withdrawTitle b{color:#22c55e}
+.input{width:100%;background:#020617;border:1px solid #1e2a44;border-radius:14px;padding:15px 16px;color:#fff;font-size:14px;outline:none;margin-bottom:12px;transition:0.2s;font-weight:600}
+.input:focus{border-color:#22c55e88;box-shadow:0 0 0 4px #22c55e15}
+.input::placeholder{color:#475569}
+.btn-withdraw{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:17px;font-weight:900;font-size:16px;cursor:pointer;margin-top:8px;box-shadow:0 10px 24px #22c55e44;transition:0.25s}
+.btn-withdraw:hover{transform:translateY(-2px);box-shadow:0 14px 30px #22c55e55}
+.btn-withdraw:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+.whatsappNote{background:#25D36615;border:1px dashed #25D36644;border-radius:12px;padding:10px 12px;font-size:11px;color:#86efac;margin-top:12px;display:flex;gap:8px;align-items:center}
 </style>
-<!-- SABON SOCIAL BAR CODE DINKA - ZAI NU NA TALLA A CIKIN SITE -->
-<script src="https://pl31085647.profitableratecpmnetwork.com/43/fb/1d/43fb1d68af6651b11b45eb1cfe7d443c.js"></script>
-</head><body>
-<div style="display:flex;justify-content:space-between;font-weight:800"><span>💰 RewardHub</span><span style="color:#22c55e;font-size:11px;border:1px solid #22c55e;padding:4px 10px;border-radius:20px">SOCIAL BAR ✅</span></div>
-<div class="card" style="margin-top:12px"><div style="font-size:11px;color:#22c55e;font-weight:900">✅ SOCIAL BAR ACTIVE - BABU FARIN PAGE</div><div style="font-size:12px;color:#94a3b8;margin-top:6px">BALANCE</div><div class="bal" id="bal">₦0</div><div style="display:flex;justify-content:space-between;font-size:12px;color:#94a3b8;margin-top:10px"><span>Zuwa ₦100</span><span id="prog">₦0 / ₦100</span></div><div class="bar"><div class="fill" id="fill"></div></div>
-<div style="display:flex;gap:8px;margin-top:12px;font-size:12px"><div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b id="earn" style="color:#facc15">₦0</b><br><small>Yau</small></div><div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b style="color:#facc15">₦10</b><br><small>Kowa</small></div><div style="flex:1;background:#0f172a;padding:10px;border-radius:10px;text-align:center"><b id="cnt">0/5</b><br><small>Ayyuka</small></div></div></div>
-<div style="font-weight:800;margin:16px 0 8px">⭐ Ayyukan Yau - Talla zai fito anan</div><div id="tasks"></div>
-<div class="card"><div style="font-weight:800">💳 Cire Kudi ₦100</div><div id="autoMsg" style="display:none;background:#22c55e22;border:1px solid #22c55e;color:#22c55e;padding:10px;border-radius:10px;font-size:12px;margin-top:10px;font-weight:700">🎉 Ka kai ₦100! Cika bayanan ka - zai tura WhatsApp!</div><input class="input" id="name" placeholder="Sunan ka (Opay)"><input class="input" id="num" placeholder="Lambar Opay"><input class="input" id="amt" type="number" placeholder="Adadi - 100"><div id="wmsg" style="font-size:12px;margin-top:8px;text-align:center;color:#facc15;white-space:pre-line"></div><button class="btnMain" style="background:#22c55e;color:#000" onclick="withdraw()">1. Ajiye Bukata</button><button class="btnMain" style="background:#25D366;color:#000" onclick="sendWA()">💬 2. Tura WhatsApp 07070079526</button></div>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="logo"><i>₦</i> Reward Hub</div>
+    <div class="live"><dot></dot> LIVE</div>
+  </div>
 
-<div id="modal"><div id="box">
-<div style="font-weight:900">📺 Kallon Talla 15s</div>
-<div style="font-size:11px;color:#22c55e;margin-top:4px">Social Bar zai fito - kalla!</div>
-<div class="adShow">
-<div style="font-size:32px">📢</div>
-<div style="font-size:12px;color:#94a3b8;margin-top:6px">Talla tana nan kasa / gefe - jira 15s</div>
-<div style="font-size:11px;color:#22c55e;margin-top:6px">Idan Social Bar ya fito - ka danna shi - zai baka kudi a Adsterra!</div>
+  <div class="balCard">
+    <div class="balLabel">💎 BALANCE DINKA</div>
+    <div class="balAmount">₦<span id="balNum">20</span></div>
+    <div class="balSub">
+      <span id="balText">₦20 / ₦100</span>
+      <div class="progress"><b id="prog" style="width:20%"></b></div>
+    </div>
+  </div>
+
+  <div class="taskTitle">⭐ Ayyukan Yau ₦10 kowanne</div>
+  <div id="tasks"></div>
+
+  <div class="withdrawCard">
+    <div class="withdrawTitle">💸 Mafi karanci: <b>₦100</b> - Opay/Banki - 24h</div>
+    <input class="input" id="opayName" placeholder="👤 Sunan Opay">
+    <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
+    <input class="input" id="opayAmt" placeholder="💰 Adadi (₦100 - Balance)" value="">
+    <button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button>
+    <div class="whatsappNote">✅ Idan ka kai ₦100 - zaka tura sako kai tsaye zuwa WhatsApp dina - zan biya ka a cikin 24h!</div>
+    <div style="text-align:center;color:#334155;font-size:10px;margin-top:10px;letter-spacing:1px">Adsterra: <span id="adBal">$0.41 → yana karuwa da kowace KALLI</span></div>
+  </div>
 </div>
-<div class="tbar"><div class="tfill" id="tfill"></div></div>
-<div style="display:flex;justify-content:space-between;font-size:12px"><span id="tt">15s</span><span>₦10</span></div>
-<button id="cb" class="btnMain btnDis" disabled onclick="claim()">⏳ Jira 15s...</button>
-<button onclick="closeM()" style="background:none;border:0;color:#94a3b8;margin-top:8px;font-size:12px">Rufe</button>
-</div></div>
 
 <script>
-const WA_NUM = "2347070079526";
-const MIN_WD = 100;
-let bal = parseInt(localStorage.getItem('rh_bal')||0);
-let tasks = JSON.parse(localStorage.getItem('rh_tasks')||'[]');
-let last = localStorage.getItem('rh_last');let today=new Date().toDateString();
-if(last!==today){tasks=[];localStorage.setItem('rh_tasks','[]');localStorage.setItem('rh_last',today);}
-if(!last) localStorage.setItem('rh_last',today);
-let cur=null,timer=null,left=15,lastWD=null;
-function save(){localStorage.setItem('rh_bal',bal);localStorage.setItem('rh_tasks',JSON.stringify(tasks));}
-function render(){document.getElementById('bal').innerText='₦'+bal;document.getElementById('prog').innerText='₦'+bal+' / ₦'+MIN_WD;document.getElementById('fill').style.width=Math.min(100,(bal/MIN_WD)*100)+'%';document.getElementById('earn').innerText='₦'+(tasks.length*10);document.getElementById('cnt').innerText=tasks.length+'/5';let h='';for(let i=1;i<=5;i++){let d=tasks.includes(i);h+=`<div class="task" style="${d?'opacity:0.5':''}"><div><b>Talla ${i} ✅</b><br><small style="color:#94a3b8">Kalli 15s - ₦10</small></div><button class="btn" ${d?'disabled':''} onclick="openA(${i})">${d?'An Yi ✓':'Kalli'}</button></div>`;}document.getElementById('tasks').innerHTML=h;if(bal>=MIN_WD){document.getElementById('autoMsg').style.display='block';}}
-function openA(i){
-if(tasks.includes(i))return;cur=i;left=15;
-document.getElementById('modal').style.display='flex';
-let b=document.getElementById('cb');b.disabled=true;b.className='btnMain btnDis';b.innerText='⏳ Jira 15s';
-document.getElementById('tfill').style.width='0%';document.getElementById('tt').innerText='15s';
-// Social Bar zai tashi kai tsaye saboda script din da ke sama - babu bukatar window.open
-clearInterval(timer);
-timer=setInterval(()=>{left--;document.getElementById('tt').innerText=left+'s';document.getElementById('tfill').style.width=((15-left)/15*100)+'%';if(left<=0){clearInterval(timer);b.disabled=false;b.className='btnMain btnGo';b.innerText='✅ Karbi ₦10 Yanzu!';}},1000);
+// === SAITIN KA ===
+const SMARTLINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
+const MY_WHATSAPP_NUMBER = "2347070079526";
+
+let balance = parseInt(localStorage.getItem('rh_bal') || '20');
+let done = JSON.parse(localStorage.getItem('rh_done') || '[true,false,false,false,false]');
+
+function updateBalance(){
+  document.getElementById('balNum').innerText = balance;
+  document.getElementById('balText').innerText = '₦'+balance+' / ₦100';
+  document.getElementById('prog').style.width = Math.min(balance,100)+'%';
+  document.getElementById('opayAmt').placeholder = '💰 Adadi (₦'+balance+')';
+  const btn = document.getElementById('withdrawBtn');
+  if(balance>=100){ btn.disabled=false; btn.innerText='🚀 Nemi Cire Kudi via WhatsApp - A SHIRYE!'; }
+  else { btn.disabled=false; btn.innerText=`🚀 Nemi Cire Kudi (Sai ka kai ₦100 - Yanzu ₦${balance})`; }
+  localStorage.setItem('rh_bal', balance);
+  localStorage.setItem('rh_done', JSON.stringify(done));
 }
-function closeM(){clearInterval(timer);document.getElementById('modal').style.display='none';}
-function claim(){if(!cur||tasks.includes(cur))return;clearInterval(timer);tasks.push(cur);bal+=10;save();render();closeM();if(bal>=MIN_WD){setTimeout(()=>{alert('🎉 Ka kai ₦'+bal+'! Cika Opay ka - zai tura WhatsApp kai tsaye!');},500);}cur=null;}
-function withdraw(){let n=document.getElementById('name').value.trim();let nu=document.getElementById('num').value.trim();let a=parseInt(document.getElementById('amt').value);let m=document.getElementById('wmsg');if(!n||nu.length<8){m.innerText='❌ Cika suna da lamba';return;}if(isNaN(a)||a<MIN_WD){m.innerText='❌ Mafi karanci ₦'+MIN_WD;return;}if(a>bal){m.innerText='❌ Balance ₦'+bal+' kacal';return;}bal-=a;lastWD={name:n,num:nu,amt:a,date:new Date().toLocaleString()};save();render();m.innerText='✅ An ajiye! Yanzu zai bude WhatsApp...';setTimeout(()=>{sendWA();},800);}
-function sendWA(){if(!lastWD){alert('Da farko cika suna da adadi ka danna Ajiye!');return;}let txt=`*SABON CIRE KUDI - ₦${lastWD.amt}*%0A👤 Suna: ${encodeURIComponent(lastWD.name)}%0A💳 Lamba: ${encodeURIComponent(lastWD.num)}%0A💰 Adadi: ₦${lastWD.amt}%0A📅 Lokaci: ${encodeURIComponent(lastWD.date)}%0A💵 Balance saura: ₦${bal}%0A✅ Social Bar: 43fb1d68%0A🌐 Site: ${location.href}`;window.open(`https://wa.me/${WA_NUM}?text=${txt}`,'_blank');}
+
+function render(){
+  let h='';
+  for(let i=0;i<5;i++){
+    const isDone = done[i];
+    h+= `<div class="taskCard ${isDone?'done':''}">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="taskIcon">${isDone?'✅':'📺'}</div>
+        <div class="taskName">Talla ${i+1} <span>₦10</span> <small id="timer${i}" style="color:#facc15;font-weight:800;margin-left:4px"></small></div>
+      </div>
+      <button class="btn ${isDone?'btn-done':'btn-kalli'}" id="btn${i}" onclick="doTask(${i})" ${isDone?'disabled':''}>${isDone?'An Yi':'Kalli'}</button>
+    </div>`;
+  }
+  document.getElementById('tasks').innerHTML=h;
+  updateBalance();
+}
 render();
-</script></body></html>
+
+function doTask(i){
+  if(done[i]) return;
+  window.open(SMARTLINK, '_blank');
+  const btn = document.getElementById('btn'+i);
+  const timerEl = document.getElementById('timer'+i);
+  btn.disabled=true;
+  let sec=15;
+  timerEl.innerText=`(${sec}s)`;
+  btn.innerText=`⏳ ${sec}s`;
+  const iv = setInterval(()=>{
+    sec--;
+    if(timerEl) timerEl.innerText=`(${sec}s)`;
+    btn.innerText=`⏳ ${sec}s`;
+    if(sec<=0){
+      clearInterval(iv);
+      done[i]=true;
+      balance+=10;
+      render();
+      if(balance>=100){
+        setTimeout(()=>{ alert('🎉 YAYI! Ka kai ₦'+balance+'! Yanzu zaka iya neman cire kudi - zai tura WhatsApp kai tsaye!'); },400);
+      } else {
+        setTimeout(()=>{ alert('✅ YAYI! Ka samu ₦10! Balance yanzu ₦'+balance); },300);
+      }
+    }
+  },1000);
+}
+
+function withdraw(){
+  const name=document.getElementById('opayName').value.trim();
+  const num=document.getElementById('opayNum').value.trim();
+  const amt = balance;
+  if(balance<100){ alert('❌ Sai ka kai ₦100! Yanzu kana da ₦'+balance); return; }
+  if(!name ||!num){ alert('⚠️ Cika Sunan Opay da Lambar Opay!'); return; }
+  const message = `Salam! Ina so in cire kudi daga Reward Hub\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${amt}\n⏰ Lokaci: ${new Date().toLocaleString()}\n\nDon Allah a tura min!`;
+  const waUrl = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(waUrl, '_blank');
+  setTimeout(()=>{
+    if(confirm('Shin ka tura sako a WhatsApp? Idan eh, balance zai koma 0')){
+      balance=0;
+      done=[false,false,false,false,false];
+      render();
+      localStorage.setItem('rh_bal','0');
+      localStorage.setItem('rh_done', JSON.stringify(done));
+    }
+  },2000);
+}
+</script>
+<!-- Social Bar - 30985148 -->
+<script type="text/javascript" src="https://www.profitableratecpm.com/43fb1d68b4e8e8c9a1d2e3f4a5b6c7d8/invoke.js"></script>
+</body>
+</html>
