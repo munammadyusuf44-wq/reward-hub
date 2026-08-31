@@ -6,29 +6,28 @@
 <title>Reward Hub - 5 Talla</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh}
-.wrap{max-width:430px;margin:0 auto;padding:14px 16px 40px}
-.top{display:flex;justify-content:space-between;padding:12px 4px 18px;font-weight:900;font-size:20px}
-.balCard{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #ffffff0f;border-radius:24px;padding:22px}
+body{background:#0a1020;color:#fff;min-height:100vh}
+.wrap{max-width:430px;margin:auto;padding:14px}
+.balCard{background:#1e293b;border-radius:24px;padding:22px}
 .balAmount{font-size:56px;font-weight:900}
-.taskCard{background:#1a2338;border:1px solid #ffffff0a;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;min-width:78px;cursor:pointer}
-.btn-kalli{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000}
+.taskCard{background:#1a2338;border-radius:18px;padding:16px;display:flex;justify-content:space-between;margin-bottom:10px}
+.btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;min-width:78px}
+.btn-kalli{background:#22c55e;color:#000}
 .btn-done{background:#0f172a;color:#22c55e;border:1px solid #22c55e33}
 .progress{height:6px;background:#020617;border-radius:10px;flex:1;margin-left:10px}
-.progress b{display:block;height:100%;background:#22c55e;border-radius:10px}
-.withdrawCard{background:#131c33;border:1px solid #ffffff0a;border-radius:24px;padding:22px;margin-top:22px}
+.progress b{display:block;height:100%;background:#22c55e}
+.withdrawCard{background:#131c33;border-radius:24px;padding:20px;margin-top:20px}
 .input{width:100%;background:#020617;border:1px solid #1e2a44;border-radius:14px;padding:14px;color:#fff;margin-bottom:10px}
-.btn-with{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:16px;font-weight:900;font-size:16px;cursor:pointer}
+.btn-with{width:100%;background:#22c55e;color:#000;border:none;border-radius:16px;padding:16px;font-weight:900;font-size:16px}
 #adModal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:9999;justify-content:center;align-items:center;padding:16px}
 .adBox{background:#1e293b;border:1px solid #22c55e44;border-radius:20px;padding:20px;max-width:400px;width:100%;text-align:center}
 </style>
-<!-- SAKA TALLAN KA ANAN - Popunder -->
-<!-- <script src="https://pl31085646.profitableratecpmnetwork.com/ed/48/20/ed48207c42d9e7fc9fd210a6a7331bcb.js"></script> -->
+<!-- TALLAN KA NA ASALI - Wannan kadai yake aiki -->
+<script src="https://pl31085646.profitableratecpmnetwork.com/ed/48/20/ed48207c42d9e7fc9fd210a6a7331bcb.js"></script>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div>₦ Reward Hub</div><div style="font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px">● LIVE</div></div>
+<div style="display:flex;justify-content:space-between;padding:12px 4px 18px;font-weight:900"><div>₦ Reward Hub</div><div style="font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px">● LIVE</div></div>
 
 <div class="balCard">
 <div style="color:#94a3b8;font-size:11px;font-weight:800">💎 BALANCE DINKA</div>
@@ -36,38 +35,38 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 <div style="display:flex;align-items:center;color:#64748b;font-size:13px;margin-top:8px"><span id="balText">₦0 / ₦25</span><div class="progress"><b id="prog" style="width:0%"></b></div></div>
 </div>
 
-<div style="margin:20px 4px 12px;font-weight:800">⭐ Ayyuka 5 - ₦5 kowanne = ₦25</div>
+<div style="margin:18px 4px 12px;font-weight:800">⭐ Ayyuka 5 - ₦5 kowanne = ₦25</div>
 <div id="tasks"></div>
 
 <div class="withdrawCard">
-<div style="font-weight:800;margin-bottom:12px">💸 Cika bayanan Opay - idan ya kai ₦25 zai tura WhatsApp ta</div>
+<div style="font-weight:800;margin-bottom:12px">💸 Cika Opay - idan ya kai ₦25</div>
 <input class="input" id="opayName" placeholder="👤 Sunan Opay">
 <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
 <button class="btn-with" id="withBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button>
-<div style="margin-top:10px;font-size:11px;color:#86efac;background:#25D36615;border:1px dashed #25D36644;padding:8px;border-radius:8px">✅ Zai tura zuwa WhatsApp: 07070079526</div>
+<div style="margin-top:10px;font-size:11px;color:#86efac;background:#25D36615;padding:8px;border-radius:8px">✅ Zai tura zuwa WhatsApp: 07070079526</div>
 </div>
 </div>
 
 <div id="adModal">
 <div class="adBox">
-<div style="font-weight:900;color:#22c55e">📺 Kalli Talla 10 seconds</div>
-<div style="width:100%;height:220px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
-<div style="font-size:40px">💰</div>
-<div style="font-weight:800;margin-top:6px">Tallan na lodi...</div>
-<button onclick="openAd()" style="margin-top:12px;background:#22c55e;color:#000;border:none;padding:10px 18px;border-radius:10px;font-weight:900">🔗 Bude Talla</button>
+<div style="font-weight:900;color:#22c55e">📺 Kalli Talla 10s</div>
+<div style="width:100%;height:200px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-size:40px">⏳</div>
+<div style="font-weight:800;margin-top:8px">Talla na gudana...</div>
+<div style="color:#64748b;font-size:11px;margin-top:6px">Popunder zai bude a baya - kar ka rufe</div>
 </div>
-<div style="font-size:32px;font-weight:900;color:#facc15" id="modalTimer">10s</div>
-<button id="closeAd" style="display:none;margin-top:12px;width:100%;background:#22c55e;color:#000;border:none;padding:14px;border-radius:12px;font-weight:900" onclick="claimReward()">✅ Karbi ₦5</button>
+<div style="font-size:36px;font-weight:900;color:#facc15" id="modalTimer">10s</div>
+<button id="closeAd" style="display:none;margin-top:14px;width:100%;background:#22c55e;color:#000;border:none;padding:14px;border-radius:12px;font-weight:900" onclick="claimReward()">✅ Karbi ₦5</button>
 </div>
 </div>
 
 <script>
 const WHATSAPP_NUM = "2347070079526";
-let balance = parseInt(localStorage.getItem('rh_5btn')||'0');
-let done = JSON.parse(localStorage.getItem('rh_done_5btn')||'null') || Array(5).fill(false);
+let balance = parseInt(localStorage.getItem('rh_5_final')||'0');
+let done = JSON.parse(localStorage.getItem('rh_done_5_final')||'null') || Array(5).fill(false);
 let currentTask = -1;
 
-function save(){localStorage.setItem('rh_5btn',balance);localStorage.setItem('rh_done_5btn',JSON.stringify(done));}
+function save(){localStorage.setItem('rh_5_final',balance);localStorage.setItem('rh_done_5_final',JSON.stringify(done));}
 function render(){
  let h='';
  for(let i=0;i<5;i++){
@@ -87,8 +86,6 @@ function startAd(i){
  currentTask=i;
  document.getElementById('adModal').style.display='flex';
  document.getElementById('closeAd').style.display='none';
- // Bude talla don samun kudi
- window.open('https://www.profitableratecpm.com/q8qz5p0u?key=ed48207c42d9e7fc9fd210a6a7331bcb','_blank');
  let sec=10;
  let intv=setInterval(()=>{
   document.getElementById('modalTimer').innerText=sec+'s';
@@ -96,23 +93,21 @@ function startAd(i){
   if(sec<0){clearInterval(intv);document.getElementById('modalTimer').innerText='YAYI!';document.getElementById('closeAd').style.display='block';}
  },1000);
 }
-function openAd(){window.open('https://www.profitableratecpm.com/q8qz5p0u?key=ed48207c42d9e7fc9fd210a6a7331bcb','_blank');}
 function claimReward(){
  done[currentTask]=true;
  balance+=5;
  document.getElementById('adModal').style.display='none';
  render();
- if(balance>=25){alert('🎉 Ka kai ₦25! Yanzu ka cika Opay ka tura WhatsApp!');}
- else{alert('✅ Ka samu ₦5! Yanzu ₦'+balance);}
+ if(balance>=25) alert('🎉 Ka kai ₦25! Cika Opay ka tura WhatsApp!');
+ else alert('✅ Ka samu ₦5! Yanzu ₦'+balance);
 }
 function withdraw(){
  let name=document.getElementById('opayName').value.trim();
  let num=document.getElementById('opayNum').value.trim();
- if(balance<25){alert('❌ Sai ka kai ₦25! Yanzu ₦'+balance);return;}
- if(!name||!num){alert('⚠️ Cika suna da lambar Opay');return;}
- let msg = `Salam! Ina so in cire kudi daga Reward Hub\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n📅 Lokaci: ${new Date().toLocaleString()}\n\nDa fatan a biya ni`;
- let url = 'https://wa.me/'+WHATSAPP_NUM+'?text='+encodeURIComponent(msg);
- window.open(url,'_blank');
+ if(balance<25){alert('❌ Sai ka kai ₦25!');return;}
+ if(!name||!num){alert('⚠️ Cika suna da lamba');return;}
+ let msg = `Salam! Ina so in cire kudi\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n📅 Lokaci: ${new Date().toLocaleString()}`;
+ window.open('https://wa.me/'+WHATSAPP_NUM+'?text='+encodeURIComponent(msg),'_blank');
 }
 </script>
 </body>
