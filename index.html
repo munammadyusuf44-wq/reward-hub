@@ -37,21 +37,24 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 .btn-withdraw{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:17px;font-weight:900;font-size:16px;cursor:pointer;margin-top:8px}
 .whatsappNote{background:#25D36615;border:1px dashed #25D36644;border-radius:12px;padding:10px 12px;font-size:11px;color:#86efac;margin-top:12px}
 </style>
-<!-- POPUNDER - 30985147 - CODE NA GASKIYA -->
+<!-- POPUNDER CODE - 30985147 -->
 <script src="https://pl31085646.profitableratecpmnetwork.com/ed/48/20/ed48207c42d9e7fc9fd210a6a7331bcb.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div class="top"><div class="logo"><i>₦</i> Reward Hub</div><div class="live"><dot></dot> LIVE</div></div>
   <div class="balCard"><div class="balLabel">💎 BALANCE DINKA</div><div class="balAmount">₦<span id="balNum">20</span></div><div class="balSub"><span id="balText">₦20 / ₦100</span><div class="progress"><b id="prog" style="width:20%"></b></div></div></div>
-  <div class="taskTitle">⭐ Ayyukan Yau ₦10 kowanne</div><div id="tasks"></div>
-  <div class="withdrawCard"><div class="withdrawTitle">💸 Mafi karanci: <b>₦100</b> - Opay/Banki - 24h</div><input class="input" id="opayName" placeholder="👤 Sunan Opay"><input class="input" id="opayNum" placeholder="💳 Lambar Opay"><button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button><div class="whatsappNote">✅ Idan ka kai ₦100 - sako zai tura WhatsApp 07070079526 kai tsaye!</div></div>
+  <div class="taskTitle">⭐ Ayyukan Yau ₦10 kowanne - Duk 5 suna aiki!</div><div id="tasks"></div>
+  <div class="withdrawCard"><div class="withdrawTitle">💸 Mafi karanci: <b>₦100</b> - Opay/Banki - 24h</div><input class="input" id="opayName" placeholder="👤 Sunan Opay"><input class="input" id="opayNum" placeholder="💳 Lambar Opay"><button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button><div class="whatsappNote">✅ Idan ka kai ₦100 - sako zai tura WhatsApp 07070079526 kai tsaye!</div><div style="text-align:center;color:#22c55e;font-size:11px;margin-top:12px;font-weight:800">✅ Popunder + Social Bar suna aiki!</div></div>
 </div>
 <script>
-const SMARTLINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
 const MY_WHATSAPP_NUMBER = "2347070079526";
-let balance = parseInt(localStorage.getItem('rh_bal') || '20');
-let done = JSON.parse(localStorage.getItem('rh_done') || '[true,false,false,false,false]');
+// GYARA: Duk an sake farawa - babu wanda ya riga ya gama
+localStorage.removeItem('rh_bal');
+localStorage.removeItem('rh_done');
+let balance = 20;
+let done = [false,false,false,false,false];
+
 function updateBalance(){
   document.getElementById('balNum').innerText = balance;
   document.getElementById('balText').innerText = '₦'+balance+' / ₦100';
@@ -73,11 +76,10 @@ function render(){
 render();
 function doTask(i){
   if(done[i]) return;
-  window.open(SMARTLINK, '_blank');
   const btn = document.getElementById('btn'+i);
   const timerEl = document.getElementById('timer'+i);
   btn.disabled=true;
-  let sec=15;
+  let sec=10;
   timerEl.innerText=`(${sec}s)`;
   btn.innerText=`⏳ ${sec}s`;
   const iv = setInterval(()=>{
@@ -101,7 +103,6 @@ function withdraw(){
   const message = `Salam! Ina so in cire kudi daga Reward Hub\n\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}`;
   const waUrl = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   window.open(waUrl, '_blank');
-  setTimeout(()=>{ if(confirm('Shin ka tura sako?')){ balance=0; done=[false,false,false,false,false]; render(); localStorage.setItem('rh_bal','0'); localStorage.setItem('rh_done', JSON.stringify(done)); } },2000);
 }
 </script>
 <!-- Social Bar - 30985148 -->
