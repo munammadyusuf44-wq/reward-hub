@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yusuf Hub - ₦10 per Kalli</title>
+<title>Yusuf Hub - ₦10</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
 body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh}
@@ -23,10 +23,12 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 #adModal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:9999;justify-content:center;align-items:center;padding:16px}
 .adBox{background:#1e293b;border:1px solid #22c55e44;border-radius:20px;padding:20px;max-width:400px;width:100%;text-align:center}
 </style>
+<!-- SOCIAL BAR A SAMA - NA 1 -->
+<script src="https://pl31085647.profitableratecpmnetwork.com/43/fb/1d/43fb1d68af6651b11b45eb1cfe7d443c.js"></script>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div>🎮 Yusuf Hub</div><div style="font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px">● TSAFTA - ₦10</div></div>
+<div class="top"><div>🎮 Yusuf Hub</div><div style="font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px">● ₦10 LIVE</div></div>
 
 <div class="balCard">
 <div style="color:#94a3b8;font-size:11px;font-weight:800">💎 BALANCE DINKA</div>
@@ -42,7 +44,7 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 <div style="background:#f59e0b15;border:1px solid #f59e0b33;border-radius:10px;padding:8px;margin-bottom:10px;font-size:11px;color:#fbbf24">⚠️ Za a biya cikin 24-48h bayan tantancewa</div>
 <input class="input" id="opayName" placeholder="👤 Sunan Opay">
 <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
-<button class="btn-with" id="withBtn" onclick="withdraw()">🚀 Nemi Cire Kudi</button>
+<button class="btn-with" id="withBtn" onclick="withdraw()">🚀 Nemi Cire (Yanzu ₦<span id="btnBal">0</span>)</button>
 <div id="pendingMsg" style="display:none;background:#22c55e15;border:1px solid #22c55e33;padding:12px;border-radius:10px;margin-top:10px;font-size:12px">✅ Bukata ta tafi! ID: <b id="reqId"></b></div>
 <div style="margin-top:10px;font-size:11px;color:#86efac;text-align:center">WhatsApp: 07070079526</div>
 </div>
@@ -50,11 +52,9 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 
 <div id="adModal">
 <div class="adBox">
-<div style="font-weight:900;color:#22c55e">📺 Kalli Talla 10s - ₦10</div>
-<div style="width:100%;height:200px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
-<div style="font-size:40px">⏳</div>
-<div style="font-weight:800;margin-top:8px">Talla na gudana...</div>
-<div style="color:#64748b;font-size:11px;margin-top:6px">Social Bar a sama/kasa - SAFE</div>
+<div style="font-weight:900;color:#22c55e">📺 Kalli 10s - ₦10</div>
+<div style="width:100%;height:160px;background:#020617;border-radius:12px;margin:14px 0;display:flex;flex-direction:column;justify-content:center;align-items:center">
+<div style="font-size:36px">⏳</div><div style="font-weight:800;margin-top:8px">Jira...</div>
 </div>
 <div style="font-size:36px;font-weight:900;color:#facc15" id="modalTimer">10s</div>
 <button id="closeAd" style="display:none;margin-top:14px;width:100%;background:#22c55e;color:#000;border:none;padding:14px;border-radius:12px;font-weight:900" onclick="claimReward()">✅ Karbi ₦10</button>
@@ -63,37 +63,26 @@ body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a1
 
 <script>
 const WHATSAPP_NUM="2347070079526";
-let balance=parseInt(localStorage.getItem('rh_10_final2')||'0');
-let done=JSON.parse(localStorage.getItem('rh_done_10_final2')||'null')||Array(5).fill(false);
-let currentTask=-1;
-function save(){localStorage.setItem('rh_10_final2',balance);localStorage.setItem('rh_done_10_final2',JSON.stringify(done));}
+let balance=parseInt(localStorage.getItem('rh_final_v3')||'0');
+let done=JSON.parse(localStorage.getItem('rh_done_v3')||'null')||Array(5).fill(false);
+let cur=-1;
+function save(){localStorage.setItem('rh_final_v3',balance);localStorage.setItem('rh_done_v3',JSON.stringify(done));}
 function render(){
- let h='';
- for(let i=0;i<5;i++){
-  h+=`<div class="taskCard"><div>Talla ${i+1} <span style="color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px">₦10</span></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" onclick="startAd(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
- }
+ let h='';for(let i=0;i<5;i++){h+=`<div class="taskCard"><div>Talla ${i+1} <span style="color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px">₦10</span></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" onclick="startAd(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;}
  document.getElementById('tasks').innerHTML=h;
  document.getElementById('balNum').innerText=balance;
+ document.getElementById('btnBal').innerText=balance;
  document.getElementById('balText').innerText='₦'+balance+' / ₦50';
  document.getElementById('prog').style.width=(balance/50*100)+'%';
- document.getElementById('withBtn').innerText=balance>=50?'🚀 A SHIRYE! Tura WhatsApp':'🚀 Nemi Cire (Yanzu ₦'+balance+')';
  save();
 }
 render();
-function startAd(i){
- if(done[i])return;
- currentTask=i;
- document.getElementById('adModal').style.display='flex';
- document.getElementById('closeAd').style.display='none';
- let sec=10;
- document.getElementById('modalTimer').innerText=sec+'s';
- let intv=setInterval(()=>{sec--;document.getElementById('modalTimer').innerText=sec+'s';if(sec<=0){clearInterval(intv);document.getElementById('modalTimer').innerText='YAYI!';document.getElementById('closeAd').style.display='block';}},1000);
-}
-function claimReward(){done[currentTask]=true;balance+=10;document.getElementById('adModal').style.display='none';render();if(balance>=50)alert('🎉 Ka kai ₦50!');else alert('✅ Ka samu ₦10! Yanzu ₦'+balance);}
-function withdraw(){let name=document.getElementById('opayName').value.trim();let num=document.getElementById('opayNum').value.trim();if(balance<50){alert('❌ Sai ka kai ₦50! Yanzu ₦'+balance);return;}if(!name||!num){alert('⚠️ Cika bayanai');return;}if(localStorage.getItem('wd_10_final2')){alert('⚠️ Ka riga ka aika! Jira 24h');return;}let reqId='RH'+Date.now().toString().slice(-6);localStorage.setItem('wd_10_final2',reqId);let msg=`🔔 BUKATAR CIRE KUDI\n\n🆔 ID: ${reqId}\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n📅 ${new Date().toLocaleString()}`;window.open('https://wa.me/'+WHATSAPP_NUM+'?text='+encodeURIComponent(msg),'_blank');document.getElementById('pendingMsg').style.display='block';document.getElementById('reqId').innerText=reqId;}
+function startAd(i){if(done[i])return;cur=i;document.getElementById('adModal').style.display='flex';document.getElementById('closeAd').style.display='none';let s=10;document.getElementById('modalTimer').innerText=s+'s';let iv=setInterval(()=>{s--;document.getElementById('modalTimer').innerText=s+'s';if(s<=0){clearInterval(iv);document.getElementById('modalTimer').innerText='YAYI!';document.getElementById('closeAd').style.display='block';}},1000);}
+function claimReward(){done[cur]=true;balance+=10;document.getElementById('adModal').style.display='none';render();alert('✅ +₦10! Balance: ₦'+balance);}
+function withdraw(){let n=document.getElementById('opayName').value.trim();let m=document.getElementById('opayNum').value.trim();if(balance<50){alert('❌ Sai ₦50! Yanzu ₦'+balance);return;}if(!n||!m){alert('Cika bayanai');return;}if(localStorage.getItem('wd_v3')){alert('Ka riga ka aika!');return;}let id='RH'+Date.now().toString().slice(-6);localStorage.setItem('wd_v3',id);let msg=`BUKATAR CIRE KUDI\nID: ${id}\nSuna: ${n}\nOpay: ${m}\nAdadi: ₦${balance}`;window.open('https://wa.me/'+WHATSAPP_NUM+'?text='+encodeURIComponent(msg),'_blank');document.getElementById('pendingMsg').style.display='block';document.getElementById('reqId').innerText=id;}
 </script>
 
-<!-- SOCIAL BAR - FIX - YANA KASA DON YA FITO A SAMA -->
+<!-- SOCIAL BAR A KASA - NA 2 - DON YA FITO KO DA NA SAMA BAI FITO BA -->
 <script src="https://pl31085647.profitableratecpmnetwork.com/43/fb/1d/43fb1d68af6651b11b45eb1cfe7d443c.js"></script>
 
 </body>
