@@ -2,7 +2,7 @@
 <html lang="ha">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reward Hub - ₦10 x 5 - Colorful - ID 31026211</title>
+<title>Reward Hub - ₦8 x 5 - Colorful - ID 31026211</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
@@ -32,24 +32,24 @@ body{background:radial-gradient(1200px at 0% 0%,#7c3aed33,#ec489933 30%,#06b6d43
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div class="logo"><i>₦</i>Reward Hub</div><div class="live">✨ ₦10 x 5 / 24H COLORFUL</div></div>
+<div class="top"><div class="logo"><i>₦</i>Reward Hub</div><div class="live">✨ ₦8 x 5 / 24H COLORFUL</div></div>
 <div class="balCard">
 <div style="font-size:10px;letter-spacing:2px;color:#fcd34d">💎 BALANCE - COLORFUL EDITION</div>
 <div class="balAmount">₦<span id="balNum">0</span></div>
-<div style="display:flex;gap:10px;align-items:center;margin-top:10px"><span id="balText">₦0 / ₦50</span><div class="progress"><b id="prog" style="width:0%"></b></div><span id="perc">0%</span></div>
-<div class="stats"><div class="stat"><b id="todayEarn">₦0</b><small>YAU</small></div><div class="stat"><b>₦10</b><small>KOWANNE</small></div><div class="stat"><b id="taskCount">0/5</b><small>AYYUKA</small></div></div>
+<div style="display:flex;gap:10px;align-items:center;margin-top:10px"><span id="balText">₦0 / ₦40</span><div class="progress"><b id="prog" style="width:0%"></b></div><span id="perc">0%</span></div>
+<div class="stats"><div class="stat"><b id="todayEarn">₦0</b><small>YAU</small></div><div class="stat"><b>₦8</b><small>KOWANNE</small></div><div class="stat"><b id="taskCount">0/5</b><small>AYYUKA</small></div></div>
 <div style="margin-top:12px;background:#0006;border-radius:12px;padding:10px;display:flex;justify-content:space-between"><small>⏰ Sabon ayyuka</small><b id="resetTimer" style="color:#4ade80">--:--:--</b></div>
 </div>
-<div class="taskTitle"><span>🎨 Ayyukan Yau (5)</span><span style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;padding:4px 10px;border-radius:20px;font-size:10px">₦10 x 5 = ₦50</span></div>
+<div class="taskTitle"><span>🎨 Ayyukan Yau (5)</span><span style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;padding:4px 10px;border-radius:20px;font-size:10px">₦8 x 5 = ₦40</span></div>
 <div id="tasks"></div>
 <div class="withdrawCard">
-<div style="font-weight:900">💳 Cire Kudi - ₦50 ✨</div><div style="font-size:11px;color:#a5b4fc;margin-top:4px">Ka kai ₦50? Tura WhatsApp!</div>
+<div style="font-weight:900">💳 Cire Kudi - ₦40 ✨</div><div style="font-size:11px;color:#a5b4fc;margin-top:4px">Ka kai ₦40? Tura WhatsApp!</div>
 <div style="margin-top:14px">
 <input class="input" id="opayName" placeholder="👤 Sunan Opay / Banki">
 <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
 <input class="input" id="opayBank" placeholder="🏦 Banki (Opay, Kuda)">
 <div id="withMsg" style="text-align:center;color:#facc15;font-size:12px;margin:6px 0;white-space:pre-line"></div>
-<button class="btn-withdraw" onclick="withdraw()">💬 Tura WhatsApp - 07070079526 🚀</button>
+<button class="btn-withdraw" onclick="withdraw()">💬 Tura WhatsApp 🚀</button>
 <div style="text-align:center;color:#ffffff33;font-size:9px;margin-top:10px">ID 31026211 • d46a1a06 • COLORFUL • Social Bar kadai • Babu Popunder</div>
 </div>
 </div>
@@ -57,7 +57,7 @@ body{background:radial-gradient(1200px at 0% 0%,#7c3aed33,#ec489933 30%,#06b6d43
 </div>
 <script>
 const SMARTLINK="https://www.profitableratecpmnetwork.com/c9t3gz86?key=d46a1a06ce42588d6c920008cfa62aee";
-const MY_WHATSAPP="2347070079526";const REWARD=10;const TOTAL=5;const MIN=50;const RESET_HOURS=24;
+const MY_WHATSAPP="2347070079526";const REWARD=8;const TOTAL=5;const MIN=40;const RESET_HOURS=24;
 let balance=parseInt(localStorage.getItem('rh_col_bal')||'0');let done=JSON.parse(localStorage.getItem('rh_col_done')||'[]');let lastReset=parseInt(localStorage.getItem('rh_col_last')||'0');let hist=JSON.parse(localStorage.getItem('rh_col_hist')||'[]');
 if(done.length!==TOTAL)done=Array(TOTAL).fill(false);if(!lastReset){lastReset=Date.now();localStorage.setItem('rh_col_last',lastReset);}
 function checkReset(){const now=Date.now();const lim=RESET_HOURS*3600*1000;if(now-lastReset>=lim){done=Array(TOTAL).fill(false);lastReset=now;localStorage.setItem('rh_col_last',now);localStorage.setItem('rh_col_done',JSON.stringify(done));alert('🎉 24h ta cika! Sabon ayyuka masu launi sun bude! 🌈');}const rem=lim-(now-lastReset);if(rem>0){const h=Math.floor(rem/3600000);const m=Math.floor((rem%3600000)/60000);const s=Math.floor((rem%60000)/1000);document.getElementById('resetTimer').innerText=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}}
