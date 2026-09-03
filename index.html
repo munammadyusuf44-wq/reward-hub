@@ -2,36 +2,42 @@
 <html lang="ha">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Reward Hub</title>
+<title>Reward Hub - Samu Kudi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900;800;700;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
-body{background:radial-gradient(1200px at 20% -10%,#3a1a5a 0%,#1a1020 45%,#12061a 100%);color:#f3e8ff;min-height:100vh}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:radial-gradient(1200px at 20% -10%,#1a2a5a 0%,#0a1020 45%,#060a16 100%);color:#e2e8f0;min-height:100vh}
 .wrap{max-width:430px;margin:0 auto;padding:14px 16px 40px}
-.top{display:flex;justify-content:space-between;padding:10px 4px 18px}
-.logo{font-weight:900;font-size:22px;display:flex;gap:10px}
-.logo i{width:34px;height:34px;background:linear-gradient(135deg,#ec4899,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;border-radius:10px}
-.balCard{background:linear-gradient(135deg,#2a1a3a 0%,#1a102a 100%);border:1px solid #ec48991a;border-radius:24px;padding:22px}
-.balAmount{font-size:52px;font-weight:900}
-.balSub{color:#9d8ab0;font-size:13px;margin-top:8px;display:flex;gap:8px;align-items:center}
-.progress{flex:1;height:6px;background:#12061a;border-radius:10px;overflow:hidden}
-.progress b{display:block;height:100%;background:linear-gradient(90deg,#ec4899,#8b5cf6)}
-.taskTitle{margin:22px 4px 12px;font-weight:800}
-.taskCard{background:linear-gradient(135deg,#2a1f3d 0%,#1f1533 100%);border:1px solid #ec48991a;border-radius:18px;padding:16px;display:flex;justify-content:space-between;margin-bottom:10px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:10px 4px 18px}
+.logo{font-weight:900;font-size:22px;display:flex;gap:10px;font-family:'Space Grotesk',sans-serif}
+.logo i{width:34px;height:34px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;display:flex;align-items:center;justify-content:center;border-radius:10px}
+.live{font-size:10px;background:#0f172a;border:1px solid #22c55e66;color:#22c55e;padding:5px 10px;border-radius:20px;font-weight:900}
+.balCard{background:linear-gradient(135deg,#1e293b 0%,#0f172a 50%,#1a2338 100%);border:1px solid #ffffff0f;border-radius:24px;padding:22px}
+.balLabel{color:#94a3b8;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:8px}
+.balAmount{font-size:56px;font-weight:900;color:#fff;line-height:1}
+.balSub{color:#64748b;font-size:13px;margin-top:10px;display:flex;gap:8px;align-items:center}
+.progress{flex:1;height:6px;background:#020617;border-radius:10px;overflow:hidden}
+.progress b{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a)}
+.taskTitle{font-size:16px;font-weight:800;margin:22px 4px 12px}
+.taskCard{background:linear-gradient(135deg,#1a2338 0%,#131c33 100%);border:1px solid #ffffff0a;border-radius:18px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .taskCard.done{opacity:.5}
-.btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;cursor:pointer}
-.btn-kalli{background:linear-gradient(135deg,#ec4899,#8b5cf6);color:#fff}
-.btn-done{background:#1a102a;color:#ec4899;border:1px solid #ec489933}
-.withdrawCard{background:#231a33;border:1px solid #ec48991a;border-radius:24px;padding:22px;margin-top:20px}
-.input{width:100%;background:#12061a;border:1px solid #3a1a44;border-radius:14px;padding:15px;color:#fff;margin-bottom:12px}
-.btn-withdraw{width:100%;background:linear-gradient(135deg,#ec4899,#8b5cf6);color:#fff;border:none;border-radius:16px;padding:17px;font-weight:900;margin-top:8px}
+.taskName{font-size:15px;font-weight:700;display:flex;gap:8px;align-items:center}
+.taskName span{color:#22c55e;background:#22c55e15;padding:2px 8px;border-radius:20px;font-size:12px;font-weight:900}
+.taskIcon{width:32px;height:32px;background:#020617;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.btn{border:none;border-radius:14px;padding:11px 20px;font-weight:900;font-size:13px;cursor:pointer;min-width:78px}
+.btn-kalli{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000}
+.btn-done{background:#0f172a;color:#22c55e;border:1px solid #22c55e33}
+.withdrawCard{background:linear-gradient(180deg,#131c33 0%,#0f172a 100%);border:1px solid #ffffff0a;border-radius:24px;padding:22px;margin-top:20px}
+.input{width:100%;background:#020617;border:1px solid #1e2a44;border-radius:14px;padding:15px;color:#fff;margin-bottom:12px}
+.btn-withdraw{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;border:none;border-radius:16px;padding:17px;font-weight:900;font-size:16px;cursor:pointer;margin-top:8px}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div class="logo"><i>₦</i> Reward Hub</div><div style="font-size:10px;background:#1a102a;border:1px solid #ec489966;color:#ec4899;padding:5px 10px;border-radius:20px">LIVE</div></div>
+<div class="top"><div class="logo"><i>₦</i> Reward Hub</div><div class="live">LIVE - FIXED</div></div>
 
 <div class="balCard">
-<div style="font-size:11px;color:#c4b5d4">💎 BALANCE DINKA</div>
+<div class="balLabel">💎 BALANCE DINKA</div>
 <div class="balAmount">₦<span id="balNum">8</span></div>
 <div class="balSub"><span id="balText">₦8 / ₦100</span><div class="progress"><b id="prog" style="width:8%"></b></div></div>
 </div>
@@ -40,37 +46,29 @@ body{background:radial-gradient(1200px at 20% -10%,#3a1a5a 0%,#1a1020 45%,#12061
 <div id="tasks"></div>
 
 <div class="withdrawCard">
-<div style="font-weight:800;margin-bottom:12px">💸 Mafi karanci: <b style="color:#ec4899">₦100</b></div>
+<div style="font-weight:800;margin-bottom:16px">💸 Mafi karanci: <b style="color:#22c55e">₦100</b> - Opay/Banki - 24h</div>
 <input class="input" id="opayName" placeholder="👤 Sunan Opay">
 <input class="input" id="opayNum" placeholder="💳 Lambar Opay">
-<button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi</button>
-<div style="background:#25D36615;border:1px dashed #25D36644;border-radius:12px;padding:10px;font-size:11px;color:#86efac;margin-top:12px">
-✅ Idan ka kai ₦100 - zaka tura sako kai tsaye - zamu biya ka a 24h!
-</div>
+<button class="btn-withdraw" id="withdrawBtn" onclick="withdraw()">🚀 Nemi Cire Kudi via WhatsApp</button>
+<div style="background:#25D36615;border:1px dashed #25D36644;border-radius:12px;padding:10px;font-size:11px;color:#86efac;margin-top:12px">✅ Idan ka kai ₦100 - zaka tura sako kai tsaye - zamu biya ka a 24h!</div>
 </div>
 </div>
 
 <script>
-// BOYE NUMBER - ba zai fito a screen ba
-const MY_WHATSAPP = "2347070079526";
 const SMARTLINK="https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
+const WA="2347070079526"; // boye - ba zai fito a screen ba
 let balance=parseInt(localStorage.getItem('rh_bal')||'8');
-let done=JSON.parse(localStorage.getItem('rh_done')||new Array(12).fill(false).toString());
-
-try{done=JSON.parse(localStorage.getItem('rh_done'))}catch(e){done=new Array(12).fill(false)}
-if(!Array.isArray(done)||done.length!==12){done=new Array(12).fill(false)}
-
+let done=JSON.parse(localStorage.getItem('rh_done')||'[false,false,false,false,false]');
 function updateBalance(){
  document.getElementById('balNum').innerText=balance;
  document.getElementById('balText').innerText='₦'+balance+' / ₦100';
  document.getElementById('prog').style.width=Math.min(balance,100)+'%';
- let btn=document.getElementById('withdrawBtn');
- btn.innerText=balance>=100?'🚀 Nemi Cire Kudi - A SHIRYE!':'🚀 Nemi Cire Kudi (Sai ₦100 - Yanzu ₦'+balance+')';
+ document.getElementById('withdrawBtn').innerText=balance>=100?'🚀 Nemi Cire Kudi - A SHIRYE!':'🚀 Nemi Cire Kudi (Sai ₦100 - Yanzu ₦'+balance+')';
  localStorage.setItem('rh_bal',balance); localStorage.setItem('rh_done',JSON.stringify(done));
 }
 function render(){
- let h=''; for(let i=0;i<12;i++){
-  h+=`<div class="taskCard ${done[i]?'done':''}"><div>📺 Talla ${i+1} <span style="color:#ec4899">₦8</span> <small id="timer${i}" style="color:#fbbf24"></small></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" id="btn${i}" onclick="doTask(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
+ let h=''; for(let i=0;i<5;i++){
+  h+=`<div class="taskCard ${done[i]?'done':''}"><div style="display:flex;gap:12px;align-items:center"><div class="taskIcon">${done[i]?'✅':'📺'}</div><div class="taskName">Talla ${i+1} <span>₦8</span> <small id="timer${i}" style="color:#facc15"></small></div></div><button class="btn ${done[i]?'btn-done':'btn-kalli'}" id="btn${i}" onclick="doTask(${i})">${done[i]?'An Yi':'Kalli'}</button></div>`;
  } document.getElementById('tasks').innerHTML=h; updateBalance();
 }
 render();
@@ -85,10 +83,9 @@ function withdraw(){
  let num=document.getElementById('opayNum').value.trim();
  if(balance<100){alert('❌ Sai ka kai ₦100! Yanzu ₦'+balance); return;}
  if(!name||!num){alert('Cika suna da lamba'); return;}
- let msg=`Salam! Ina so in cire kudi\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}\n⏰ ${new Date().toLocaleString()}`;
- // Number boye - amma zai tura zuwa WhatsApp dinka
- window.open(`https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank');
- setTimeout(()=>{ if(confirm('Ka tura sako? Balance koma ₦8?')){ balance=8; done=new Array(12).fill(false); render();}},1500);
+ let msg=`Salam! Ina so in cire kudi\n👤 Suna: ${name}\n💳 Opay: ${num}\n💰 Adadi: ₦${balance}`;
+ window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+ setTimeout(()=>{ if(confirm('Ka tura sako? Balance koma ₦8?')){ balance=8; done=[false,false,false,false,false]; render();}},1500);
 }
 </script>
 </body>
