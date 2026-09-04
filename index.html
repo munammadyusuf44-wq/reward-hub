@@ -14,18 +14,13 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .balBox{background:#151e36;border-radius:20px;padding:16px;margin-top:14px;border:1px solid #1e2a4a}
 .balBox small{color:#8aa0c0;letter-spacing:2px;font-size:11px}
 .balBox h1{font-size:54px;margin:4px 0}
-.barRow{display:flex;gap:10px;align-items:center;color:#8aa0c0;font-size:14px}
-.bar{flex:1;height:7px;background:#0a1020;border-radius:10px;overflow:hidden}
-.fill{height:100%;background:#00ff88;width:100%}
 .task{background:#151e36;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;border:1px solid #1e2a4a}
 .kalli{background:#00ff88;color:#000;border:0;padding:10px 22px;border-radius:14px;font-weight:900}
-.kalli:disabled{background:#2a3655;color:#5a6a8a}
+.kalli:disabled{background:#2a3655;color:#8aa0c0}
 .formBox{border:2px solid #ffcc00;border-radius:18px;padding:14px;margin-top:16px;background:#111a30}
 .formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
 .formBox input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3655;background:#0a1020;color:#fff;margin:6px 0}
 .formBox button{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;justify-content:center;align-items:center}
-.modalBox{background:#fff;color:#000;padding:20px;border-radius:16px;width:86%;text-align:center}
 </style>
 </head>
 <body>
@@ -38,7 +33,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 <div class="balBox">
   <small>💎 BALANCE DINKA</small>
   <h1>₦<span id="bal">100</span></h1>
-  <div class="barRow">₦<span id="bal2">100</span> / ₦100 <div class="bar"><div class="fill" id="fill"></div></div></div>
+  <div style="color:#8aa0c0;font-size:14px">₦<span id="bal2">100</span> / ₦100</div>
 </div>
 
 <h3 style="margin:16px 0 6px">⭐ Ayyukan Yau ₦8 kowanne</h3>
@@ -47,21 +42,15 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 <div class="formBox">
   <h3>Cire Kudi - Ko Nawa Ne</h3>
   <input id="suna" placeholder="Sunan ka">
-  <input id="acc" placeholder="Account Number (10 digits)">
-  <input id="bank" placeholder="Sunan Banki (Opay, Kuda, Palmpay)">
-  <button onclick="cireWhatsApp()">📱 Cire Kudi Yanzu</button>
+  <input id="acc" placeholder="Account Number">
+  <input id="bank" placeholder="Sunan Banki (Opay, Kuda)">
+  <button onclick="cireWA()">📱 Cire Kudi Yanzu</button>
   <div id="msg" style="text-align:center;margin-top:8px;font-size:12px;color:#8aa0c0"></div>
 </div>
 
-<div class="modal" id="mod"><div class="modalBox">
-  <h3>Jira <span id="sec">5</span>s</h3>
-  <p>Zai bude talla, sai ka samu ₦8</p>
-  <button id="openBtn" style="display:none;width:100%;padding:12px;background:#000;color:#fff;border-radius:10px" onclick="budeTalla()">Bude Talla Yanzu</button>
-</div></div>
-
 <script>
 const SMART_LINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
-const WA_NUM = "2347070079526"; // 07070079526 - hidden
+const WA_NUM = "2347070079526"; // 07070079526 - hidden, ba a showing
 
 let balance = parseInt(localStorage.getItem('hub_bal'));
 if(isNaN(balance)) balance = 100;
@@ -79,45 +68,54 @@ function render(){
   let h='';
   for(let i=1;i<=5;i++){
     let ok=done.includes(i);
-    h+=`<div class="task"><div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
+    h+=`<div class="task"><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div><button class="kalli" id="btn${i}" ${ok?'disabled':''} onclick="kalliDirect(${i})">${ok?'An Yi ✓':'Kalli'}</button></div>`;
   }
   document.getElementById('tasks').innerHTML=h;
 }
 render();
 
-let cur=null,timer=null;
-function fara(id){
-  cur=id;
-  document.getElementById('mod').style.display='flex';
-  document.getElementById('sec').innerText='5';
-  document.getElementById('openBtn').style.display='none';
-  let c=5;
-  clearInterval(timer);
-  timer=setInterval(()=>{c--;document.getElementById('sec').innerText=c;if(c<=0){clearInterval(timer);document.getElementById('openBtn').style.display='block';}},1000);
-}
-function budeTalla(){
-  // SMART LINK - DANNA KALLI - SAI MODAL YA BUDE sannan <a>.click()
-  let a=document.createElement('a'); a.href=SMART_LINK; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
-  if(cur && !done.includes(cur)){
-    balance+=8;
-    done.push(cur);
-    save(); render();
-  }
-  document.getElementById('mod').style.display='none';
+// DIRECT KALLI -> SMART LINK - DOLE SAI YA KALLI TALLA
+function kalliDirect(id){
+  if(done.includes(id)) return;
+  
+  // 1. Direct bude smart link yanzu
+  let a=document.createElement('a');
+  a.href=SMART_LINK;
+  a.target='_blank';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  // 2. Dole sai ya jira 10 seconds yana kallon talla
+  let btn=document.getElementById('btn'+id);
+  btn.disabled=true;
+  let c=10;
+  btn.innerText=`Jira ${c}s...`;
+  
+  let t=setInterval(()=>{
+    c--;
+    btn.innerText=`Kana kallon... ${c}s`;
+    if(c<=0){
+      clearInterval(t);
+      // 3. Bayan ya kalli sai a bashi ₦8
+      balance+=8;
+      done.push(id);
+      save(); render();
+    }
+  },1000);
 }
 
-function cireWhatsApp(){
+function cireWA(){
   let suna=document.getElementById('suna').value.trim();
   let acc=document.getElementById('acc').value.trim();
   let bank=document.getElementById('bank').value.trim();
   let m=document.getElementById('msg');
-  if(!suna||!acc||!bank){m.innerText='Cike Sunan ka, Account, da Banki';return;}
+  if(!suna||!acc||!bank){m.innerText='Cike komai';return;}
   if(balance<=0){m.innerText='Babu balance';return;}
 
-  let text=`Salam! Cire kudi\nSuna: ${suna}\nBank: ${bank}\nAcc: ${acc}\nBalance: ₦${balance}\nHub`;
+  let text=`Salam! Cire kudi\nSuna: ${suna}\nBank: ${bank}\nAcc: ${acc}\nBalance: ₦${balance}`;
   window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`,'_blank');
 
-  // Balance ya dawo ZERO bayan tura WhatsApp
   balance=0;
   done=[];
   save(); render();
