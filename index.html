@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ha">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,127 +7,127 @@
 <style>
 *{box-sizing:border-box;font-family:system-ui}
 body{margin:0;background:#0a1020;color:#fff;padding:12px}
-.top{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
-.logo{display:flex;align-items:center;gap:10px}
-.logo span{background:#00ff88;color:#000;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;font-weight:900;font-size:24px}
-.live{border:1px solid #00ff88;color:#00ff88;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800}
-.balanceBox{background:linear-gradient(135deg,#1a2340,#111a30);border-radius:22px;padding:18px;border:1px solid #222;margin-top:10px}
-.balanceBox small{color:#8aa0c0;letter-spacing:2px;font-size:12px}
-.balanceBox h1{font-size:56px;margin:6px 0 0;line-height:1}
-.progress{display:flex;align-items:center;gap:10px;margin-top:10px}
-.bar{flex:1;height:8px;background:#111;border-radius:10px;overflow:hidden}
-.fill{height:100%;background:#00ff88;width:30%}
-.task{background:#151e36;border-radius:18px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;border:1px solid #1e2a4a}
-.task-left{display:flex;align-items:center;gap:12px}
-.icon{width:38px;height:38px;background:#0f172a;border-radius:10px;display:grid;place-items:center}
-.kalli{background:#00ff88;color:#000;border:0;padding:10px 22px;border-radius:14px;font-weight:900}
-.kalli:disabled{background:#2a3555;color:#5a6a8a}
-.form{margin-top:18px;background:#111a30;border:2px solid #ffcc00;border-radius:18px;padding:14px}
-.form h3{color:#ffcc00;text-align:center;margin:0 0 10px}
-.form input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3555;background:#0a1020;color:#fff;margin:6px 0}
-.form button{width:100%;padding:14px;background:#ffcc00;border:0;border-radius:12px;font-weight:900;margin-top:8px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:20;justify-content:center;align-items:center}
-.box{background:#fff;color:#000;padding:20px;border-radius:16px;width:88%;text-align:center}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;gap:10px;align-items:center;font-weight:900}
+.logo i{background:#00ff88;color:#000;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;font-style:normal;font-size:22px}
+.live{border:1px solid #00ff88;color:#00ff88;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800}
+.balBox{background:#151e36;border-radius:20px;padding:16px;margin-top:14px;border:1px solid #1e2a4a}
+.balBox small{color:#8aa0c0;letter-spacing:2px;font-size:11px}
+.balBox h1{font-size:52px;margin:4px 0}
+.barRow{display:flex;gap:10px;align-items:center;color:#8aa0c0;font-size:14px}
+.bar{flex:1;height:7px;background:#0a1020;border-radius:10px;overflow:hidden}
+.fill{height:100%;background:#00ff88;width:0%}
+.task{background:#151e36;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;border:1px solid #1e2a4a}
+.taskLeft{display:flex;gap:10px;align-items:center}
+.icon{width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center}
+.kalli{background:#00ff88;color:#000;border:0;padding:9px 20px;border-radius:14px;font-weight:900}
+.kalli:disabled{background:#2a3655;color:#5a6a8a}
+.formBox{border:2px solid #ffcc00;border-radius:18px;padding:14px;margin-top:16px;background:#111a30}
+.formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
+.formBox input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3655;background:#0a1020;color:#fff;margin:6px 0}
+.formBox button{width:100%;padding:14px;background:#ffcc00;border:0;border-radius:12px;font-weight:900;margin-top:8px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;justify-content:center;align-items:center}
+.modalBox{background:#fff;color:#000;padding:20px;border-radius:16px;width:86%;text-align:center}
 </style>
+
+<!-- SOCIAL BAR KADAI - BABU POPUNDER - DAIDAI! Ka bar shi anan -->
+<script src="https://pl12345678.highrevenuenetwork.com/ab/cd/ef/socialbar.js"></script>
+
 </head>
 <body>
 
 <div class="top">
-  <div class="logo"><span>N</span><b>Reward Hub</b></div>
+  <div class="logo"><i>N</i> Reward Hub</div>
   <div class="live">● LIVE - FIXED</div>
 </div>
 
-<div class="balanceBox">
+<div class="balBox">
   <small>💎 BALANCE DINKA</small>
   <h1>₦<span id="bal">0</span></h1>
-  <div class="progress"><span style="color:#8aa0c0">₦<span id="bal2">0</span> / ₦100</span><div class="bar"><div class="fill" id="fill"></div></div></div>
+  <div class="barRow">₦<span id="bal2">0</span> / ₦100 <div class="bar"><div class="fill" id="fill"></div></div></div>
 </div>
 
-<h3 style="margin:18px 0 6px">⭐ Ayyukan Yau ₦8 kowanne</h3>
+<h3 style="margin:16px 0 6px">⭐ Ayyukan Yau ₦8 kowanne</h3>
 <div id="tasks"></div>
 
-<div class="form">
+<div class="formBox">
   <h3>Cire Kudi - Ko Nawa Ne</h3>
   <input id="suna" placeholder="Sunan ka">
   <input id="acc" placeholder="Account Number (10 digits)">
-  <input id="bank" placeholder="Sunan Banki (Opay, Kuda...)">
+  <input id="bank" placeholder="Sunan Banki (Opay, Kuda, Palmpay)">
   <button onclick="cire()">Cire Kudi Yanzu</button>
-  <p style="font-size:11px;color:#8aa0c0;text-align:center;margin-top:6px">Balance dinka ba zai canja ba - yadda kake ada haka zai dawo. Ko ₦8 ma zaka iya cirewa.</p>
-  <div id="msg" style="text-align:center;font-weight:800;margin-top:8px"></div>
+  <p style="font-size:11px;color:#8aa0c0;text-align:center">Balance ba zai canja ba - ko ₦8 ma zaka iya cirewa - ba sai 100 ba</p>
+  <div id="msg" style="text-align:center;font-weight:800;margin-top:6px"></div>
 </div>
 
-<div class="modal" id="mod"><div class="box">
+<div class="modal" id="mod"><div class="modalBox">
   <h3>Jira <span id="sec">5</span>s</h3>
-  <p>Tallan zai bude - za ka samu ₦8</p>
-  <button id="openBtn" style="display:none;width:100%;padding:12px;background:#000;color:#fff;border-radius:10px" onclick="bude()">Bude Talla</button>
+  <p>Zai bude talla, sai ka samu ₦8</p>
+  <button id="openBtn" style="display:none;width:100%;padding:12px;background:#000;color:#fff;border-radius:10px" onclick="budeTalla()">Bude Talla Yanzu</button>
 </div></div>
 
 <script>
-const SMART_LINK = "https://www.profitablecpmrate.com/SAUYA-DA-LINK-DINKA-ANAN";
+const SMART_LINK = "https://www.profitablecpmrate.com/SAUYA_DA_LINK_DINKA";
 
-// --- KADA A CANJA BALANCE DIN USER - DAWO DA YADDA YAKE ADA ---
-function getOldBalance(){
-  // Duba duk keys da aka taba amfani da su a baya - dawo da yadda yake
-  let keys = ['reward_balance','myBal','bal','balance','bal_keep','bal_final'];
+// KADA KA CANJA BALANCE - DAWO DA YADDA YAKE ADA
+function getBalance(){
+  let keys = ['reward_balance','myBal','bal','balance','bal_keep','bal_final','hub_bal'];
   let max = 0;
-  keys.forEach(k=>{
-    let v = parseInt(localStorage.getItem(k)||'0');
-    if(v>max) max=v;
-  });
+  keys.forEach(k=>{ let v=parseInt(localStorage.getItem(k)||'0'); if(v>max) max=v; });
   return max;
 }
-let bal = getOldBalance();
-let yi = JSON.parse(localStorage.getItem('reward_done') || localStorage.getItem('myDone') || localStorage.getItem('done_keep') || '[]');
+let balance = getBalance();
+let done = JSON.parse(localStorage.getItem('reward_done') || localStorage.getItem('myDone') || '[]');
 
 function save(){
-  localStorage.setItem('reward_balance', bal);
-  localStorage.setItem('reward_done', JSON.stringify(yi));
-  document.getElementById('bal').innerText=bal;
-  document.getElementById('bal2').innerText=bal;
-  document.getElementById('fill').style.width = Math.min(bal,100)+'%';
+  localStorage.setItem('reward_balance', balance);
+  localStorage.setItem('reward_done', JSON.stringify(done));
+  document.getElementById('bal').innerText = balance;
+  document.getElementById('bal2').innerText = balance;
+  document.getElementById('fill').style.width = Math.min(balance,100)+'%';
 }
 save();
 
 function render(){
-  let h='';
+  let html='';
   for(let i=1;i<=5;i++){
-    let ok = yi.includes(i);
-    h+=`<div class="task"><div class="task-left"><div class="icon">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:20px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
+    let ok = done.includes(i);
+    html+=`<div class="task"><div class="taskLeft"><div class="icon">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
   }
-  document.getElementById('tasks').innerHTML=h;
+  document.getElementById('tasks').innerHTML=html;
 }
 render();
 
-let cur=null, t=null;
-function fara(i){
-  cur=i;
+let cur=null, timer=null;
+function fara(id){
+  cur=id;
   document.getElementById('mod').style.display='flex';
   document.getElementById('sec').innerText='5';
   document.getElementById('openBtn').style.display='none';
   let c=5;
-  clearInterval(t);
-  t=setInterval(()=>{c--; document.getElementById('sec').innerText=c; if(c<=0){clearInterval(t); document.getElementById('openBtn').style.display='block';}},1000);
+  clearInterval(timer);
+  timer=setInterval(()=>{ c--; document.getElementById('sec').innerText=c; if(c<=0){clearInterval(timer); document.getElementById('openBtn').style.display='block';}},1000);
 }
-function bude(){
+function budeTalla(){
+  // DANNA KALLI - SAI MODAL YA BUDE - sannan <a>.click()
   let a=document.createElement('a'); a.href=SMART_LINK; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
-  if(cur && !yi.includes(cur)){
-    bal+=8; // <-- GYARA ANAN: ₦8 KOWANNE
-    yi.push(cur);
+  if(cur && !done.includes(cur)){
+    balance += 8; // Kudin Kalli ya dawo ₦8
+    done.push(cur);
     save(); render();
   }
   document.getElementById('mod').style.display='none';
 }
-
 function cire(){
   let suna=document.getElementById('suna').value.trim();
   let acc=document.getElementById('acc').value.trim();
   let bank=document.getElementById('bank').value.trim();
   let msg=document.getElementById('msg');
-  if(!suna||!acc||!bank){msg.style.color='red'; msg.innerText='Cike Suna, Account, da Banki'; return;}
-  if(bal<=0){msg.style.color='red'; msg.innerText='Babu balance tukuna'; return;}
-  // GYARA: BA SAI DARI BA - KO NAWA NE ZAI IYA CIREWA
+  if(!suna||!acc||!bank){msg.style.color='red'; msg.innerText='Cike Sunan ka, Account, da Banki'; return;}
+  if(balance<=0){msg.style.color='red'; msg.innerText='Babu balance tukuna'; return;}
+  // KO NAWA NE ZAI IYA CIREWA - BA SAI DARI BA
   msg.style.color='#00ff88';
-  msg.innerText=`An karba ${suna}! ₦${bal} zuwa ${bank} ${acc}`;
+  msg.innerText=`An karba ${suna}! ₦${balance} zuwa ${bank} ${acc}`;
 }
 </script>
 </body>
