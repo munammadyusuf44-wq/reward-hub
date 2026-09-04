@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="ha">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reward Hub - LIVE FIXED</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reward Hub</title>
 <style>
 *{box-sizing:border-box;font-family:system-ui}
 body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .top{display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;gap:10px;align-items:center;font-weight:900}
-.logo i{background:#00ff88;color:#000;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;font-style:normal;font-size:22px}
-.live{border:1px solid #00ff88;color:#00ff88;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800}
+.logo{display:flex;gap:10px;align-items:center;font-weight:900;font-size:18px}
+.logo i{background:#00ff88;color:#000;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;font-style:normal;font-size:22px}
+.live{border:1px solid #00ff88;color:#00ff88;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800}
 .balBox{background:#151e36;border-radius:20px;padding:16px;margin-top:14px;border:1px solid #1e2a4a}
 .balBox small{color:#8aa0c0;letter-spacing:2px;font-size:11px}
-.balBox h1{font-size:52px;margin:4px 0}
+.balBox h1{font-size:54px;margin:4px 0}
 .barRow{display:flex;gap:10px;align-items:center;color:#8aa0c0;font-size:14px}
 .bar{flex:1;height:7px;background:#0a1020;border-radius:10px;overflow:hidden}
-.fill{height:100%;background:#00ff88;width:0%}
+.fill{height:100%;background:#00ff88}
 .task{background:#151e36;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;border:1px solid #1e2a4a}
-.taskLeft{display:flex;gap:10px;align-items:center}
-.icon{width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center}
-.kalli{background:#00ff88;color:#000;border:0;padding:9px 20px;border-radius:14px;font-weight:900}
+.kalli{background:#00ff88;color:#000;border:0;padding:10px 22px;border-radius:14px;font-weight:900}
 .kalli:disabled{background:#2a3655;color:#5a6a8a}
 .formBox{border:2px solid #ffcc00;border-radius:18px;padding:14px;margin-top:16px;background:#111a30}
 .formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
@@ -29,10 +27,8 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;justify-content:center;align-items:center}
 .modalBox{background:#fff;color:#000;padding:20px;border-radius:16px;width:86%;text-align:center}
 </style>
-
-<!-- SOCIAL BAR KADAI - BABU POPUNDER - DAIDAI! Ka bar shi anan -->
-<script src="https://pl12345678.highrevenuenetwork.com/ab/cd/ef/socialbar.js"></script>
-
+<!-- SOCIAL BAR KADAI - BABU POPUNDER -->
+<script>/* saka social bar code dinka anan */</script>
 </head>
 <body>
 
@@ -43,8 +39,8 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 
 <div class="balBox">
   <small>💎 BALANCE DINKA</small>
-  <h1>₦<span id="bal">0</span></h1>
-  <div class="barRow">₦<span id="bal2">0</span> / ₦100 <div class="bar"><div class="fill" id="fill"></div></div></div>
+  <h1>₦<span id="bal">100</span></h1>
+  <div class="barRow">₦<span id="bal2">100</span> / ₦100 <div class="bar"><div class="fill" id="fill" style="width:100%"></div></div></div>
 </div>
 
 <h3 style="margin:16px 0 6px">⭐ Ayyukan Yau ₦8 kowanne</h3>
@@ -56,8 +52,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
   <input id="acc" placeholder="Account Number (10 digits)">
   <input id="bank" placeholder="Sunan Banki (Opay, Kuda, Palmpay)">
   <button onclick="cire()">Cire Kudi Yanzu</button>
-  <p style="font-size:11px;color:#8aa0c0;text-align:center">Balance ba zai canja ba - ko ₦8 ma zaka iya cirewa - ba sai 100 ba</p>
-  <div id="msg" style="text-align:center;font-weight:800;margin-top:6px"></div>
+  <div id="msg" style="text-align:center;font-weight:800;margin-top:8px"></div>
 </div>
 
 <div class="modal" id="mod"><div class="modalBox">
@@ -67,24 +62,20 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 </div></div>
 
 <script>
-const SMART_LINK = "https://www.profitablecpmrate.com/SAUYA_DA_LINK_DINKA";
+const SMART_LINK = "https://www.profitablecpmrate.com/SAUYA_DA_LINK_DINKA_ANAN";
 
-// KADA KA CANJA BALANCE - DAWO DA YADDA YAKE ADA
-function getBalance(){
-  let keys = ['reward_balance','myBal','bal','balance','bal_keep','bal_final','hub_bal'];
-  let max = 0;
-  keys.forEach(k=>{ let v=parseInt(localStorage.getItem(k)||'0'); if(v>max) max=v; });
-  return max;
-}
-let balance = getBalance();
-let done = JSON.parse(localStorage.getItem('reward_done') || localStorage.getItem('myDone') || '[]');
+// FARO DAGA 100 - KADA YA KOMA 0
+let balance = parseInt(localStorage.getItem('hub_bal'));
+if(isNaN(balance)){ balance = 100; } // idan babu tsohon balance, fara daga 100
+let done = JSON.parse(localStorage.getItem('hub_done') || '[]');
 
 function save(){
-  localStorage.setItem('reward_balance', balance);
-  localStorage.setItem('reward_done', JSON.stringify(done));
+  localStorage.setItem('hub_bal', balance);
+  localStorage.setItem('hub_done', JSON.stringify(done));
   document.getElementById('bal').innerText = balance;
   document.getElementById('bal2').innerText = balance;
   document.getElementById('fill').style.width = Math.min(balance,100)+'%';
+  if(balance>100) document.getElementById('fill').style.width='100%';
 }
 save();
 
@@ -92,7 +83,7 @@ function render(){
   let html='';
   for(let i=1;i<=5;i++){
     let ok = done.includes(i);
-    html+=`<div class="task"><div class="taskLeft"><div class="icon">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
+    html+=`<div class="task"><div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
   }
   document.getElementById('tasks').innerHTML=html;
 }
@@ -109,10 +100,9 @@ function fara(id){
   timer=setInterval(()=>{ c--; document.getElementById('sec').innerText=c; if(c<=0){clearInterval(timer); document.getElementById('openBtn').style.display='block';}},1000);
 }
 function budeTalla(){
-  // DANNA KALLI - SAI MODAL YA BUDE - sannan <a>.click()
   let a=document.createElement('a'); a.href=SMART_LINK; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
   if(cur && !done.includes(cur)){
-    balance += 8; // Kudin Kalli ya dawo ₦8
+    balance += 8;
     done.push(cur);
     save(); render();
   }
@@ -124,8 +114,7 @@ function cire(){
   let bank=document.getElementById('bank').value.trim();
   let msg=document.getElementById('msg');
   if(!suna||!acc||!bank){msg.style.color='red'; msg.innerText='Cike Sunan ka, Account, da Banki'; return;}
-  if(balance<=0){msg.style.color='red'; msg.innerText='Babu balance tukuna'; return;}
-  // KO NAWA NE ZAI IYA CIREWA - BA SAI DARI BA
+  if(balance<=0){msg.style.color='red'; msg.innerText='Babu balance'; return;}
   msg.style.color='#00ff88';
   msg.innerText=`An karba ${suna}! ₦${balance} zuwa ${bank} ${acc}`;
 }
