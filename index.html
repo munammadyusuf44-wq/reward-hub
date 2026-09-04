@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ha">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -8,7 +8,7 @@
 *{box-sizing:border-box;font-family:system-ui}
 body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .top{display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;gap:10px;align-items:center;font-weight:900;font-size:18px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:900}
 .logo i{background:#00ff88;color:#000;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;font-style:normal;font-size:22px}
 .live{border:1px solid #00ff88;color:#00ff88;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800}
 .balBox{background:#151e36;border-radius:20px;padding:16px;margin-top:14px;border:1px solid #1e2a4a}
@@ -23,12 +23,10 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .formBox{border:2px solid #ffcc00;border-radius:18px;padding:14px;margin-top:16px;background:#111a30}
 .formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
 .formBox input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3655;background:#0a1020;color:#fff;margin:6px 0}
-.formBox button{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff;font-size:16px}
+.formBox button{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;justify-content:center;align-items:center}
 .modalBox{background:#fff;color:#000;padding:20px;border-radius:16px;width:86%;text-align:center}
 </style>
-<!-- SOCIAL BAR KADAI - Kamar yadda ka ce -->
-<script>/* saka social bar code dinka anan - babu popunder */</script>
 </head>
 <body>
 
@@ -52,7 +50,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
   <input id="acc" placeholder="Account Number (10 digits)">
   <input id="bank" placeholder="Sunan Banki (Opay, Kuda, Palmpay)">
   <button onclick="cireWhatsApp()">📱 Cire Kudi Yanzu</button>
-  <div id="msg" style="text-align:center;font-weight:800;margin-top:8px;color:#8aa0c0;font-size:12px"></div>
+  <div id="msg" style="text-align:center;margin-top:8px;font-size:12px;color:#8aa0c0"></div>
 </div>
 
 <div class="modal" id="mod"><div class="modalBox">
@@ -62,32 +60,32 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 </div></div>
 
 <script>
-const SMART_LINK = "https://www.profitablecpmrate.com/SAUYA_DA_LINK_DINKA";
-const WHATSAPP_NUM = "2347070079526"; // 07070079526 - ba a showing ba
+const SMART_LINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
+const WA_NUM = "2347070079526"; // 07070079526 - hidden
 
 let balance = parseInt(localStorage.getItem('hub_bal'));
-if(isNaN(balance)){ balance = 100; } // Fara daga 100
-let done = JSON.parse(localStorage.getItem('hub_done') || '[]');
+if(isNaN(balance)) balance = 100;
+let done = JSON.parse(localStorage.getItem('hub_done')||'[]');
 
 function save(){
   localStorage.setItem('hub_bal', balance);
   localStorage.setItem('hub_done', JSON.stringify(done));
-  document.getElementById('bal').innerText = balance;
-  document.getElementById('bal2').innerText = balance;
+  document.getElementById('bal').innerText=balance;
+  document.getElementById('bal2').innerText=balance;
 }
 save();
 
 function render(){
-  let html='';
+  let h='';
   for(let i=1;i<=5;i++){
-    let ok = done.includes(i);
-    html+=`<div class="task"><div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
+    let ok=done.includes(i);
+    h+=`<div class="task"><div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;background:#0f172a;border-radius:10px;display:grid;place-items:center">${ok?'✅':'📺'}</div><div><b>Talla ${i}</b> <span style="background:#0f2a1f;color:#00ff88;padding:2px 8px;border-radius:12px;font-size:12px">₦8</span></div></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'An Yi':'Kalli'}</button></div>`;
   }
-  document.getElementById('tasks').innerHTML=html;
+  document.getElementById('tasks').innerHTML=h;
 }
 render();
 
-let cur=null, timer=null;
+let cur=null,timer=null;
 function fara(id){
   cur=id;
   document.getElementById('mod').style.display='flex';
@@ -95,12 +93,13 @@ function fara(id){
   document.getElementById('openBtn').style.display='none';
   let c=5;
   clearInterval(timer);
-  timer=setInterval(()=>{ c--; document.getElementById('sec').innerText=c; if(c<=0){clearInterval(timer); document.getElementById('openBtn').style.display='block';}},1000);
+  timer=setInterval(()=>{c--;document.getElementById('sec').innerText=c;if(c<=0){clearInterval(timer);document.getElementById('openBtn').style.display='block';}},1000);
 }
 function budeTalla(){
+  // SMART LINK - DANNA KALLI - SAI MODAL YA BUDE sannan <a>.click()
   let a=document.createElement('a'); a.href=SMART_LINK; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
   if(cur && !done.includes(cur)){
-    balance += 8;
+    balance+=8;
     done.push(cur);
     save(); render();
   }
@@ -108,26 +107,21 @@ function budeTalla(){
 }
 
 function cireWhatsApp(){
-  let suna = document.getElementById('suna').value.trim();
-  let acc = document.getElementById('acc').value.trim();
-  let bank = document.getElementById('bank').value.trim();
-  let msg = document.getElementById('msg');
-  if(!suna||!acc||!bank){msg.innerText='Cike Sunan ka, Account, da Banki'; return;}
-  if(balance<=0){msg.innerText='Babu balance'; return;}
+  let suna=document.getElementById('suna').value.trim();
+  let acc=document.getElementById('acc').value.trim();
+  let bank=document.getElementById('bank').value.trim();
+  let m=document.getElementById('msg');
+  if(!suna||!acc||!bank){m.innerText='Cike Sunan ka, Account, da Banki';return;}
+  if(balance<=0){m.innerText='Babu balance';return;}
 
-  // Sakon da zai tafi WhatsApp
-  let text = `Salam! Ina son cire kudi\nSuna: ${suna}\nBanki: ${bank}\nAccount: ${acc}\nBalance: ₦${balance}\nSite: Reward Hub`;
-  let url = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(text)}`;
-  
-  // Bude WhatsApp direct - number ba a showing
-  window.open(url, '_blank');
+  let text=`Salam! Cire kudi\nSuna: ${suna}\nBank: ${bank}\nAcc: ${acc}\nBalance: ₦${balance}\nHub`;
+  window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`,'_blank');
 
   // Balance ya dawo ZERO bayan tura WhatsApp
-  balance = 0;
-  done = [];
-  save();
-  render();
-  msg.innerText = 'An tura WhatsApp! Balance ya koma 0';
+  balance=0;
+  done=[];
+  save(); render();
+  m.innerText='An tura WhatsApp! Balance ya koma 0';
 }
 </script>
 </body>
