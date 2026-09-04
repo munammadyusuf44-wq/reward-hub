@@ -1,131 +1,110 @@
 <!DOCTYPE html>
-<html lang="ha">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayyuka - ₦20 x 5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayyuka</title>
 <style>
-*{box-sizing:border-box;font-family:sans-serif}
-body{margin:0;background:#0e0e0e;color:#fff;padding:15px}
-.header{background:#1a1a1a;padding:16px;border-radius:14px;text-align:center;border:1px solid #333}
-.header h2{margin:0;color:#00ff88;font-size:20px}
-.bal{font-size:24px;font-weight:900;margin-top:6px}
-.task{background:#1f1f1f;border:1px solid #2a2a2a;padding:14px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.task b{display:block}
-.task small{color:#aaa}
-.btn{background:#00ff88;color:#000;border:0;padding:10px 18px;border-radius:8px;font-weight:900;cursor:pointer}
-.btn:disabled{background:#444;color:#888}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99;justify-content:center;align-items:center}
-.modalBox{background:#fff;color:#000;padding:22px;border-radius:14px;width:90%;max-width:350px;text-align:center}
-.formBox{margin-top:26px;background:#181818;padding:16px;border-radius:14px;border:2px solid #ffcc00}
-.formBox h3{margin:0 0 10px;color:#ffcc00;text-align:center}
-.formBox input{width:100%;padding:13px;margin:7px 0;border-radius:9px;border:1px solid #333;background:#0f0f0f;color:#fff}
-.formBox button{width:100%;padding:13px;background:#ffcc00;border:0;border-radius:9px;font-weight:900;margin-top:8px}
+body{margin:0;background:#0a0a0a;color:#fff;font-family:sans-serif;padding:10px}
+.top{background:#1e1e1e;border-radius:18px;padding:20px;text-align:center;border:1px solid #333}
+.top h1{color:#00ff88;margin:0;font-size:22px}
+.top h2{margin:8px 0 0;font-size:36px}
+.top p{color:#aaa;margin:5px 0 0}
+.card{background:#1e1e1e;border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin:12px 0;border:1px solid #2a2a2a}
+.card b{display:block;font-size:17px}
+.card small{color:#888}
+.kalli{background:#00ff88;color:#000;border:0;padding:10px 22px;border-radius:10px;font-weight:900;font-size:15px}
+.kalli:disabled{background:#333;color:#666}
+.cire{border:2px solid #ffcc00;border-radius:18px;padding:16px;margin-top:20px}
+.cire h3{color:#ffcc00;text-align:center;margin:0 0 12px}
+.cire input{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#111;color:#fff;margin:7px 0}
+.cire button{width:100%;padding:14px;background:#ffcc00;border:0;border-radius:12px;font-weight:900;margin-top:10px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);justify-content:center;align-items:center;z-index:10}
+.modalBox{background:#fff;color:#000;padding:20px;border-radius:14px;width:85%;text-align:center}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h2>YAYI! ₦20 da Ayyuka 5 - DAIDAI!</h2>
-  <div class="bal">Balance: ₦<span id="bal">0</span></div>
-  <small>DANNA KALLI - SAI MODAL YA BUDE</small>
+<div class="top">
+  <h1>YAYI! ₦20 da Ayyuka 5 - DAIDAI!</h1>
+  <h2>Balance: ₦<span id="bal">0</span></h2>
+  <p>DANNA KALLI - SAI MODAL YA BUDE</p>
 </div>
 
-<div id="tasks" style="margin-top:16px"></div>
+<div id="list"></div>
 
-<!-- FORM A KASA - SUNA, ACCOUNT, BANK -->
-<div class="formBox">
+<div class="cire">
   <h3>Cire Kudi</h3>
-  <input id="sunanka" placeholder="Sunan ka">
-  <input id="accNum" placeholder="Account Number (10 digits)" type="number">
-  <input id="bankName" placeholder="Sunan Banki (Opay, Kuda, Palmpay...)">
-  <button onclick="cireKudi()">Nemi Cire Kudi</button>
-  <p style="font-size:11px;color:#aaa;text-align:center;margin-top:8px">Za ka iya cirewa idan ₦40 - ba sai ₦100 ba. Balance ba zai bace ba.</p>
-  <div id="msg" style="text-align:center;font-weight:800;margin-top:8px"></div>
+  <input id="suna" placeholder="Sunan ka">
+  <input id="acc" placeholder="Account Number (10 digits)" type="number">
+  <input id="bank" placeholder="Sunan Banki">
+  <input id="bankAcc" placeholder="Sunan Account? (optional)">
+  <button onclick="cire()">Nemi Cire Kudi - Ko Nawa Ne</button>
+  <p style="text-align:center;color:#aaa;font-size:12px;margin-top:8px">Yanzu ko ₦20 ma zaka iya cirewa - ba sai ₦100 ba</p>
+  <div id="msg" style="text-align:center;font-weight:900;margin-top:8px"></div>
 </div>
 
-<div class="modal" id="modal">
-  <div class="modalBox">
-    <h3 id="mTitle">Ana shirya talla...</h3>
-    <p>Jira <span id="count">5</span> seconds</p>
-    <button id="openBtn" style="display:none;width:100%;padding:12px;background:#000;color:#fff;border-radius:8px" onclick="budeTalla()">Bude Talla Yanzu</button>
-  </div>
-</div>
+<div class="modal" id="mod"><div class="modalBox">
+  <h3>Jira <span id="sec">5</span> seconds</h3>
+  <p>Tallan zai bude, sannan ka samu ₦20</p>
+  <button id="openBtn" style="display:none;width:100%;padding:12px;background:#000;color:#fff;border-radius:8px" onclick="bude()">Bude Talla</button>
+</div></div>
 
 <script>
-// ====== SAUYA ANAN KAWAI ======
-const SMART_LINK = "https://www.profitablecpmrate.com/sauya-wannan-da-link-dinka";
-// ==============================
+const SMART = "https://www.profitablecpmrate.com/SAUYA-DA-LINK-DINKA";
 
-let balance = parseInt(localStorage.getItem('bal_keep') || '0');
-let done = JSON.parse(localStorage.getItem('done_keep') || '[]');
-document.getElementById('bal').innerText = balance;
+let bal = parseInt(localStorage.getItem('bal_final')||'0');
+let yi = JSON.parse(localStorage.getItem('yi_final')||'[]');
+document.getElementById('bal').innerText=bal;
 
-const ayyuka = [
-  {id:1, suna:"Ayyuka 1 - Kalli video"},
-  {id:2, suna:"Ayyuka 2 - Kalli video"},
-  {id:3, suna:"Ayyuka 3 - Kalli video"},
-  {id:4, suna:"Ayyuka 4 - Kalli video"},
-  {id:5, suna:"Ayyuka 5 - Kalli video"},
-];
-
+let cur=null, tm=null;
 function render(){
-  let html='';
-  ayyuka.forEach(a=>{
-    let anYi = done.includes(a.id);
-    html+=`<div class="task"><div><b>${a.suna}</b><small>${anYi?'An kammala - ₦20':'₦20 - Danna KALLI'}</small></div><button class="btn" ${anYi?'disabled':''} onclick="fara(${a.id})">${anYi?'✓':''} KALLI</button></div>`;
-  });
-  document.getElementById('tasks').innerHTML=html;
+  let h='';
+  for(let i=1;i<=5;i++){
+    let ok=yi.includes(i);
+    h+=`<div class="card"><div><b>Ayyuka ${i} - Kalli video</b><small>₦20 - Danna KALLI</small></div><button class="kalli" ${ok?'disabled':''} onclick="fara(${i})">${ok?'✓':''} KALLI</button></div>`;
+  }
+  document.getElementById('list').innerHTML=h;
 }
 render();
 
-let current=null, t=null;
-function fara(id){
-  current=id;
-  document.getElementById('modal').style.display='flex';
-  document.getElementById('count').innerText='5';
+function fara(i){
+  cur=i;
+  document.getElementById('mod').style.display='flex';
+  document.getElementById('sec').innerText='5';
   document.getElementById('openBtn').style.display='none';
   let c=5;
-  clearInterval(t);
-  t=setInterval(()=>{
-    c--; document.getElementById('count').innerText=c;
-    if(c<=0){clearInterval(t); document.getElementById('openBtn').style.display='block';}
+  clearInterval(tm);
+  tm=setInterval(()=>{
+    c--; document.getElementById('sec').innerText=c;
+    if(c<=0){clearInterval(tm); document.getElementById('openBtn').style.display='block';}
   },1000);
 }
-
-function budeTalla(){
-  // Wannan shine gyaran "Sorry" - ba window.open bane
-  const a=document.createElement('a');
-  a.href=SMART_LINK;
-  a.target='_blank';
-  a.rel='noopener';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-
-  if(current && !done.includes(current)){
-    balance+=20;
-    done.push(current);
-    localStorage.setItem('bal_keep', balance);
-    localStorage.setItem('done_keep', JSON.stringify(done));
-    document.getElementById('bal').innerText=balance;
+function bude(){
+  let a=document.createElement('a'); a.href=SMART; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
+  if(cur && !yi.includes(cur)){
+    bal+=20; yi.push(cur);
+    localStorage.setItem('bal_final',bal);
+    localStorage.setItem('yi_final',JSON.stringify(yi));
+    document.getElementById('bal').innerText=bal;
     render();
   }
-  document.getElementById('modal').style.display='none';
-  current=null;
+  document.getElementById('mod').style.display='none';
 }
 
-function cireKudi(){
-  const suna=document.getElementById('sunanka').value.trim();
-  const acc=document.getElementById('accNum').value.trim();
-  const bank=document.getElementById('bankName').value.trim();
-  const msg=document.getElementById('msg');
-  if(!suna || !acc || !bank){msg.style.color='#ff4444'; msg.innerText='Cike duk wurare 3'; return;}
-  if(acc.length<10){msg.style.color='#ff4444'; msg.innerText='Account Number 10 digits ne'; return;}
-  if(balance<40){msg.style.color='#ff4444'; msg.innerText=`Balance ₦${balance} bai kai ₦40 ba`; return;}
+// GYARAN BALANCE - KO NAWA NE ZAI IYA CIREWA
+function cire(){
+  let suna=document.getElementById('suna').value.trim();
+  let acc=document.getElementById('acc').value.trim();
+  let bank=document.getElementById('bank').value.trim();
+  let msg=document.getElementById('msg');
+  if(!suna || !acc || !bank){msg.style.color='red'; msg.innerText='Cike Sunan ka, Account Number, da Banki'; return;}
+  if(bal<=0){msg.style.color='red'; msg.innerText=`Balance ₦${bal} - babu kudi tukuna`; return;}
+  // BA SAI 100 BA - KO NAWA NE!
   msg.style.color='#00ff88';
-  msg.innerText=`Na karba ${suna}! ₦${balance} zuwa ${bank} ${acc} - za a biya ka cikin 24h`;
-  // NOTE: Ban sake sa balance = 0 ba - sai ka tabbatar da biyan sannan ka reset da hannu
+  msg.innerText=`An karba! ${suna} - ₦${bal} zuwa ${bank} ${acc} - za a tura maka`;
+  // Idan kana son ya goge balance bayan cirewa, cire // a layi na kasa:
+  // bal=0; yi=[]; localStorage.setItem('bal_final','0'); localStorage.setItem('yi_final','[]');
 }
 </script>
 </body>
