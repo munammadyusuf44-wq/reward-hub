@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="ha">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Reward Hub</title>
 <style>
-*{box-sizing:border-box;font-family:system-ui}
+*{box-sizing:border-box;font-family:system-ui,sans-serif}
 body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .top{display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;gap:10px;align-items:center;font-weight:900}
@@ -21,6 +21,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
 .formBox input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3655;background:#0a1020;color:#fff;margin:6px 0}
 .formBox button{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff}
+#info{color:#8aa0c0;font-size:12px}
 </style>
 </head>
 <body>
@@ -33,7 +34,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 <div class="balBox">
   <small>💎 BALANCE DINKA</small>
   <h1>₦<span id="bal">100</span></h1>
-  <div style="color:#8aa0c0;font-size:14px">₦<span id="bal2">100</span> / ₦100</div>
+  <div id="info">0/5 an yi a yau</div>
 </div>
 
 <h3 style="margin:16px 0 6px">⭐ Ayyukan Yau ₦8 kowanne</h3>
@@ -50,7 +51,16 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 
 <script>
 const SMART_LINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
-const WA_NUM = "2347070079526"; // 07070079526 - hidden, ba a showing
+const WA_NUM = "2347070079526";
+const H24 = 24*60*60*1000;
+
+let now = Date.now();
+let doneTime = parseInt(localStorage.getItem('hub_done_time')||'0');
+if(doneTime && (now - doneTime) >= H24){
+  localStorage.setItem('hub_done', JSON.stringify([]));
+  localStorage.removeItem('hub_done_time');
+  doneTime = 0;
+}
 
 let balance = parseInt(localStorage.getItem('hub_bal'));
 if(isNaN(balance)) balance = 100;
@@ -59,8 +69,21 @@ let done = JSON.parse(localStorage.getItem('hub_done')||'[]');
 function save(){
   localStorage.setItem('hub_bal', balance);
   localStorage.setItem('hub_done', JSON.stringify(done));
-  document.getElementById('bal').innerText=balance;
-  document.getElementById('bal2').innerText=balance;
+  document.getElementById('bal').innerText = balance;
+  if(done.length === 5){
+    if(!localStorage.getItem('hub_done_time')){
+      localStorage.setItem('hub_done_time', Date.now().toString());
+    }
+    let dt = parseInt(localStorage.getItem('hub_done_time'));
+    let left = H24 - (Date.now() - dt);
+    if(left < 0) left = 0;
+    let h = Math.floor(left/3600000);
+    let m = Math.floor((left%3600000)/60000);
+    document.getElementById('info').innerText = `An kulle - zai sake budewa bayan ${h}h ${m}m`;
+  } else {
+    document.getElementById('info').innerText = `${done.length}/5 an yi - ${done.length===5?'cika 24h zai bude':''}`;
+    if(done.length < 5) localStorage.removeItem('hub_done_time');
+  }
 }
 save();
 
@@ -74,11 +97,9 @@ function render(){
 }
 render();
 
-// DIRECT KALLI -> SMART LINK - DOLE SAI YA KALLI TALLA
 function kalliDirect(id){
   if(done.includes(id)) return;
-  
-  // 1. Direct bude smart link yanzu
+  // DANNA KALLI - DIRECT YAKAI SHI ZUWA SMART LINK - DOLE SAI YA KALLI
   let a=document.createElement('a');
   a.href=SMART_LINK;
   a.target='_blank';
@@ -86,21 +107,19 @@ function kalliDirect(id){
   a.click();
   a.remove();
 
-  // 2. Dole sai ya jira 10 seconds yana kallon talla
   let btn=document.getElementById('btn'+id);
   btn.disabled=true;
   let c=10;
   btn.innerText=`Jira ${c}s...`;
-  
   let t=setInterval(()=>{
     c--;
     btn.innerText=`Kana kallon... ${c}s`;
     if(c<=0){
       clearInterval(t);
-      // 3. Bayan ya kalli sai a bashi ₦8
       balance+=8;
       done.push(id);
-      save(); render();
+      save();
+      render();
     }
   },1000);
 }
@@ -112,14 +131,14 @@ function cireWA(){
   let m=document.getElementById('msg');
   if(!suna||!acc||!bank){m.innerText='Cike komai';return;}
   if(balance<=0){m.innerText='Babu balance';return;}
-
   let text=`Salam! Cire kudi\nSuna: ${suna}\nBank: ${bank}\nAcc: ${acc}\nBalance: ₦${balance}`;
   window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`,'_blank');
-
   balance=0;
   done=[];
-  save(); render();
-  m.innerText='An tura WhatsApp! Balance ya koma 0';
+  localStorage.removeItem('hub_done_time');
+  save();
+  render();
+  m.innerText='An tura WhatsApp! Balance 0 kuma ayyuka sun bude';
 }
 </script>
 </body>
