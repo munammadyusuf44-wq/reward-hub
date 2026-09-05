@@ -9,8 +9,8 @@
 body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .top{display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;gap:10px;align-items:center;font-weight:900}
-.logo i{background:#7c4dff;color:#fff;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;font-style:normal;font-size:22px}
-.live{border:1px solid #7c4dff;color:#7c4dff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800}
+.logo i{background:linear-gradient(135deg,#7c4dff,#00d4ff);color:#fff;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;font-style:normal;font-size:22px}
+.live{border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800}
 .balBox{background:#151e36;border-radius:20px;padding:16px;margin-top:14px;border:1px solid #1e2a4a}
 .balBox small{color:#8aa0c0;letter-spacing:2px;font-size:11px}
 .balBox h1{font-size:54px;margin:4px 0}
@@ -20,7 +20,8 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 .formBox{border:2px solid #ffcc00;border-radius:18px;padding:14px;margin-top:16px;background:#111a30}
 .formBox h3{color:#ffcc00;text-align:center;margin:0 0 10px}
 .formBox input{width:100%;padding:13px;border-radius:12px;border:1px solid #2a3655;background:#0a1020;color:#fff;margin:6px 0}
-.formBox button{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff}
+.btnWA{width:100%;padding:14px;background:#25D366;border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#fff}
+.btnSMS{width:100%;padding:14px;background:linear-gradient(135deg,#ff8a00,#ffcc00);border:0;border-radius:12px;font-weight:900;margin-top:8px;color:#000}
 #info{color:#00d4ff;font-size:13px;font-weight:700}
 .timerBox{background:#0f1a33;border:1px dashed #7c4dff;border-radius:12px;padding:8px 12px;margin-top:8px;font-size:12px;color:#aab4d0}
 </style>
@@ -29,7 +30,7 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
 
 <div class="top">
   <div class="logo"><i>N</i> Reward Hub</div>
-  <div class="live">● LIVE - 12H RESET</div>
+  <div class="live">● LIVE - 12H</div>
 </div>
 
 <div class="balBox">
@@ -47,65 +48,51 @@ body{margin:0;background:#0a1020;color:#fff;padding:12px}
   <input id="suna" placeholder="Sunan ka">
   <input id="acc" placeholder="Account Number">
   <input id="bank" placeholder="Sunan Banki (Opay, Kuda)">
-  <button onclick="cireWA()">📱 Cire Kudi Yanzu</button>
+  <!-- OPTION BIYU -->
+  <button class="btnWA" onclick="cire('wa')">📱 Tura ta WhatsApp</button>
+  <button class="btnSMS" onclick="cire('sms')">✉️ Tura ta SMS (Idan baka da WhatsApp)</button>
   <div id="msg" style="text-align:center;margin-top:8px;font-size:12px;color:#8aa0c0"></div>
 </div>
 
 <script>
 const SMART_LINK = "https://www.profitableratecpmnetwork.com/n9cz66n4c?key=cdf5f2c0cab284beb924740322550862";
+const PHONE = "07070079526";
 const WA_NUM = "2347070079526";
-// 12 HOURS - KA LURA SHI KADAI NA CANJA
 const RESET_TIME = 12*60*60*1000;
 
-// FARA DAGA FARKO - DON BUTTON SU IYA DANNAMA YANZU
-let currentVersion = "v3_12h";
-let savedVersion = localStorage.getItem('hub_ver');
-if(savedVersion !== currentVersion){
-  localStorage.removeItem('hub_done_v3');
-  localStorage.removeItem('hub_done_time_v3');
-  localStorage.setItem('hub_ver', currentVersion);
+let ver="v4_12h_dual";
+if(localStorage.getItem('hub_ver')!==ver){
+  localStorage.removeItem('hub_done_v4');
+  localStorage.removeItem('hub_done_time_v4');
+  localStorage.setItem('hub_ver',ver);
 }
 
-let now = Date.now();
-let doneTime = parseInt(localStorage.getItem('hub_done_time_v3')||'0');
-if(doneTime && (now - doneTime) >= RESET_TIME){
-  localStorage.setItem('hub_done_v3', JSON.stringify([]));
-  localStorage.removeItem('hub_done_time_v3');
+let dt=parseInt(localStorage.getItem('hub_done_time_v4')||'0');
+if(dt && (Date.now()-dt)>=RESET_TIME){
+  localStorage.setItem('hub_done_v4',JSON.stringify([]));
+  localStorage.removeItem('hub_done_time_v4');
 }
 
-let balance = parseInt(localStorage.getItem('hub_bal'));
-if(isNaN(balance)) balance = 100;
-let done = JSON.parse(localStorage.getItem('hub_done_v3')||'[]');
-
-function formatTime(ts){
-  let d = new Date(ts);
-  return d.toLocaleString('ha-NG',{hour:'2-digit',minute:'2-digit',hour12:true}) + " - " + d.toLocaleDateString();
-}
+let balance=parseInt(localStorage.getItem('hub_bal'));
+if(isNaN(balance)) balance=100;
+let done=JSON.parse(localStorage.getItem('hub_done_v4')||'[]');
 
 function save(){
-  localStorage.setItem('hub_bal', balance);
-  localStorage.setItem('hub_done_v3', JSON.stringify(done));
-  document.getElementById('bal').innerText = balance;
-  
-  if(done.length === 5){
-    if(!localStorage.getItem('hub_done_time_v3')){
-      localStorage.setItem('hub_done_time_v3', Date.now().toString());
-    }
-    let dt = parseInt(localStorage.getItem('hub_done_time_v3'));
-    let unlock = dt + RESET_TIME;
-    let left = unlock - Date.now();
-    if(left < 0) left = 0;
-    let h = Math.floor(left/3600000);
-    let m = Math.floor((left%3600000)/60000);
-    
-    document.getElementById('info').innerText = `An kulle - 12 hours`;
-    document.getElementById('timerBox').style.display = 'block';
-    // TIME A LINK YADDA USER ZAI GANE
-    document.getElementById('timerBox').innerHTML = `⏰ <b>Zai sake budewa:</b> ${formatTime(unlock)}<br>⏳ <b>Saura:</b> ${h}h ${m}m<br><small>12 hours daga lokacin da ka kammala</small>`;
-  } else {
-    document.getElementById('info').innerText = `${done.length}/5 an yi - ${5-done.length} saura`;
-    document.getElementById('timerBox').style.display = 'none';
-    if(done.length < 5) localStorage.removeItem('hub_done_time_v3');
+  localStorage.setItem('hub_bal',balance);
+  localStorage.setItem('hub_done_v4',JSON.stringify(done));
+  document.getElementById('bal').innerText=balance;
+  if(done.length===5){
+    if(!localStorage.getItem('hub_done_time_v4')) localStorage.setItem('hub_done_time_v4',Date.now().toString());
+    let unlock=parseInt(localStorage.getItem('hub_done_time_v4'))+RESET_TIME;
+    let left=unlock-Date.now(); if(left<0) left=0;
+    let h=Math.floor(left/3600000), m=Math.floor((left%3600000)/60000);
+    document.getElementById('info').innerText=`An kulle - 12 hours`;
+    document.getElementById('timerBox').style.display='block';
+    document.getElementById('timerBox').innerHTML=`⏰ <b>Zai sake budewa:</b> ${new Date(unlock).toLocaleString()}<br>⏳ <b>Saura:</b> ${h}h ${m}m`;
+  }else{
+    document.getElementById('info').innerText=`${done.length}/5 an yi`;
+    document.getElementById('timerBox').style.display='none';
+    if(done.length<5) localStorage.removeItem('hub_done_time_v4');
   }
 }
 save();
@@ -123,22 +110,11 @@ render();
 function kalliDirect(id){
   if(done.includes(id)) return;
   let a=document.createElement('a'); a.href=SMART_LINK; a.target='_blank'; document.body.appendChild(a); a.click(); a.remove();
-  let btn=document.getElementById('btn'+id);
-  btn.disabled=true;
-  let c=10;
-  btn.innerText=`Jira ${c}s...`;
-  let t=setInterval(()=>{
-    c--; btn.innerText=`Kana kallon... ${c}s`;
-    if(c<=0){
-      clearInterval(t);
-      balance+=8;
-      done.push(id);
-      save(); render();
-    }
-  },1000);
+  let btn=document.getElementById('btn'+id); btn.disabled=true; let c=10; btn.innerText=`Jira ${c}s...`;
+  let t=setInterval(()=>{c--; btn.innerText=`Kana kallon... ${c}s`; if(c<=0){clearInterval(t); balance+=8; done.push(id); save(); render();}},1000);
 }
 
-function cireWA(){
+function cire(type){
   let suna=document.getElementById('suna').value.trim();
   let acc=document.getElementById('acc').value.trim();
   let bank=document.getElementById('bank').value.trim();
@@ -146,14 +122,18 @@ function cireWA(){
   if(!suna||!acc||!bank){m.innerText='Cike komai';return;}
   if(balance<=0){m.innerText='Babu balance';return;}
   let text=`Salam! Cire kudi\nSuna: ${suna}\nBank: ${bank}\nAcc: ${acc}\nBalance: ₦${balance}`;
-  window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`,'_blank');
-  balance=0; done=[]; localStorage.removeItem('hub_done_time_v3');
+  
+  if(type==='wa'){
+    window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`,'_blank');
+  }else{
+    // SMS - zai shigo a text message dinka
+    window.open(`sms:${PHONE}?body=${encodeURIComponent(text)}`,'_blank');
+  }
+  balance=0; done=[]; localStorage.removeItem('hub_done_time_v4');
   save(); render();
-  m.innerText='An tura WhatsApp! Balance 0 kuma ayyuka sun bude';
+  m.innerText= type==='wa' ? 'An tura WhatsApp! Balance 0' : 'An bude SMS! Aika zuwa '+PHONE;
 }
-
-// Update timer kowane minti
-setInterval(save, 60000);
+setInterval(save,60000);
 </script>
 </body>
 </html>
