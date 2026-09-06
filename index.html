@@ -1,75 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ha">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="monetag" content="c5d570c1b43ff8e7ec61f6e526a3f008">
-<title>N Reward Hub</title>
+<title>Reward Hub - Samu Kudi</title>
+
+<!-- MONETAG SOCIAL BAR - SAKE ZONE ID DINKA ANAN -->
+<script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE_ID_HERE" async data-cfasync="false"></script>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
-body{background:#070E23;color:#fff;min-height:100vh;padding-bottom:40px}
-.header{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;background:#070E23;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-circle{width:42px;height:42px;background:linear-gradient(135deg,#00D9FF,#0088FF);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
-.logo-text{font-weight:800;font-size:18px}
-.live{border:1px solid #00E5FF;color:#00E5FF;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px}
-.live-dot{width:8px;height:8px;background:#00E5FF;border-radius:50%;display:inline-block;animation:b 1.2s infinite}
-@keyframes b{0%,100%{opacity:1}50%{opacity:.3}}
-.wrap{max-width:480px;margin:0 auto;padding:14px}
-.balance{background:linear-gradient(135deg,#131E3A 0%,#1B2B4F 100%);border-radius:22px;padding:20px;border:1px solid rgba(255,255,255,.06)}
-.balance-top{font-size:12px;letter-spacing:2px;opacity:.6;display:flex;gap:8px;font-weight:600}
-.balance-amount{font-size:58px;font-weight:900;margin:10px 0}
-.balance-open{color:#00E5FF;font-weight:800;font-size:20px;margin-bottom:12px}
-.balance-ready{border:1.5px dashed rgba(255,255,255,.25);border-radius:14px;padding:14px 16px;font-size:15px}
-.tasks-title{margin:26px 0 14px;font-size:18px;font-weight:800;display:flex;gap:8px}
-.task{background:#131E3A;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border:1px solid rgba(255,255,255,.05)}
-.task-num{font-size:16px;font-weight:600}
-.task-price{background:rgba(0,229,255,.12);color:#00E5FF;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:800;margin-left:6px}
-.task-btn{background:#1E2E56;color:#7A8BA8;border:none;padding:10px 18px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;min-width:90px}
-.task-btn.active{background:#fff;color:#070E23}
-.task-btn.done{background:#1E2E56;color:#4A5A7A}
-.withdraw{margin-top:26px;border:2px solid #FFC93C;border-radius:20px;padding:18px;background:#131E3A}
-.withdraw h2{color:#FFC93C;text-align:center;font-size:22px;font-weight:900;margin-bottom:16px}
-.input{width:100%;background:#0B142C;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:15px 16px;color:#fff;font-size:15px;outline:none;margin-bottom:12px}
-.btn-wa{width:100%;background:#22C55E;color:#000;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;display:flex;justify-content:center;gap:8px;margin-top:6px}
-.btn-sms{width:100%;background:#F59E0B;color:#000;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;display:flex;justify-content:center;gap:8px;margin-top:12px}
-.overlay{position:fixed;inset:0;background:rgba(7,14,35,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
-.overlay.show{display:flex}
-.modal{background:#131E3A;border-radius:20px;padding:26px;max-width:340px;width:100%;text-align:center;border:1px solid rgba(255,255,255,.1)}
-.bar{height:6px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin:14px 0}
-.bar-fill{height:100%;background:#22C55E;width:0%;transition:width 1s linear}
-.count{font-size:36px;font-weight:900;margin:8px 0}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#0f0f0f;color:#fff;padding:15px}
+.header{background:linear-gradient(135deg,#6a11cb,#2575fc);padding:20px;border-radius:15px;text-align:center;margin-bottom:20px}
+.balance{font-size:36px;font-weight:900;color:#00ff88;margin:10px 0}
+.tasks{display:grid;gap:12px}
+.task{background:#1e1e1e;border:1px solid #333;padding:15px;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+.btn{padding:10px 20px;border:none;border-radius:8px;font-weight:900;cursor:pointer}
+.btn-go{background:#00ff88;color:#000}
+.btn-done{background:#333;color:#666;cursor:not-allowed}
 </style>
-<!-- FABULOUS 11653753 + 11653756 - manna script dinka anan -->
 </head>
 <body>
-<div class="header"><div class="logo"><div class="logo-circle">N</div><div class="logo-text">Reward Hub</div></div><div class="live"><span class="live-dot"></span> LIVE - 12H</div></div>
-<div class="wrap">
-<div class="balance"><div class="balance-top">💎 YOUR BALANCE</div><div class="balance-amount">₦<span id="bal">70</span></div><div class="balance-open">Open</div><div class="balance-ready">Ready to do tasks! <span id="doneTxt">0/5</span></div></div>
-<div class="tasks-title">⭐ Today's Tasks ₦8 each</div>
-<div class="task"><div class="task-num">Ad 1 <span class="task-price">₦8</span></div><button class="task-btn active" id="b1" onclick="doAd(1)">Watch</button></div>
-<div class="task"><div class="task-num">Ad 2 <span class="task-price">₦8</span></div><button class="task-btn active" id="b2" onclick="doAd(2)">Watch</button></div>
-<div class="task"><div class="task-num">Ad 3 <span class="task-price">₦8</span></div><button class="task-btn active" id="b3" onclick="doAd(3)">Watch</button></div>
-<div class="task"><div class="task-num">Ad 4 <span class="task-price">₦8</span></div><button class="task-btn active" id="b4" onclick="doAd(4)">Watch</button></div>
-<div class="task"><div class="task-num">Ad 5 <span class="task-price">₦8</span></div><button class="task-btn active" id="b5" onclick="doAd(5)">Watch</button></div>
-<div class="withdraw"><h2>Withdraw - How Much</h2>
-<input class="input" id="name" placeholder="Your Name">
-<input class="input" id="acct" placeholder="Account Number">
-<input class="input" id="bank" placeholder="Bank Name (Opay, Kuda)">
-<button class="btn-wa" onclick="withdraw('wa')">📱 Send via WhatsApp</button>
-<button class="btn-sms" onclick="withdraw('sms')">✉️ Send via SMS (If no WhatsApp)</button>
-</div></div>
-<div class="overlay" id="overlay"><div class="modal"><h3>Ad <span id="adNum">1</span></h3><p>Tallan TAP TO EARN zai bude - jira 8s</p><div class="bar"><div class="bar-fill" id="bar"></div></div><div class="count" id="count">8</div></div></div>
+
+<div class="header">
+  <h1>🎁 Reward Hub</h1>
+  <p>Balance</p>
+  <div class="balance">₦<span id="bal">0</span></div>
+  <p style="font-size:12px;color:#b0ffcf">₦4 kowanne aiki | 5 = ₦20 | Babu jira!</p>
+</div>
+
+<div class="tasks" id="tasks"></div>
+
 <script>
-const AD_LINK="https://omg10.com/4/11737348";
-let bal=parseInt(localStorage.getItem('bal')||'70');
-let done=JSON.parse(localStorage.getItem('done')||'[false,false,false,false,false]');
-let timer=null,sec=8,cur=1;
-function render(){document.getElementById('bal').innerText=bal;document.getElementById('doneTxt').innerText=`${done.filter(Boolean).length}/5`;done.forEach((d,i)=>{const b=document.getElementById('b'+(i+1));if(d){b.innerText='Done ✓';b.className='task-btn done';b.disabled=true}else{b.innerText='Watch';b.className='task-btn active'}});localStorage.setItem('bal',bal);localStorage.setItem('done',JSON.stringify(done));}
-function doAd(n){cur=n;if(done[n-1])return;window.open(AD_LINK,'_blank');document.getElementById('overlay').classList.add('show');document.getElementById('adNum').innerText=n;sec=8;upd();timer=setInterval(()=>{sec--;upd();if(sec<=0){clearInterval(timer);finish();}},1000);}
-function upd(){document.getElementById('count').innerText=sec;document.getElementById('bar').style.width=((8-sec)/8*100)+'%';}
-function finish(){document.getElementById('overlay').classList.remove('show');if(!done[cur-1]){done[cur-1]=true;bal+=8;}render();}
-function withdraw(t){const name=document.getElementById('name').value.trim();const acct=document.getElementById('acct').value.trim();const bank=document.getElementById('bank').value.trim();if(!name||!acct||!bank){alert('Cika Name, Account, Bank');return;}const msg=`Salam! Withdrawal%0AName:${encodeURIComponent(name)}%0AAcct:${encodeURIComponent(acct)}%0ABank:${encodeURIComponent(bank)}%0ABal:₦${bal}`;if(t==='wa'){window.open(`https://wa.me/2347070079526?text=${msg}`,'_blank');}else{window.open(`sms:07070079526?body=${msg}`,'_blank');}}
+// ==== ANAN NE KUDI ====
+const REWARD = 4; // N4 kowanne - ba N20 ba
+const TASK_COUNT = 5;
+
+// Direct Links naka na Monetag - SAKE SU ANAN
+const LINKS = [
+  "https://alwingulla.com/4/YOUR_LINK_1",
+  "https://alwingulla.com/4/YOUR_LINK_2",
+  "https://alwingulla.com/4/YOUR_LINK_3",
+  "https://alwingulla.com/4/YOUR_LINK_4",
+  "https://alwingulla.com/4/YOUR_LINK_5"
+];
+
+let bal = parseInt(localStorage.getItem('rh_bal')||'0');
+let done = JSON.parse(localStorage.getItem('rh_done')||'[]');
+
+function save(){
+  localStorage.setItem('rh_bal',bal);
+  localStorage.setItem('rh_done',JSON.stringify(done));
+  document.getElementById('bal').innerText=bal;
+}
+
+function render(){
+  const wrap=document.getElementById('tasks');
+  wrap.innerHTML='';
+  for(let i=0;i<TASK_COUNT;i++){
+    let isDone=done.includes(i);
+    let div=document.createElement('div');
+    div.className='task';
+    div.innerHTML=`
+      <div>
+        <h3>Aiki ${i+1}</h3>
+        <p style="font-size:12px;color:#aaa">${isDone?'An gama - ₦4':'Danna ka samu ₦4'}</p>
+      </div>
+      <button class="btn ${isDone?'btn-done':'btn-go'}" onclick="doTask(${i})" ${isDone?'disabled':''}>
+        ${isDone?'✔':'Tashi ₦4'}
+      </button>
+    `;
+    wrap.appendChild(div);
+  }
+  save();
+  if(done.length>=TASK_COUNT){
+    setTimeout(()=>{
+      if(confirm('Yayi! Ka gama 5 ka samu ₦20! Ka sake farawa?')){
+        done=[]; save(); render();
+      }
+    },500);
+  }
+}
+
+function doTask(i){
+  if(done.includes(i)) return;
+  // Bude talla
+  window.open(LINKS[i]||LINKS[0],'_blank');
+
+  // BABU 12 HOURS - nan take ana bashi kudi!
+  setTimeout(()=>{
+    done.push(i);
+    bal+=REWARD;
+    render();
+    alert('Yayi! Ka samu ₦'+REWARD+'! Balance: ₦'+bal);
+  },1500);
+}
+
 render();
 </script>
 </body>
