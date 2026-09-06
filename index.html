@@ -2,129 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reward Hub - Yusuf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="monetag" content="4ca8dbbf90fa7814898131f1deee6ef7">
+<title>N Reward Hub</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-body{background:#0a1020;color:#fff;min-height:100vh;padding:16px}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
+body{background:#070E23;color:#fff;min-height:100vh;padding-bottom:40px}
+.header{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;background:#070E23;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.06)}
 .logo{display:flex;align-items:center;gap:10px}
-.nbox{width:48px;height:48px;background:linear-gradient(135deg,#3b82f6,#06b6d4);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:24px}
-.live{border:1px solid #06b6d4;color:#06b6d4;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700}
-.card{background:#141e36;border-radius:24px;padding:20px;margin-bottom:20px}
-.bal{font-size:12px;letter-spacing:2px;color:#94a3b8;margin-bottom:8px}
-.amount{font-size:56px;font-weight:900}
-.lock{color:#06b6d4;margin:10px 0;font-weight:700}
-.timer{border:1px dashed #6b7280;border-radius:16px;padding:12px;font-size:13px;line-height:1.6}
-.task{background:#1a2744;border-radius:20px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.badge{background:rgba(6,182,212,0.15);color:#06b6d4;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:700;margin-left:8px}
-.btn{padding:12px 22px;border-radius:12px;border:none;font-weight:800;cursor:pointer}
-.btn-kalli{background:#22c55e;color:#000}
-.btn-done{background:#2a3655;color:#6b7a9a}
-.withdraw{border:2px solid #facc15;border-radius:24px;padding:20px;background:#141e36}
-.withdraw h2{color:#facc15;text-align:center;margin-bottom:16px}
-input{width:100%;background:#0a1020;border:1px solid #2a3655;border-radius:14px;padding:16px;color:#fff;margin-bottom:12px;outline:none}
-.btn-wa{background:#22c55e;color:#000;width:100%;padding:16px;border-radius:14px;border:none;font-weight:900;margin-bottom:10px;font-size:16px;cursor:pointer}
-.btn-sms{background:#f59e0b;color:#000;width:100%;padding:16px;border-radius:14px;border:none;font-weight:900;font-size:16px;cursor:pointer}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:99}
-.modalbox{background:#fff;color:#000;padding:28px;border-radius:20px;text-align:center;max-width:320px;width:90%}
+.logo-circle{width:42px;height:42px;background:linear-gradient(135deg,#00D9FF,#0088FF);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.logo-text{font-weight:800;font-size:18px}
+.live{border:1px solid #00E5FF;color:#00E5FF;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px}
+.live-dot{width:8px;height:8px;background:#00E5FF;border-radius:50%;display:inline-block;animation:b 1.2s infinite}
+@keyframes b{0%,100%{opacity:1}50%{opacity:.3}}
+.wrap{max-width:480px;margin:0 auto;padding:14px}
+.balance{background:linear-gradient(135deg,#131E3A 0%,#1B2B4F 100%);border-radius:22px;padding:20px;border:1px solid rgba(255,255,255,.06)}
+.balance-top{font-size:12px;letter-spacing:2px;opacity:.6;display:flex;gap:8px;font-weight:600}
+.balance-amount{font-size:58px;font-weight:900;margin:10px 0}
+.balance-open{color:#00E5FF;font-weight:800;font-size:20px;margin-bottom:12px}
+.balance-ready{border:1.5px dashed rgba(255,255,255,.25);border-radius:14px;padding:14px 16px;font-size:15px}
+.tasks-title{margin:26px 0 14px;font-size:18px;font-weight:800;display:flex;gap:8px}
+.task{background:#131E3A;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border:1px solid rgba(255,255,255,.05)}
+.task-num{font-size:16px;font-weight:600}
+.task-price{background:rgba(0,229,255,.12);color:#00E5FF;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:800;margin-left:6px}
+.task-btn{background:#1E2E56;color:#7A8BA8;border:none;padding:10px 18px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;min-width:90px}
+.task-btn.active{background:#fff;color:#070E23}
+.task-btn.done{background:#1E2E56;color:#4A5A7A}
+.withdraw{margin-top:26px;border:2px solid #FFC93C;border-radius:20px;padding:18px;background:#131E3A}
+.withdraw h2{color:#FFC93C;text-align:center;font-size:22px;font-weight:900;margin-bottom:16px}
+.input{width:100%;background:#0B142C;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:15px 16px;color:#fff;font-size:15px;outline:none;margin-bottom:12px}
+.btn-wa{width:100%;background:#22C55E;color:#000;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;display:flex;justify-content:center;gap:8px;margin-top:6px}
+.btn-sms{width:100%;background:#F59E0B;color:#000;border:none;padding:15px;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;display:flex;justify-content:center;gap:8px;margin-top:12px}
+.overlay{position:fixed;inset:0;background:rgba(7,14,35,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.overlay.show{display:flex}
+.modal{background:#131E3A;border-radius:20px;padding:26px;max-width:340px;width:100%;text-align:center;border:1px solid rgba(255,255,255,.1)}
+.bar{height:6px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;margin:14px 0}
+.bar-fill{height:100%;background:#22C55E;width:0%;transition:width 1s linear}
+.count{font-size:36px;font-weight:900;margin:8px 0}
 </style>
+<!-- FABULOUS 11653753 + 11653756 - manna script dinka anan -->
 </head>
 <body>
-
-<div class="header">
-<div class="logo"><div class="nbox">N</div><b>Reward Hub</b></div>
-<div class="live">● LIVE - 12H</div>
-</div>
-
-<div class="card">
-<div class="bal">💎 YOUR BALANCE</div>
-<div class="amount" id="bal">₦0</div>
-<div class="lock" id="lockText">Open</div>
-<div class="timer" id="timerBox">Will reopen: -<br>Remaining: -</div>
-</div>
-
-<div style="margin:16px 0;color:#facc15;font-weight:800">⭐ Today's Tasks ₦8 each</div>
-
-<div id="tasks"></div>
-
-<div class="withdraw">
-<h2>Withdraw - How Much</h2>
-<input id="suna" placeholder="Your Name">
-<input id="acc" placeholder="Account Number">
-<input id="bank" placeholder="Bank Name (Opay, Kuda)">
-<button class="btn-wa" onclick="withdrawWA()">📱 Send via WhatsApp</button>
-<button class="btn-sms" onclick="withdrawSMS()">✉️ Send via SMS (If no WhatsApp)</button>
-</div>
-
+<div class="header"><div class="logo"><div class="logo-circle">N</div><div class="logo-text">Reward Hub</div></div><div class="live"><span class="live-dot"></span> LIVE - 12H</div></div>
+<div class="wrap">
+<div class="balance"><div class="balance-top">💎 YOUR BALANCE</div><div class="balance-amount">₦<span id="bal">70</span></div><div class="balance-open">Open</div><div class="balance-ready">Ready to do tasks! <span id="doneTxt">0/5</span></div></div>
+<div class="tasks-title">⭐ Today's Tasks ₦8 each</div>
+<div class="task"><div class="task-num">Ad 1 <span class="task-price">₦8</span></div><button class="task-btn active" id="b1" onclick="doAd(1)">Watch</button></div>
+<div class="task"><div class="task-num">Ad 2 <span class="task-price">₦8</span></div><button class="task-btn active" id="b2" onclick="doAd(2)">Watch</button></div>
+<div class="task"><div class="task-num">Ad 3 <span class="task-price">₦8</span></div><button class="task-btn active" id="b3" onclick="doAd(3)">Watch</button></div>
+<div class="task"><div class="task-num">Ad 4 <span class="task-price">₦8</span></div><button class="task-btn active" id="b4" onclick="doAd(4)">Watch</button></div>
+<div class="task"><div class="task-num">Ad 5 <span class="task-price">₦8</span></div><button class="task-btn active" id="b5" onclick="doAd(5)">Watch</button></div>
+<div class="withdraw"><h2>Withdraw - How Much</h2>
+<input class="input" id="name" placeholder="Your Name">
+<input class="input" id="acct" placeholder="Account Number">
+<input class="input" id="bank" placeholder="Bank Name (Opay, Kuda)">
+<button class="btn-wa" onclick="withdraw('wa')">📱 Send via WhatsApp</button>
+<button class="btn-sms" onclick="withdraw('sms')">✉️ Send via SMS (If no WhatsApp)</button>
+</div></div>
+<div class="overlay" id="overlay"><div class="modal"><h3>Ad <span id="adNum">1</span></h3><p>Tallan TAP TO EARN zai bude - jira 8s</p><div class="bar"><div class="bar-fill" id="bar"></div></div><div class="count" id="count">8</div></div></div>
 <script>
-const LINK="https://omg10.com/4/11737348";
-const WA_NUMBER="2347070079526";
-const SMS_NUMBER="07070079526";
-let balance=parseInt(localStorage.getItem('rh_bal')||'0');
-let done=JSON.parse(localStorage.getItem('rh_done')||'[false,false,false,false,false]');
-let lockUntil=parseInt(localStorage.getItem('rh_lock')||'0');
-
-function render(){
-document.getElementById('bal').innerText='₦'+balance;
-let now=Date.now();
-if(lockUntil>now){
- let diff=lockUntil-now;
- let h=Math.floor(diff/3600000);
- let m=Math.floor((diff%3600000)/60000);
- document.getElementById('lockText').innerText='Locked - 12 hours';
- document.getElementById('timerBox').innerHTML=`⏰ Will reopen: ${new Date(lockUntil).toLocaleString()}<br>⏳ Remaining: ${h}h ${m}m`;
-} else {
- document.getElementById('lockText').innerText='Open';
- document.getElementById('timerBox').innerHTML='Ready to do tasks!';
- if(lockUntil!==0){ done=[false,false,false,false,false]; lockUntil=0; localStorage.setItem('rh_done',JSON.stringify(done)); localStorage.setItem('rh_lock','0'); }
-}
-let html='';
-for(let i=0;i<5;i++){
- html+=`<div class="task"><div>Ad ${i+1}<span class="badge">₦8</span></div>${done[i]?'<button class="btn btn-done">Done ✓</button>':`<button class="btn btn-kalli" onclick="doTask(${i})">VIEW</button>`}</div>`;
-}
-document.getElementById('tasks').innerHTML=html;
-}
-
-function doTask(i){
- if(done[i]) return;
- // DIRECT OPEN AD - no iframe
- window.open(LINK,'_blank');
- let sec=8;
- let modal=document.createElement('div');
- modal.className='modal';
- modal.innerHTML=`<div class="modalbox"><h2 id="cnt">Wait ${sec}s...</h2><p style="margin:12px 0">Ad opened in new tab<br><b>No need to buy</b> - view counts as earning<br><br>If you see "Webpage not available" close it and return here, money will come</p></div>`;
- document.body.appendChild(modal);
- let int=setInterval(()=>{
-  sec--;
-  document.getElementById('cnt').innerText=`Wait ${sec}s...`;
-  if(sec<=0){
-   clearInterval(int);
-   document.body.removeChild(modal);
-   if(!done[i]){ balance+=8; done[i]=true; localStorage.setItem('rh_bal',balance); localStorage.setItem('rh_done',JSON.stringify(done)); if(done.every(x=>x)){ lockUntil=Date.now()+12*3600000; localStorage.setItem('rh_lock',lockUntil); } render(); }
-  }
- },1000);
-}
-
-function withdrawWA(){
- let suna=document.getElementById('suna').value.trim();
- let acc=document.getElementById('acc').value.trim();
- let bank=document.getElementById('bank').value.trim();
- if(!suna||!acc||!bank){ alert('Fill Your Name, Account Number and Bank Name'); return; }
- if(balance<50){ alert('Balance not up to minimum ₦50'); return; }
- let msg=`Hello, I want to withdraw:%0AName: ${suna}%0AAccount: ${acc}%0ABank: ${bank}%0ABalance: ₦${balance}%0ASite: yusuf44-wq.github.io`;
- window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
-}
-function withdrawSMS(){
- let suna=document.getElementById('suna').value.trim();
- let acc=document.getElementById('acc').value.trim();
- let bank=document.getElementById('bank').value.trim();
- if(!suna||!acc||!bank){ alert('Fill Your Name, Account Number and Bank Name'); return; }
- if(balance<50){ alert('Balance not up to minimum ₦50'); return; }
- let msg=`Hello, I want to withdraw: Name: ${suna}, Account: ${acc}, Bank: ${bank}, Balance: ₦${balance}, Site: yusuf44-wq.github.io`;
- window.open(`sms:${SMS_NUMBER}?body=${encodeURIComponent(msg)}`,'_blank');
-}
-
+const AD_LINK="https://omg10.com/4/11737348";
+let bal=parseInt(localStorage.getItem('bal')||'70');
+let done=JSON.parse(localStorage.getItem('done')||'[false,false,false,false,false]');
+let timer=null,sec=8,cur=1;
+function render(){document.getElementById('bal').innerText=bal;document.getElementById('doneTxt').innerText=`${done.filter(Boolean).length}/5`;done.forEach((d,i)=>{const b=document.getElementById('b'+(i+1));if(d){b.innerText='Done ✓';b.className='task-btn done';b.disabled=true}else{b.innerText='Watch';b.className='task-btn active'}});localStorage.setItem('bal',bal);localStorage.setItem('done',JSON.stringify(done));}
+function doAd(n){cur=n;if(done[n-1])return;window.open(AD_LINK,'_blank');document.getElementById('overlay').classList.add('show');document.getElementById('adNum').innerText=n;sec=8;upd();timer=setInterval(()=>{sec--;upd();if(sec<=0){clearInterval(timer);finish();}},1000);}
+function upd(){document.getElementById('count').innerText=sec;document.getElementById('bar').style.width=((8-sec)/8*100)+'%';}
+function finish(){document.getElementById('overlay').classList.remove('show');if(!done[cur-1]){done[cur-1]=true;bal+=8;}render();}
+function withdraw(t){const name=document.getElementById('name').value.trim();const acct=document.getElementById('acct').value.trim();const bank=document.getElementById('bank').value.trim();if(!name||!acct||!bank){alert('Cika Name, Account, Bank');return;}const msg=`Salam! Withdrawal%0AName:${encodeURIComponent(name)}%0AAcct:${encodeURIComponent(acct)}%0ABank:${encodeURIComponent(bank)}%0ABal:₦${bal}`;if(t==='wa'){window.open(`https://wa.me/2347070079526?text=${msg}`,'_blank');}else{window.open(`sms:07070079526?body=${msg}`,'_blank');}}
 render();
 </script>
 </body>
