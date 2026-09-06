@@ -4,20 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reward Hub - Thalib muh'd</title>
-<script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE" async></script>
+
+<!-- MONETAG SOCIAL BAR - Saka Zone ID dinka anan -->
+<script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_SOCIAL_BAR_ZONE" async data-cfasync="false"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 body{background:#080E26;color:#fff;display:flex;justify-content:center}
-.app{max-width:420px;width:100%;padding:12px}
+.app{max-width:420px;width:100%;padding:12px;background:#080E26;min-height:100vh}
 .top{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
-.nLogo{width:44px;height:44px;border-radius:14px;background:linear-gradient(180deg,#33D6FF,#0A7BFF);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
-.tName{font-size:11px;color:#7DD3FC;font-weight:600}
+.nLogo{width:44px;height:44px;border-radius:14px;background:linear-gradient(180deg,#33D6FF,#0A7BFF);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#fff}
+.tName{font-size:11px;color:#7DD3FC;font-weight:600;margin-top:2px}
 .livePill{border:1.5px solid #00E5FF;color:#00E5FF;padding:6px 12px;border-radius:30px;font-size:11px;font-weight:800}
-.avatar{width:44px;height:44px;border-radius:50%;border:2px solid #00E5FF;object-fit:cover}
+.avatar{width:44px;height:44px;border-radius:50%;border:2px solid #00E5FF;object-fit:cover;background:#0E1838}
 .balCard{background:#121C43;border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:18px;margin-top:16px}
-.bal{font-size:52px;font-weight:900}
-.openText{color:#00E5FF;font-weight:800;font-size:18px}
-.ready{border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:12px;text-align:center;margin-top:10px;font-size:13px}
+.bal{font-size:52px;font-weight:900;letter-spacing:-2px}
+.openText{color:#00E5FF;font-weight:800;font-size:18px;margin:4px 0 10px}
+.ready{border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:12px;text-align:center;font-size:13px}
 .task{background:#151E46;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .price{background:rgba(0,229,255,0.12);color:#00E5FF;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:800}
 .btn{padding:10px 20px;border-radius:30px;border:none;font-weight:800;cursor:pointer;min-width:86px}
@@ -26,16 +29,16 @@ body{background:#080E26;color:#fff;display:flex;justify-content:center}
 .btnDone{background:#1A2548;color:#5A6A9A}
 .withdrawWrap{margin-top:22px;border:2px solid #FACC15;border-radius:22px;padding:18px;background:#0E1430}
 .withTitle{text-align:center;color:#FACC15;font-weight:900;font-size:22px;margin-bottom:16px}
-.inp{width:100%;background:#080E26;border:1px solid #1E2E5A;border-radius:14px;padding:14px;color:#fff;margin-bottom:12px}
-.btnWA{width:100%;background:#22C55E;color:#000;font-weight:900;padding:14px;border-radius:14px;border:none;margin-bottom:10px}
-.btnSMS{width:100%;background:#F59E0B;color:#000;font-weight:900;padding:14px;border-radius:14px;border:none}
+.inp{width:100%;background:#080E26;border:1px solid #1E2E5A;border-radius:14px;padding:14px;color:#fff;margin-bottom:12px;outline:none}
+.btnWA{width:100%;background:#22C55E;color:#000;font-weight:900;padding:14px;border-radius:14px;border:none;margin-bottom:10px;cursor:pointer}
+.btnSMS{width:100%;background:#F59E0B;color:#000;font-weight:900;padding:14px;border-radius:14px;border:none;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="app">
 <div class="top">
-<div style="display:flex;gap:10px;align-items:center"><div class="nLogo">N</div><div><div style="font-weight:800">Reward Hub</div><div style="font-size:11px;color:#34D399">● LIVE - 12H</div><div class="tName">Thalib muh'd</div></div></div>
-<div style="display:flex;gap:8px;align-items:center"><div class="livePill">● LIVE - 12H</div><img class="avatar" src="https://ui-avatars.com/api/?name=Thalib+muhd&background=00E5FF&color=080E26"></div>
+<div style="display:flex;gap:10px;align-items:center"><div class="nLogo">N</div><div><div style="font-weight:800;font-size:17px">Reward Hub</div><div style="font-size:11px;color:#34D399">● LIVE - 12H</div><div class="tName">Thalib muh'd</div></div></div>
+<div style="display:flex;gap:8px;align-items:center"><div class="livePill">● LIVE - 12H</div><img class="avatar" id="av" src="https://ui-avatars.com/api/?name=Thalib+muhd&background=00E5FF&color=080E26&bold=true"></div>
 </div>
 
 <div class="balCard">
@@ -45,7 +48,7 @@ body{background:#080E26;color:#fff;display:flex;justify-content:center}
 <div class="ready" id="readyBox">Ready to do tasks! <span id="prog">0/5</span></div>
 </div>
 
-<div style="display:flex;justify-content:space-between;margin:22px 2px 12px"><b>⭐ Today's Tasks ₦8 each</b><span style="background:#1A2452;color:#7DD3FC;padding:5px 10px;border-radius:20px;font-size:11px">₦8 each</span></div>
+<div style="display:flex;justify-content:space-between;margin:22px 2px 12px"><b>⭐ Today's Tasks ₦2 each</b><span style="background:#1A2452;color:#7DD3FC;padding:5px 10px;border-radius:20px;font-size:11px">₦2 each</span></div>
 <div id="tasksList"></div>
 
 <div class="withdrawWrap">
@@ -60,55 +63,74 @@ body{background:#080E26;color:#fff;display:flex;justify-content:center}
 
 <script>
 const MY_LINK="https://omg10.com/4/11737348";
-const REWARD=8; const WAIT_TIME=15; const MIN_WITHDRAW=50;
+const REWARD=2;
+const WAIT_TIME=15;
+const MIN_WITHDRAW=50;
+
 let bal=parseInt(localStorage.getItem('rh_bal')||'0'); if(isNaN(bal)) bal=0;
 let doneCount=parseInt(localStorage.getItem('rh_done')||'0'); if(isNaN(doneCount)) doneCount=0;
 function updateBal(){document.getElementById('bal').innerText=bal.toLocaleString(); document.getElementById('prog').innerText=doneCount+"/5";}
 updateBal();
-let tasks=Array.from({length:5},(_,i)=>({id:i,status:'idle',timer:WAIT_TIME,wasHidden:false}));
+
+let tasks=Array.from({length:5},(_,i)=>({id:i,status:'idle',timer:WAIT_TIME,wasHidden:false,hiddenTime:0}));
+
 function render(){
 const list=document.getElementById('tasksList'); list.innerHTML='';
 tasks.forEach((t,i)=>{
-let btn=''; 
+let btn='';
 if(t.status==='idle') btn=`<button class="btn btnWatch" onclick="doTask(${i})">Watch</button>`;
 else if(t.status==='opening') btn=`<button class="btn btnWait" disabled>Opening...</button>`;
 else if(t.status==='waiting') btn=`<button class="btn btnWait" disabled>Wait ${t.timer}s...</button>`;
 else if(t.status==='done') btn=`<button class="btn btnDone" disabled>Done ✓</button>`;
 else if(t.status==='fail') btn=`<button class="btn btnWatch" onclick="doTask(${i})">Retry</button>`;
 let div=document.createElement('div'); div.className='task';
-div.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">📺</div><div><div style="font-weight:700">Ad ${i+1}</div><div class="price">₦${REWARD}</div>${t.status==='fail'?'<div style="font-size:10px;color:#F87171">Dole ka bude talla!</div>':''}</div></div>${btn}`;
+div.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">📺</div><div><div style="font-weight:700">Ad ${i+1}</div><div class="price">₦${REWARD}</div>${t.status==='fail'?'<div style="font-size:10px;color:#F87171;margin-top:3px">Ka fita da sauri!</div>':''}</div></div>${btn}`;
 list.appendChild(div);
 });
 }
+
 function doTask(i){
 let t=tasks[i]; if(t.status!=='idle'&&t.status!=='fail') return;
-t.status='opening'; t.timer=WAIT_TIME; t.wasHidden=false; render();
+t.status='opening'; t.timer=WAIT_TIME; t.wasHidden=false; t.hiddenTime=0; render();
 window.open(MY_LINK,'_blank');
 setTimeout(()=>{
 t.status='waiting'; render();
-const onVis=()=>{if(document.hidden) t.wasHidden=true;};
+let lastHidden=0;
+const onVis=()=>{
+if(document.hidden){lastHidden=Date.now(); t.wasHidden=true;}
+else{if(lastHidden){t.hiddenTime+= (Date.now()-lastHidden)/1000; lastHidden=0;}}
+};
 document.addEventListener('visibilitychange',onVis);
 let timeLeft=WAIT_TIME;
 let int=setInterval(()=>{
 timeLeft--; t.timer=timeLeft; render();
-if(timeLeft<=0){clearInterval(int); document.removeEventListener('visibilitychange',onVis);
-if(!t.wasHidden){t.status='fail'; document.getElementById('readyBox').innerText="Dole ka bude talla tukuna!"; render(); return;}
+if(timeLeft<=0){
+clearInterval(int); document.removeEventListener('visibilitychange',onVis);
+if(document.hidden && lastHidden){t.hiddenTime+= (Date.now()-lastHidden)/1000;}
+// Idan ya jira 8+ seconds a cikin talla -> ba shi kudi
+if(t.hiddenTime>=8 || t.wasHidden && t.hiddenTime>=5){
 bal+=REWARD; doneCount++; localStorage.setItem('rh_bal',bal); localStorage.setItem('rh_done',doneCount); updateBal();
 document.getElementById('readyBox').innerText=`Ka samu ₦${REWARD}! Balance: ₦${bal}`; t.status='done'; render();
-setTimeout(()=>{t.status='idle'; t.timer=WAIT_TIME; t.wasHidden=false; render();},1800);
+setTimeout(()=>{t.status='idle'; t.timer=WAIT_TIME; t.wasHidden=false; t.hiddenTime=0; render();},1800);
+}else{
+t.status='fail'; document.getElementById('readyBox').innerText="Ka fita da sauri! Ka jira talla ya bude"; render();
+}
 }
 },1000);
 },800);
 }
+
 function getNum(){return atob('MDcwNzAwNzk1MjY=');}
+
 function sendWA(){
 let name=document.getElementById('wName').value||'User'; let acc=document.getElementById('wAcc').value||'-'; let bank=document.getElementById('wBank').value||'-';
-if(bal<MIN_WITHDRAW){alert(`Balance bai kai ₦${MIN_WITHDRAW} ba!`);return;}
+if(bal<MIN_WITHDRAW){alert(`Balance bai kai ₦${MIN_WITHDRAW} ba! Yanzu ₦${bal}`);return;}
 let num=getNum(); let waNum='234'+num.substring(1);
 let msg=`Withdraw - Thalib Hub\nName:${name}\nAcc:${acc}\nBank:${bank}\nAmount:₦${bal}`;
 window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(msg),'_blank');
 setTimeout(()=>{bal=0; doneCount=0; localStorage.setItem('rh_bal','0'); localStorage.setItem('rh_done','0'); updateBal(); document.getElementById('readyBox').innerText='Withdrawal sent! Balance reset to ₦0'; alert('Balance ya koma ₦0');},600);
 }
+
 function sendSMS(){
 let name=document.getElementById('wName').value||'User'; let acc=document.getElementById('wAcc').value||'-'; let bank=document.getElementById('wBank').value||'-';
 if(bal<MIN_WITHDRAW){alert('Balance bai kai ba');return;}
@@ -117,6 +139,10 @@ window.open('sms:'+num+'?body='+encodeURIComponent(msg),'_blank');
 setTimeout(()=>{bal=0; doneCount=0; localStorage.setItem('rh_bal','0'); localStorage.setItem('rh_done','0'); updateBal(); alert('Balance ya koma ₦0');},600);
 }
 render();
+
+// Saka photo naka - idan kana da base64 ka saka a localStorage
+const savedAv=localStorage.getItem('rh_avatar');
+if(savedAv) document.getElementById('av').src=savedAv;
 </script>
 </body>
 </html>
