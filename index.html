@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reward Hub - Thalib muh'd</title>
-
-<!-- MONETAG SOCIAL BAR - Saka Zone ID dinka anan -->
-<script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_SOCIAL_BAR_ZONE" async data-cfasync="false"></script>
-
+<script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE" async data-cfasync="false"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 body{background:#080E26;color:#fff;display:flex;justify-content:center}
@@ -18,7 +15,7 @@ body{background:#080E26;color:#fff;display:flex;justify-content:center}
 .livePill{border:1.5px solid #00E5FF;color:#00E5FF;padding:6px 12px;border-radius:30px;font-size:11px;font-weight:800}
 .avatar{width:44px;height:44px;border-radius:50%;border:2px solid #00E5FF;object-fit:cover;background:#0E1838}
 .balCard{background:#121C43;border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:18px;margin-top:16px}
-.bal{font-size:52px;font-weight:900;letter-spacing:-2px}
+.bal{font-size:52px;font-weight:900}
 .openText{color:#00E5FF;font-weight:800;font-size:18px;margin:4px 0 10px}
 .ready{border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:12px;text-align:center;font-size:13px}
 .task{background:#151E46;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
@@ -37,7 +34,7 @@ body{background:#080E26;color:#fff;display:flex;justify-content:center}
 <body>
 <div class="app">
 <div class="top">
-<div style="display:flex;gap:10px;align-items:center"><div class="nLogo">N</div><div><div style="font-weight:800;font-size:17px">Reward Hub</div><div style="font-size:11px;color:#34D399">● LIVE - 12H</div><div class="tName">Thalib muh'd</div></div></div>
+<div style="display:flex;gap:10px;align-items:center"><div class="nLogo">N</div><div><div style="font-weight:800">Reward Hub</div><div style="font-size:11px;color:#34D399">● LIVE - 12H</div><div class="tName">Thalib muh'd</div></div></div>
 <div style="display:flex;gap:8px;align-items:center"><div class="livePill">● LIVE - 12H</div><img class="avatar" id="av" src="https://ui-avatars.com/api/?name=Thalib+muhd&background=00E5FF&color=080E26&bold=true"></div>
 </div>
 
@@ -72,56 +69,38 @@ let doneCount=parseInt(localStorage.getItem('rh_done')||'0'); if(isNaN(doneCount
 function updateBal(){document.getElementById('bal').innerText=bal.toLocaleString(); document.getElementById('prog').innerText=doneCount+"/5";}
 updateBal();
 
-let tasks=Array.from({length:5},(_,i)=>({id:i,status:'idle',timer:WAIT_TIME,wasHidden:false,hiddenTime:0}));
+let tasks=Array.from({length:5},(_,i)=>({id:i,status:'idle',timer:WAIT_TIME}));
 
 function render(){
 const list=document.getElementById('tasksList'); list.innerHTML='';
 tasks.forEach((t,i)=>{
 let btn='';
 if(t.status==='idle') btn=`<button class="btn btnWatch" onclick="doTask(${i})">Watch</button>`;
-else if(t.status==='opening') btn=`<button class="btn btnWait" disabled>Opening...</button>`;
 else if(t.status==='waiting') btn=`<button class="btn btnWait" disabled>Wait ${t.timer}s...</button>`;
 else if(t.status==='done') btn=`<button class="btn btnDone" disabled>Done ✓</button>`;
-else if(t.status==='fail') btn=`<button class="btn btnWatch" onclick="doTask(${i})">Retry</button>`;
 let div=document.createElement('div'); div.className='task';
-div.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">📺</div><div><div style="font-weight:700">Ad ${i+1}</div><div class="price">₦${REWARD}</div>${t.status==='fail'?'<div style="font-size:10px;color:#F87171;margin-top:3px">Ka fita da sauri!</div>':''}</div></div>${btn}`;
+div.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">📺</div><div><div style="font-weight:700">Ad ${i+1}</div><div class="price">₦${REWARD}</div></div></div>${btn}`;
 list.appendChild(div);
 });
 }
 
 function doTask(i){
-let t=tasks[i]; if(t.status!=='idle'&&t.status!=='fail') return;
-t.status='opening'; t.timer=WAIT_TIME; t.wasHidden=false; t.hiddenTime=0; render();
+let t=tasks[i]; if(t.status!=='idle') return;
+t.status='waiting'; t.timer=WAIT_TIME; render();
 window.open(MY_LINK,'_blank');
-setTimeout(()=>{
-t.status='waiting'; render();
-let lastHidden=0;
-const onVis=()=>{
-if(document.hidden){lastHidden=Date.now(); t.wasHidden=true;}
-else{if(lastHidden){t.hiddenTime+= (Date.now()-lastHidden)/1000; lastHidden=0;}}
-};
-document.addEventListener('visibilitychange',onVis);
 let timeLeft=WAIT_TIME;
 let int=setInterval(()=>{
 timeLeft--; t.timer=timeLeft; render();
 if(timeLeft<=0){
-clearInterval(int); document.removeEventListener('visibilitychange',onVis);
-if(document.hidden && lastHidden){t.hiddenTime+= (Date.now()-lastHidden)/1000;}
-// Idan ya jira 8+ seconds a cikin talla -> ba shi kudi
-if(t.hiddenTime>=8 || t.wasHidden && t.hiddenTime>=5){
+clearInterval(int);
 bal+=REWARD; doneCount++; localStorage.setItem('rh_bal',bal); localStorage.setItem('rh_done',doneCount); updateBal();
 document.getElementById('readyBox').innerText=`Ka samu ₦${REWARD}! Balance: ₦${bal}`; t.status='done'; render();
-setTimeout(()=>{t.status='idle'; t.timer=WAIT_TIME; t.wasHidden=false; t.hiddenTime=0; render();},1800);
-}else{
-t.status='fail'; document.getElementById('readyBox').innerText="Ka fita da sauri! Ka jira talla ya bude"; render();
-}
+setTimeout(()=>{t.status='idle'; t.timer=WAIT_TIME; render();},1800);
 }
 },1000);
-},800);
 }
 
 function getNum(){return atob('MDcwNzAwNzk1MjY=');}
-
 function sendWA(){
 let name=document.getElementById('wName').value||'User'; let acc=document.getElementById('wAcc').value||'-'; let bank=document.getElementById('wBank').value||'-';
 if(bal<MIN_WITHDRAW){alert(`Balance bai kai ₦${MIN_WITHDRAW} ba! Yanzu ₦${bal}`);return;}
@@ -130,7 +109,6 @@ let msg=`Withdraw - Thalib Hub\nName:${name}\nAcc:${acc}\nBank:${bank}\nAmount:�
 window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(msg),'_blank');
 setTimeout(()=>{bal=0; doneCount=0; localStorage.setItem('rh_bal','0'); localStorage.setItem('rh_done','0'); updateBal(); document.getElementById('readyBox').innerText='Withdrawal sent! Balance reset to ₦0'; alert('Balance ya koma ₦0');},600);
 }
-
 function sendSMS(){
 let name=document.getElementById('wName').value||'User'; let acc=document.getElementById('wAcc').value||'-'; let bank=document.getElementById('wBank').value||'-';
 if(bal<MIN_WITHDRAW){alert('Balance bai kai ba');return;}
@@ -139,10 +117,6 @@ window.open('sms:'+num+'?body='+encodeURIComponent(msg),'_blank');
 setTimeout(()=>{bal=0; doneCount=0; localStorage.setItem('rh_bal','0'); localStorage.setItem('rh_done','0'); updateBal(); alert('Balance ya koma ₦0');},600);
 }
 render();
-
-// Saka photo naka - idan kana da base64 ka saka a localStorage
-const savedAv=localStorage.getItem('rh_avatar');
-if(savedAv) document.getElementById('av').src=savedAv;
 </script>
 </body>
 </html>
