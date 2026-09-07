@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{background:#080E26;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;text-align:center;padding:20px} .box{background:#121C43;padding:30px;border-radius:20px;border:2px solid #FACC15}</style>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarnFlow - ₦3 x 20 = ₦60</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{background:#FFFFFF;color:#111827;font-family:system-ui}
+.btn-green{background:#00C853;color:#fff}
+.card{border:1px solid #E5E7EB;background:#fff}
+</style>
+<!-- Social Bar ONLY - paste Adsterra Social Bar code here - BABU POPUNDER -->
 </head>
-<body>
-<div class="box">
-<h1 style="color:#FACC15">⛔ we return with site</h1>
-<p>the link is blocked.</p>
-<p>Thalib muh'd</p>
+<body class="min-h-screen">
+<div class="max-w-[420px] mx-auto px-4 py-5">
+  <div class="flex justify-between items-center mb-6">
+    <div class="flex items-center gap-2"><div class="w-8 h-8 bg-[#00C853] rounded-full flex items-center justify-center font-black text-white">E</div><span class="font-black text-lg">EarnFlow</span></div>
+    <div class="card rounded-full px-4 py-1.5 text-sm font-bold">BALANCE <span id="headerBal">₦0</span></div>
+  </div>
+
+  <div class="card rounded-[20px] p-5 mb-5 text-center">
+    <div class="text-sm text-gray-500">Your Balance</div>
+    <div class="text-[40px] font-black"><span id="bigBal">₦0</span> <span class="text-xl text-gray-400">/ ₦60</span></div>
+    <div class="bg-gray-100 h-2 rounded-full overflow-hidden my-2"><div id="progress" class="bg-[#00C853] h-full w-0 transition-all duration-500"></div></div>
+    <div class="text-xs text-gray-500"><span id="taskCount">0/20</span> tasks</div>
+  </div>
+
+  <div id="tasks" class="space-y-3 mb-6"></div>
+
+  <div id="cashoutBox" class="hidden">
+    <div class="card rounded-[20px] p-5">
+      <h3 class="font-black text-lg">Ready to Cashout! 🎉</h3>
+      <p class="text-sm text-gray-500 mb-4">20 tasks = ₦60 completed. Enter details:</p>
+      <input id="userName" placeholder="Full Name" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 mb-3 outline-none focus:border-[#00C853] bg-white text-black">
+      <input id="opayNum" placeholder="Opay Number" class="w-full border border-gray-200 rounded-xl px-4 py-3.5 mb-4 outline-none focus:border-[#00C853] bg-white text-black">
+      <button onclick="claimNow()" class="btn-green w-full py-4 rounded-xl font-black text-lg shadow-lg">CLAIM ₦60 NOW → WhatsApp</button>
+    </div>
+  </div>
 </div>
+
+<script>
+const TOTAL=20,PAY=3,TARGET=60,LINK="https://shrinkme.click/KHz8yf",WA="2347070079626";
+let bal=parseInt(localStorage.getItem('ef_bal')||'0');
+let done=JSON.parse(localStorage.getItem('ef_done')||'[]');
+let activeId=null,timer=null,rem=15;
+const bigBal=document.getElementById('bigBal'),headerBal=document.getElementById('headerBal'),prog=document.getElementById('progress'),tCount=document.getElementById('taskCount'),tasksDiv=document.getElementById('tasks'),cashBox=document.getElementById('cashoutBox');
+function save(){localStorage.setItem('ef_bal',bal);localStorage.setItem('ef_done',JSON.stringify(done));}
+function update(){bigBal.textContent='₦'+bal;headerBal.textContent='₦'+bal;prog.style.width=(bal/TARGET*100)+'%';tCount.textContent=done.length+'/'+TOTAL;if(bal>=TARGET)cashBox.classList.remove('hidden');render();}
+function render(){
+ tasksDiv.innerHTML='';
+ const notDone=[];for(let i=1;i<=TOTAL;i++)if(!done.includes(i))notDone.push(i);
+ const toShow=notDone.slice(0,2);
+ toShow.forEach(id=>{
+   const isActive=activeId===id,isDone=done.includes(id);
+   const d=document.createElement('div');d.className='card rounded-[16px] p-4 flex justify-between items-center';
+   d.innerHTML=`<div><div class="font-bold text-sm">Task ${id}</div><div class="text-xs text-gray-500">Watch ad • ₦${PAY}</div></div>`+(isDone?`<div class="bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0] px-5 py-3 rounded-xl text-sm font-bold">✓ Claimed ₦${PAY}</div>`:isActive?`<div class="flex gap-2"><button class="bg-[#FEF3C7] text-[#92400E] px-4 py-3 rounded-xl text-sm font-bold">${rem}s Jira...</button><button onclick="forceClaim(${id})" class="btn-green px-4 py-3 rounded-xl text-xs font-bold">CLAIM</button></div>`:`<button onclick="startTask(${id})" class="btn-green w-full py-3.5 px-8 rounded-xl font-bold shadow-md">View Ad ↗</button>`);
+   tasksDiv.appendChild(d);
+ });
+ if(notDone.length===0)tasksDiv.innerHTML='<div class="card rounded-[16px] p-6 text-center font-black">All done! ₦60 reached!</div>';
+}
+function startTask(id){window.open(LINK,'_blank');activeId=id;rem=15;localStorage.setItem('ef_active',JSON.stringify({id,start:Date.now()}));if(timer)clearInterval(timer);timer=setInterval(()=>{rem--;if(rem<=0){clearInterval(timer);claim(id);}render();},1000);render();}
+function claim(id){if(done.includes(id))return;done.push(id);bal+=PAY;activeId=null;rem=15;localStorage.removeItem('ef_active');if(timer)clearInterval(timer);save();update();}
+function forceClaim(id){claim(id);}
+window.addEventListener('focus',()=>{const a=JSON.parse(localStorage.getItem('ef_active')||'null');if(a){const e=Math.floor((Date.now()-a.start)/1000);if(e>=15)claim(a.id);else{activeId=a.id;rem=15-e;if(timer)clearInterval(timer);timer=setInterval(()=>{rem--;if(rem<=0){clearInterval(timer);claim(a.id);}render();},1000);render();}}});
+(function(){const a=JSON.parse(localStorage.getItem('ef_active')||'null');if(a&&!done.includes(a.id)){const e=Math.floor((Date.now()-a.start)/1000);if(e>=15)claim(a.id);else{activeId=a.id;rem=15-e;timer=setInterval(()=>{rem--;if(rem<=0){clearInterval(timer);claim(a.id);}render();},1000);}}update();})();
+function claimNow(){const n=document.getElementById('userName').value.trim(),o=document.getElementById('opayNum').value.trim();if(!n||!o){alert('Saka Name da Opay!');return;}const msg=`Hello EarnFlow!%0AName: ${encodeURIComponent(n)}%0AOpay: ${encodeURIComponent(o)}%0ABalance: ₦${bal}`;window.open('https://wa.me/'+WA+'?text='+msg,'_blank');}
+</script>
 </body>
 </html>
