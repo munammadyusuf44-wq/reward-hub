@@ -1,84 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EarnFlow</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>.card{border:1px solid #E5E7EB;background:#fff}</style>
-<!-- Social Bar ONLY - paste Adsterra Social Bar code HERE -->
-<!-- YAYI! SOCIAL BAR KADAI - BABU POPUNDER - DAIDAI! -->
-<script type='text/javascript' src='//pl27208155.profitableratecpm.com/c8/62/7b/c8627b2d8ea58c06ea6a1ac0f06f2cdb.js'></script>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{background:#080E26;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;text-align:center;padding:20px} .box{background:#121C43;padding:30px;border-radius:20px;border:2px solid #FACC15}</style>
 </head>
-<body class="min-h-screen">
-<div class="max-w-[420px] mx-auto px-4 py-5">
-  <div class="flex justify-between items-center mb-5">
-    <div class="flex items-center gap-2"><div>💰</div><b>EarnFlow</b></div>
-    <div class="card rounded-full px-4 py-1.5 text-sm">Bal: <span id="balTxt">₦0</span></div>
-  </div>
-
-  <div class="card rounded-[20px] p-5 mb-5 text-center">
-    <div class="text-sm text-gray-500">Your Balance</div>
-    <div class="text-[40px] font-black"><span id="balBig">₦0</span></div>
-    <div class="bg-gray-100 h-2 rounded-full overflow-hidden my-2"><div id="prog" class="h-2 bg-black" style="width:0%"></div></div>
-    <div class="text-xs text-gray-500"><span id="doneCount">0</span> / <span id="totalCount">20</span> tasks</div>
-  </div>
-
-  <div id="tasks" class="space-y-3 mb-6"></div>
-
-  <div id="cashoutBox" class="hidden">
-    <div class="card rounded-[20px] p-5">
-      <h3 class="font-black text-lg">Ready to Cashout!</h3>
-      <p class="text-sm text-gray-500 mb-4">20 tasks done - Claim ₦60</p>
-      <input id="userName" placeholder="Full Name" class="w-full border rounded-xl px-4 py-3 mb-3">
-      <input id="opayNum" placeholder="Opay Number" class="w-full border rounded-xl px-4 py-3 mb-3">
-      <button onclick="claimNow()" class="bg-black text-white w-full py-3 rounded-full font-bold">Claim Now</button>
-    </div>
-  </div>
+<body>
+<div class="box">
+<h1 style="color:#FACC15">⛔ An Rufe Site Din</h1>
+<p>Muna gyara, za mu dawo ba da jimawa ba.</p>
+<p>Thalib muh'd</p>
 </div>
-
-<script>
-// ********* WANNNAN KADAI NA GYARA - SABON LINK *********
-const TOTAL=20,PAY=3,TARGET=60,LINK="https://shrinkme.click/EarnFlow2026";
-let bal=parseInt(localStorage.getItem('ef_bal')||'0');
-let done=JSON.parse(localStorage.getItem('ef_done')||'[]');
-let activeId=null,timer=null,rem=15;
-
-function save(){localStorage.setItem('ef_bal',bal);localStorage.setItem('ef_done',JSON.stringify(done));}
-function render(){
-  document.getElementById('balTxt').innerText='₦'+bal;
-  document.getElementById('balBig').innerText='₦'+bal;
-  document.getElementById('doneCount').innerText=done.length;
-  document.getElementById('totalCount').innerText=TOTAL;
-  document.getElementById('prog').style.width=Math.min(100,(bal/TARGET)*100)+'%';
-  const box=document.getElementById('tasks'); box.innerHTML='';
-  for(let i=1;i<=TOTAL;i++){
-    const isDone=done.includes(i);
-    const isActive=activeId===i;
-    box.innerHTML+=`<div class="card rounded-[16px] p-4 flex justify-between items-center ${isDone?'opacity-50':''}">
-      <div><div class="font-bold text-sm">Task ${i}</div><div class="text-xs text-gray-500">${isDone?'Completed +₦'+PAY:'Earn ₦'+PAY}</div></div>
-      ${isDone?`<span class="text-green-600 font-bold">✓</span>`:isActive?`<button class="bg-black text-white px-4 py-2 rounded-full text-sm">${rem}s</button>`:`<button onclick="startTask(${i})" class="bg-black text-white px-4 py-2 rounded-full text-sm">View Ad</button>`}
-    </div>`;
-  }
-  if(bal>=TARGET){document.getElementById('cashoutBox').classList.remove('hidden');}
-}
-function startTask(id){
-  activeId=id; rem=15;
-  window.open(LINK,'_blank');
-  render();
-  timer=setInterval(()=>{
-    rem--; render();
-    if(rem<=0){clearInterval(timer); if(!done.includes(id)){done.push(id); bal+=PAY; save();} activeId=null; render();}
-  },1000);
-}
-function claimNow(){
-  const n=document.getElementById('userName').value.trim();
-  const o=document.getElementById('opayNum').value.trim();
-  if(!n||!o){alert('Cika Full Name da Opay Number');return;}
-  const msg=`Name: ${n}%0AOpay: ${o}%0ABalance: ₦${bal}`;
-  window.open(`https://wa.me/2347030368507?text=${msg}`,'_blank');
-}
-render();
-</script>
 </body>
 </html>
