@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <html lang="ha">
 <head>
-  <meta name="6064cb7d4f1808e35f051601eec32ac8428bf2fd" content="6064cb7d4f1808e35f051601eec32ac8428bf2fd" />
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EarnNaija - Kalli Talla Ka Samu Kudi</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnNaija - White</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-*{font-family:'Inter',sans-serif;box-sizing:border-box;margin:0;padding:0}
-body{background:#fff;color:#18181b;min-height:100vh}
-.header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e4e4e7;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:18px}
-.balance{border:1px solid #e4e4e7;border-radius:999px;padding:6px 12px;display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600}
-.balance button{background:#000;color:#fff;border:0;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer}
-.container{max-width:420px;margin:0 auto;padding:16px}
-.card{border:1px solid #e4e4e7;border-radius:16px;background:#fff;padding:16px;margin-bottom:12px}
-.badge{font-size:11px;padding:4px 8px;border-radius:999px;background:#f4f4f5;border:1px solid #e4e4e7}
-.video-box{height:192px;background:#000;border-radius:12px;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
-.video-box .play{width:56px;height:56px;border-radius:999px;background:#fff;color:#000;display:grid;place-items:center;font-size:22px}
-.progress{position:absolute;bottom:0;left:0;height:3px;background:#fff;transition:width 1s linear}
-.timer{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);color:#fff;padding:4px 10px;border-radius:999px;font-size:11px}
-.btn-black{width:100%;height:44px;background:#000;color:#fff;border:0;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer}
-.btn-black:disabled{background:#f4f4f5;color:#a1a1aa;border:1px solid #e4e4e7;cursor:not-allowed}
-.btn-outline{height:36px;border:1px solid #e4e4e7;background:#fff;border-radius:999px;padding:0 16px;font-weight:600;font-size:13px;cursor:pointer}
-.toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:100;background:#000;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px}
-.input{width:100%;height:44px;border:1px solid #e4e4e7;border-radius:10px;padding:0 12px;font-size:14px;margin-bottom:10px}
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);z-index:50;display:none;place-items:center;padding:16px}
-.modal{width:100%;max-width:360px;background:#fff;border-radius:16px;padding:20px;border:1px solid #e4e4e7}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#ffffff;color:#111827;max-width:440px;margin:0 auto;padding:16px;min-height:100vh}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+h1{font-size:22px;font-weight:800}
+.balance-wrap{display:flex;gap:8px;align-items:center}
+.bal{border:1.5px solid #111827;border-radius:999px;padding:6px 14px;font-weight:700;font-size:13px}
+.cire{background:#111827;color:#fff;border:none;border-radius:999px;padding:7px 18px;font-weight:600;font-size:13px}
+.card{background:#fff;border:1.5px solid #e5e7eb;border-radius:24px;padding:18px;margin-top:14px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.card-top{display:flex;justify-content:space-between}
+.card h2{font-size:16px;font-weight:700}
+.sub{font-size:12px;color:#6b7280;margin-top:2px}
+.badge{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700}
+.video-box{margin-top:16px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:16px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.play{width:64px;height:64px;background:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.play::after{content:'';width:0;height:0;border-left:14px solid white;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.hint{position:absolute;bottom:10px;background:rgba(255,255,255,.9);border:1px solid #e5e7eb;border-radius:999px;padding:4px 12px;font-size:11px;color:#9ca3af}
+.btn-white{margin-top:18px;width:100%;background:#fff;border:2px solid #111827;color:#111827;border-radius:999px;padding:14px;font-size:14px;font-weight:800;cursor:pointer}
+.btn-white:disabled{opacity:.6}
+.small-note{font-size:11px;color:#9ca3af;text-align:center;margin-top:10px}
+.row{display:flex;justify-content:space-between;align-items:center}
+.icon{width:40px;height:40px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.btn-black{background:#111827;color:#fff;border:none;border-radius:999px;padding:8px 18px;font-size:12px;font-weight:700}
+.link-box{flex:1;background:#f9fafb;border:1px solid #e5e7eb;border-radius:999px;padding:10px 14px;font-size:11px;color:#6b7280;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;z-index:99}
+.overlay{position:absolute;inset:0;background:rgba(255,255,255,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.spinner{width:36px;height:36px;border:3px solid #e5e7eb;border-top-color:#111827;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="logo">EarnNaija</div>
-<div class="balance">₦<span id="bal">0.00</span> <button onclick="openWithdraw()">Cire</button></div>
-</div>
-<div class="container">
-<div style="display:flex;gap:8px;margin-bottom:12px"><span class="badge">✅ Halal</span><span class="badge">🚫 No Adult</span><span class="badge">⏰ 24/7</span></div>
 
-<div class="card">
-<div style="display:flex;justify-content:space-between;margin-bottom:12px"><div><b style="font-size:14px">Kalli Talla</b><div style="font-size:11px;color:#71717a">Kalli 30s - Samu ₦10</div></div><span style="font-size:11px;font-weight:700;background:#000;color:#fff;padding:4px 8px;border-radius:999px">₦10</span></div>
-<div class="video-box"><div class="play" id="playIcon">▶</div><div id="status" style="position:absolute;bottom:12px;left:12px;font-size:12px;opacity:0.8">Danna Kalli don fara</div><div class="progress" id="prog" style="width:0%"></div><div class="timer" id="timer" style="display:none">30s</div></div>
-<button class="btn-black" id="watchBtn" onclick="startAd()" style="margin-top:12px">▶ Kalli • Samu ₦10</button>
+<header>
+<h1>EarnNaija</h1>
+<div class="balance-wrap">
+<div class="bal">₦ <span id="bal">0.00</span></div>
+<button class="cire" onclick="withdraw()">Cire</button>
 </div>
+</header>
 
-<div class="card" style="display:flex;justify-content:space-between;align-items:center">
-<div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:999px;background:#f4f4f5;display:grid;place-items:center">🎁</div><div><b style="font-size:14px">Daily Bonus</b><div style="font-size:11px;color:#71717a">Shiga yau ₦10</div></div></div>
-<button class="btn-outline" id="dailyBtn" onclick="claimDaily()">Karba ₦10</button>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+<div style="flex:1;height:4px;background:#f3f4f6;border-radius:999px;overflow:hidden"><div id="pbar" style="height:100%;background:#111827;border-radius:999px;width:0%"></div></div>
+<span style="font-size:11px;color:#9ca3af;white-space:nowrap"><span id="count">0</span>/20 yau</span>
 </div>
 
 <div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:999px;background:#000;color:#fff;display:grid;place-items:center">✦</div><div><b style="font-size:14px">Invite</b><div style="font-size:11px;color:#71717a">Invite friends - ₦20</div></div></div><span style="font-size:12px;font-weight:700;background:#000;color:#fff;padding:4px 8px;border-radius:999px">₦20</span></div>
-<div style="display:flex;gap:8px;margin-top:12px"><input class="input" style="flex:1;height:40px;margin:0" id="refInput" readonly value="https://earnnaija.com/ref?code=USER123"><button class="btn-outline" onclick="copyInvite()">Kwafa</button></div>
-<button class="btn-black" style="margin-top:10px" onclick="invite()">Invite</button>
+<div class="card-top">
+<div><h2>Kalli Talla</h2><div class="sub">Kalli 30s - Samu ₦10</div></div>
+<div class="badge">₦10</div>
+</div>
+<div class="video-box" id="vbox">
+<div class="play" onclick="watchAd()"></div>
+<div class="hint">Danna Kalli don fara</div>
+<div id="over" class="overlay" style="display:none">
+<div class="spinner"></div>
+<div style="font-size:28px;font-weight:800" id="timer">30s</div>
+<div style="font-size:11px;color:#9ca3af">Kar ka rufe shafin</div>
+</div>
+</div>
+<button id="mainBtn" class="btn-white" onclick="watchAd()">▶ Kalli • Samu ₦10</button>
+<div class="small-note">Kalli talla na 30s sannan a saka maka ₦10</div>
 </div>
 
-<div class="card"><b style="font-size:12px">Saka HilltopAds VAST Link:</b><div style="display:flex;gap:8px;margin-top:8px"><input class="input" style="flex:1;height:40px;margin:0" id="vastInput" placeholder="https://..."><button class="btn-outline" onclick="saveVast()">Ajiye</button></div></div>
-<div style="text-align:center;font-size:11px;color:#a1a1aa;padding:16px">EarnNaija • White • Invite ✓</div>
+<div class="card">
+<div class="row">
+<div style="display:flex;gap:12px;align-items:center">
+<div class="icon">🎁</div>
+<div><div style="font-weight:700;font-size:13px">Daily Bonus</div><div style="font-size:11px;color:#6b7280">Shiga yau ₦10</div></div>
+</div>
+<button id="dailyBtn" class="btn-black" onclick="dailyBonus()">Karba ₦10</button>
+</div>
 </div>
 
-<!-- WITHDRAW MODAL -->
-<div class="modal-bg" id="modal"><div class="modal">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b>Cire Kudi - Min ₦500</b><button onclick="closeWithdraw()" style="width:28px;height:28px;border-radius:999px;border:1px solid #e4e4e7;background:#f4f4f5;cursor:pointer">✕</button></div>
-<div style="font-size:12px;color:#71717a;margin-bottom:12px">Balance: ₦<span id="modalBal">0</span></div>
-<input class="input" id="wName" placeholder="Sunanka (Misali: Yusuf)">
-<input class="input" id="wBank" placeholder="Bank / Opay / Moniepoint">
-<input class="input" id="wAcc" placeholder="Account Number">
-<button class="btn-black" onclick="sendWhatsApp()">Tura ta WhatsApp</button>
-<button class="btn-outline" style="width:100%;margin-top:8px;height:44px;border-radius:12px" onclick="closeWithdraw()">Rufe</button>
-</div></div>
+<div class="card">
+<div class="row" style="margin-bottom:12px">
+<div style="display:flex;gap:12px;align-items:center">
+<div class="icon">⭐</div>
+<div><div style="font-weight:700;font-size:13px">Invite</div><div style="font-size:11px;color:#6b7280">Invite friends - ₦20 per friend</div></div>
+</div>
+<div class="badge">₦20</div>
+</div>
+<div style="display:flex;gap:8px">
+<div class="link-box" id="refLink">https://earnnaija.com/ref?code=USER123</div>
+<button class="btn-black" onclick="copyRef()">Kwafa</button>
+</div>
+</div>
+
+<button class="btn-white" style="background:#111827;color:#fff;margin-top:16px" onclick="copyRef()">Invite Friends</button>
 
 <script>
-// ===== BOYE NUMBER - Ba zai bayyana a fili ba =====
-const _k = "MjM0NzA3MDA3OTUyNg=="; // 2347070079526 encoded
-function _getWA(){return atob(_k);}
+// === BOYE - KADA KA NUNA A UI ===
+const _0xad = atob("aHR0cHM6Ly9pZGVhbGlzdGljLXJldmVudWUuY29tL05wUDAyTA=="); // HilltopAds - hide
+const _0xwa = "2347070079526"; // WhatsApp - hide - 07070079526
 
-let balance = parseFloat(localStorage.getItem('en_bal')||'0');
-let dailyClaimed = localStorage.getItem('en_daily')===new Date().toDateString();
-let vast = localStorage.getItem('en_vast')||'';
-let isPlaying=false, timeLeft=30, interval=null, cooldown=0, cooldownInt=null;
-document.getElementById('bal').innerText=balance.toFixed(2);
-document.getElementById('vastInput').value=vast;
-if(dailyClaimed){document.getElementById('dailyBtn').innerText='An karba';document.getElementById('dailyBtn').disabled=true}
-function toast(msg){let t=document.createElement('div');t.className='toast';t.innerText=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2500)}
-function updateBal(){document.getElementById('bal').innerText=balance.toFixed(2);localStorage.setItem('en_bal',balance);document.getElementById('modalBal').innerText=balance.toFixed(2)}
-function startAd(){
-if(isPlaying) return; if(cooldown>0){toast('Jira '+cooldown+'s');return}
-isPlaying=true;timeLeft=30;
-document.getElementById('watchBtn').innerText='Ana Kallo... 30s';document.getElementById('watchBtn').disabled=true;
-document.getElementById('timer').style.display='block';document.getElementById('status').innerText='Talla mai tsafta...';document.getElementById('playIcon').style.display='none';
-interval=setInterval(()=>{
-timeLeft--;document.getElementById('timer').innerText=timeLeft+'s';document.getElementById('watchBtn').innerText='Ana Kallo... '+timeLeft+'s';
-document.getElementById('prog').style.width=((30-timeLeft)/30*100)+'%';
-if(timeLeft<=0){clearInterval(interval);finishAd()}
-},1000)
+let bal = parseFloat(localStorage.getItem('en_bal')||'0');
+let cnt = parseInt(localStorage.getItem('en_cnt')||'0');
+let today = new Date().toDateString();
+let lastDate = localStorage.getItem('en_date');
+if(lastDate!==today){cnt=0;localStorage.setItem('en_cnt','0');localStorage.setItem('en_date',today);}
+let uid = localStorage.getItem('en_uid')||'USER'+Math.floor(Math.random()*90000+10000);
+localStorage.setItem('en_uid',uid);
+document.getElementById('refLink').innerText='https://earnnaija.com/ref?code='+uid;
+updateBal();
+
+function updateBal(){
+document.getElementById('bal').innerText=bal.toFixed(2);
+document.getElementById('count').innerText=cnt;
+document.getElementById('pbar').style.width=(cnt/20*100)+'%';
+localStorage.setItem('en_bal',bal);localStorage.setItem('en_cnt',cnt);
 }
-function finishAd(){
-isPlaying=false;balance+=10;updateBal();
-document.getElementById('watchBtn').innerText='Jira 5s';document.getElementById('prog').style.width='100%';document.getElementById('status').innerText='🎉 Ka samu ₦10!';document.getElementById('timer').style.display='none';document.getElementById('playIcon').style.display='grid';
-toast('Ka samu ₦10!');cooldown=5;cooldownInt=setInterval(()=>{
-cooldown--;if(cooldown<=0){clearInterval(cooldownInt);document.getElementById('watchBtn').innerText='▶ Kalli • Samu ₦10';document.getElementById('watchBtn').disabled=false;document.getElementById('prog').style.width='0%';document.getElementById('status').innerText='Danna Kalli don fara'}else{document.getElementById('watchBtn').innerText='Jira '+cooldown+'s'}
-},1000)
+function watchAd(){
+if(cnt>=20){toast('Limit ya cika yau!');return}
+let btn=document.getElementById('mainBtn');
+let over=document.getElementById('over');
+let timerEl=document.getElementById('timer');
+window.open(_0xad,'_blank');
+over.style.display='flex';btn.disabled=true;
+let t=30;timerEl.innerText=t+'s';
+let iv=setInterval(()=>{
+t--;timerEl.innerText=t+'s';
+if(t<=0){clearInterval(iv);over.style.display='none';btn.disabled=false;bal+=10;cnt++;updateBal();toast('An saka ₦10!');}
+},1000);
 }
-function claimDaily(){if(dailyClaimed){toast('Ka riga ka karba yau');return}balance+=10;updateBal();dailyClaimed=true;localStorage.setItem('en_daily',new Date().toDateString());document.getElementById('dailyBtn').innerText='An karba';document.getElementById('dailyBtn').disabled=true;toast('Karba! ₦10')}
-function copyInvite(){let i=document.getElementById('refInput');i.select();document.execCommand('copy');toast('Invite link copied!')}
-function invite(){copyInvite();setTimeout(()=>toast('Invite link copied! - ₦20'),800)}
-function saveVast(){localStorage.setItem('en_vast',document.getElementById('vastInput').value);toast('VAST Ajiye ✓')}
-function openWithdraw(){if(balance<500){toast('Balance bai kai ₦500 ba');return}document.getElementById('modalBal').innerText=balance.toFixed(2);document.getElementById('modal').style.display='grid'}
-function closeWithdraw(){document.getElementById('modal').style.display='none'}
-function sendWhatsApp(){
-let name=document.getElementById('wName').value.trim();
-let bank=document.getElementById('wBank').value.trim();
-let acc=document.getElementById('wAcc').value.trim();
-if(!name||!bank||!acc){toast('Cike duka bayanan');return}
-let waNum=_getWA();
-let msg=`*EarnNaija - Bukatar Cire Kudi*%0A%0ASuna: ${name}%0ABank: ${bank}%0AAccount: ${acc}%0ANawa Balance: ₦${balance.toFixed(2)}%0AAmount da ake nema: ₦500%0A%0ALokaci: ${new Date().toLocaleString()}`;
-let url=`https://wa.me/${waNum}?text=${msg}`;
-balance-=500;updateBal();closeWithdraw();
-toast('Ana tura WhatsApp...');
-window.open(url,'_blank');
+function dailyBonus(){
+let lastBonus=localStorage.getItem('en_bonus');
+if(lastBonus===today){toast('An riga an karba yau!');return}
+bal+=10;localStorage.setItem('en_bonus',today);updateBal();
+document.getElementById('dailyBtn').innerText='An karba';document.getElementById('dailyBtn').disabled=true;toast('Daily Bonus ₦10 an saka!');
 }
+function withdraw(){
+if(bal<500){toast('Tara ₦500 kafin cire!');return}
+let msg=encodeURIComponent(`Salam Admin, ina so in cire kudi daga EarnNaija.\n\nID: ${uid}\nBalance: ₦${bal}\nAds: ${cnt}\n\nDon Allah a tura min.`);
+window.open(`https://wa.me/${_0xwa}?text=${msg}`,'_blank');
+}
+function copyRef(){navigator.clipboard.writeText(document.getElementById('refLink').innerText);toast('An kwafa link!');}
+function toast(m){let t=document.createElement('div');t.className='toast';t.innerText=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3000);}
+if(localStorage.getItem('en_bonus')===today){document.getElementById('dailyBtn').innerText='An karba';document.getElementById('dailyBtn').disabled=true;}
 </script>
 </body>
-  </html>
+</html>
