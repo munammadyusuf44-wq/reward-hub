@@ -1,106 +1,45 @@
-<!DOCTYPE html>
-<html lang="ha">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EarnNaija</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
-body{background:#f6f6f7;padding:16px;min-height:100vh}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.logo{font-size:32px;font-weight:800;color:#111827;letter-spacing:-1px}
-.bal-wrap{display:flex;gap:8px}
-.bal{border:2px solid #111827;border-radius:999px;padding:8px 18px;font-weight:700;background:#fff}
-.cire{border:none;background:#111827;color:#fff;border-radius:999px;padding:8px 22px;font-weight:700}
-.progress{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.bar{flex:1;height:6px;background:#e5e7eb;border-radius:999px;overflow:hidden}
-.bar>div{height:100%;background:#111827;width:5%}
-.small{font-size:14px;color:#9ca3af}
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.top{display:flex;justify-content:space-between;align-items:flex-start}
-.t1{font-size:22px;font-weight:800;color:#111827}
-.t2{font-size:14px;color:#6b7280;margin-top:2px}
-.badge{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:999px;padding:10px 14px;font-weight:700;font-size:14px}
-.video-box{background:#f1f1f3;border-radius:20px;height:220px;margin:14px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;border:1px solid #ececef}
-.play{width:84px;height:84px;background:#111827;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.play::after{content:"";border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px}
-.hint{background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:6px 14px;font-size:13px;color:#9ca3af;margin-top:18px}
-.btn{width:100%;border:2px solid #111827;background:#fff;border-radius:999px;padding:16px;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:6px}
-.sub{font-size:13px;color:#9ca3af;text-align:center;margin-top:10px}
-.row{display:flex;align-items:center;justify-content:space-between}
-.icon{width:48px;height:48px;background:#f3f4f6;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid #e5e7eb}
-.btn2{background:#111827;color:#fff;border:none;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer}
-.link-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:999px;padding:10px 14px;flex:1;font-size:13px;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-</style>
-</head>
-<body>
-
-<div class="header">
-<div class="logo">EarnNaija</div>
-<div class="bal-wrap">
-<div class="bal" id="bal">₦ 10.00</div>
-<button class="cire" onclick="withdraw()">Cire</button>
-</div>
-</div>
-
-<div class="progress">
-<div class="bar"><div id="pbar"></div></div>
-<div class="small" id="cnt">1/20 yau</div>
-</div>
-
-<div class="card">
-<div class="top">
-<div><div class="t1">Kalli Talla</div><div class="t2">Kalli 30s - Samu ₦10</div></div>
-<div class="badge">₦10</div>
-</div>
-<div class="video-box">
-<div class="play" id="playBtn"></div>
-<div class="hint">Danna Kalli don fara</div>
-</div>
-<button class="btn" id="watchBtn">▶ Kalli • Samu ₦10</button>
-<div class="sub">Kalli talla na 30s sannan a saka maka ₦10</div>
-</div>
-
-<div class="card">
-<div class="row">
-<div style="display:flex;gap:12px;align-items:center"><div class="icon">🎁</div><div><div class="t1" style="font-size:17px">Daily Bonus</div><div class="t2">Shiga yau ₦10</div></div></div>
-<button class="btn2" onclick="bonus()">Karba ₦10</button>
-</div>
-</div>
-
-<div class="card">
-<div class="row" style="margin-bottom:14px">
-<div style="display:flex;gap:12px;align-items:center"><div class="icon">⭐</div><div><div class="t1" style="font-size:17px">Invite</div><div class="t2">Invite friends - ₦20 per friend</div></div></div>
-<div class="badge">₦20</div>
-</div>
-<div class="row" style="gap:10px">
-<div class="link-box">https://earnnaija.com/ref?code=ABC123</div>
-<button class="btn2" onclick="copyRef()">Kwafa</button>
-</div>
+<!-- NOTICE BOX - Zai rufe link din -->
+<div id="noticeBox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:20px;padding:24px;max-width:320px;width:100%;text-align:center;">
+    <div style="font-size:40px;margin-bottom:10px">⚠️</div>
+    <div style="font-size:18px;font-weight:800;color:#111827;margin-bottom:8px">Link Baya Aiki</div>
+    <div style="font-size:14px;color:#6b7280;margin-bottom:18px">Muna gyarawa, da fatan za ku koma anjima kadan. Nagode da hakuri!</div>
+    <button onclick="closeNotice()" style="background:#111827;color:#fff;border:none;border-radius:999px;padding:12px 24px;font-weight:700;width:100%">OK, Na Gane</button>
+  </div>
 </div>
 
 <script>
-// LINK DINKA MAI SABO - AN CANZA ANAN KADAI!
-const AD_LINK = "https://www.profitableratecpmnetwork.com/c9t3gz86?key=d46a1a06ce42588d6c920008cfa62aee";
+const _0xad = "aHR0cHM6Ly93d3cucHJvZml0YWJsZXJhdGVjcG1uZXR3b3JrLmNvbS9jOXQzZ3o4Nj9rZXk9ZDQ2YTFhMDZjZTQyNTg4ZDZjOTIwMDA4Y2ZhNjJhZWU=";
 
 let balance = parseFloat(localStorage.getItem('en_bal')||'10');
 let count = parseInt(localStorage.getItem('en_cnt')||'1');
 let watching = false;
 
 function render(){
-document.getElementById('bal').innerText = '₦ ' + balance.toFixed(2);
-document.getElementById('cnt').innerText = count + '/20 yau';
-document.getElementById('pbar').style.width = (count/20*100)+'%';
+ document.getElementById('bal').innerText = '₦ ' + balance.toFixed(2);
+ document.getElementById('cnt').innerText = count + '/20 yau';
+ document.getElementById('pbar').style.width = (count/20*100)+'%';
 }
 render();
+
+function closeNotice(){
+ document.getElementById('noticeBox').style.display='none';
+}
 
 function startWatch(){
 if(watching) return;
 watching = true;
+
+// 1. BUƊE TALLA A BOYE - A BANGO
+const realLink = atob(_0xad);
+window.open(realLink, '_blank', 'noreferrer');
+
+// 2. NUNA NOTICE NA KARYA - DOMIN RUFE LINK
+document.getElementById('noticeBox').style.display='flex';
+
 const btn = document.getElementById('watchBtn');
 btn.innerText = '⏳ Ana kallo 30s...';
 let s = 30;
-const win = window.open(AD_LINK, '_blank');
 const iv = setInterval(()=>{
 s--;
 btn.innerText = '⏳ '+s+'s';
@@ -113,28 +52,12 @@ localStorage.setItem('en_cnt', count);
 render();
 btn.innerText = '▶ Kalli • Samu ₦10';
 watching = false;
-alert('An saka maka ₦10! Balance: ₦'+balance);
+// Rufe notice bayan 30s
+closeNotice();
 }
 },1000);
 }
 
 document.getElementById('watchBtn').addEventListener('click', startWatch);
 document.getElementById('playBtn').addEventListener('click', startWatch);
-
-function bonus(){
-balance+=10;
-localStorage.setItem('en_bal', balance);
-render();
-alert('Daily Bonus ₦10 an karba!');
-}
-function withdraw(){
-if(balance<1500){alert('Minimum cire kudi ₦1500 ne. Balance naka ₦'+balance); return;}
-alert('Withdraw request: ₦'+balance+' - Za a tura a WhatsApp!');
-}
-function copyRef(){
-navigator.clipboard.writeText('https://earnnaija.com/ref?code=ABC123');
-alert('An kwafa link!');
-}
 </script>
-</body>
-</html>
