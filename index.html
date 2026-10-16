@@ -1,127 +1,90 @@
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return """
 <!DOCTYPE html>
-<html>
+<html lang="ha">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Munam Voice Browser</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnNaija - Kalli Talla ka Samu Kudi</title>
+
+<!-- NAN NE WAJEN SOCIAL BAR DIN KA, IDAN KANA DA SHI -->
+<!-- <script src="https://...adsterra.com/....js"></script> -->
+
 <style>
-body{background:#050a14;color:white;font-family:sans-serif;margin:0;padding:0}
-header{background:#101a30;padding:12px;text-align:center;position:sticky;top:0}
-.lang button{margin:3px;padding:6px 12px;border-radius:20px;border:1px solid #38bdf8;background:transparent;color:#38bdf8}
-.lang button.active{background:#38bdf8;color:black}
-#chat{padding:15px;height:65vh;overflow-y:auto}
-.card{background:#162040;border-radius:15px;padding:15px;margin:12px 0;border-left:4px solid #38bdf8}
-.user{color:#22c55e;font-weight:bold;margin:10px 0}
-.ai{color:#e2e8f0}
-img{width:100%;border-radius:10px;margin-top:10px}
-iframe{width:100%;height:220px;border:none;border-radius:10px;margin-top:10px}
-.controls{position:fixed;bottom:0;left:0;right:0;background:#101a30;padding:12px;display:flex;gap:8px}
-.controls input{flex:1;padding:14px;border-radius:25px;border:none}
-#send{background:#38bdf8;color:black;padding:0 20px;border-radius:25px;border:none;font-weight:bold}
-#mic{background:#ef4444;color:white;width:100%;padding:14px;border-radius:25px;border:none;margin-top:8px;font-size:16px}
-a.btn{display:inline-block;margin-top:10px;padding:8px 15px;background:#facc15;color:black;border-radius:20px;text-decoration:none;font-weight:bold}
+  body{font-family:system-ui;background:#f9fafb;margin:0;padding:15px}
+  .card{background:white;border-radius:20px;padding:18px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+  .btn{width:100%;padding:15px;border-radius:30px;border:2px solid #000;font-weight:bold;font-size:18px;background:white;cursor:pointer}
+  .btn-black{background:#111;color:white}
+  #videoBox{height:200px;background:#f1f2f4;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column}
 </style>
 </head>
 <body>
-<header>
-<h2 style="margin:5px">🎙️ Munam Voice Browser</h2>
-<div class="lang">
-<button onclick="setLang('ha-NG','ha')" id="b-ha" class="active">Hausa</button>
-<button onclick="setLang('en-US','en')" id="b-en">English</button>
-<button onclick="setLang('ar-SA','ar')" id="b-ar">العربية</button>
-</div>
-</header>
 
-<div id="chat">
-<div class="card"><div class="ai">Sannu! Ni Munam Voice Browser ne.<br><br>Ka ce: <b>"Search Dangote company"</b> ko <b>"Nuna min kamfanin Dangote"</b> ko <b>"ابحث عن شركة دانغوتي"</b><br><br>Zan kawo maka bayani, hoto, da video a nan cikin app din ba sai ka je Google ba.</div></div>
+<div style="display:flex;justify-content:space-between;align-items:center">
+  <h1 style="margin:0">EarnNaija</h1>
+  <div style="display:flex;gap:8px">
+    <div style="border:2px solid #000;border-radius:20px;padding:6px 15px;font-weight:bold">₦ <span id="bal">10.00</span></div>
+    <button style="background:#111;color:white;border-radius:20px;padding:6px 18px;border:0">Cire</button>
+  </div>
 </div>
+<p style="text-align:right;color:gray;margin:5px 0" id="counter">1/20 yau</p>
 
-<div class="controls">
-<div style="flex:1">
-<div style="display:flex;gap:8px">
-<input id="q" placeholder="Rubuta abinda kake son bincika...">
-<button id="send" onclick="go()">Aika</button>
-</div>
-<button id="mic" onclick="startVoice()">🎤 Yi Magana / Speak / تكلم</button>
-</div>
+<div class="card">
+  <div style="display:flex;justify-content:space-between">
+    <div><b style="font-size:20px">Kalli Talla</b><br><span style="color:gray">Kalli 30s - Samu ₦10</span></div>
+    <div style="background:#f1f2f4;border-radius:20px;padding:8px 15px">₦10</div>
+  </div>
+
+  <div id="videoBox">
+    <div id="playIcon" style="width:80px;height:80px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px">▶</div>
+    <p id="timerText" style="background:white;padding:5px 15px;border-radius:20px;margin-top:10px;color:gray">Danna Kalli don fara</p>
+  </div>
+
+  <button class="btn" id="watchBtn" onclick="startAd()">▶ Kalli • Samu ₦10</button>
+  <p style="text-align:center;color:#aaa;font-size:13px">Kalli talla na 30s sannan a saka maka ₦10</p>
 </div>
 
 <script>
-let currentLang='ha-NG', langCode='ha';
-function setLang(l,code){
- currentLang=l; langCode=code;
- document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
- document.getElementById('b-'+code).classList.add('active');
- document.getElementById('q').placeholder = code=='ha'? 'Rubuta abinda kake son bincika...' : code=='ar'? 'اكتب ما تريد البحث عنه...' : 'Type what you want to search...';
+// ========= SA NAN KA SAKA LINK DIN TALLAN KA =========
+const AD_LINK = "https://www.profitablecpmrate.com/ADSTERRA_DIRECT_LINK_NAKA"; 
+// Misali: https://www.highrevenuegate.com/xxxxx
+
+let bal = parseFloat(localStorage.getItem('earn_bal') || '10');
+let watched = parseInt(localStorage.getItem('earn_count') || '1');
+document.getElementById('bal').innerText = bal.toFixed(2);
+document.getElementById('counter').innerText = watched + "/20 yau";
+
+function startAd(){
+  if(watched >= 20){ alert("Ka cika 20 na yau! Gobe zaka kara."); return; }
+  
+  // 1. Bude tallan
+  window.open(AD_LINK, '_blank');
+
+  // 2. Fara timer
+  let btn = document.getElementById('watchBtn');
+  let timerText = document.getElementById('timerText');
+  let timeLeft = 30;
+  btn.disabled = true;
+  btn.innerText = "Ana Kallo... 30s";
+  
+  let interval = setInterval(()=>{
+    timeLeft--;
+    timerText.innerText = "Jira " + timeLeft + "s... Kada ka rufe shafin";
+    btn.innerText = "Ana Kallo... " + timeLeft + "s";
+    if(timeLeft <= 0){
+      clearInterval(interval);
+      // 3. Bada kudi
+      bal += 10;
+      watched++;
+      localStorage.setItem('earn_bal', bal);
+      localStorage.setItem('earn_count', watched);
+      document.getElementById('bal').innerText = bal.toFixed(2);
+      document.getElementById('counter').innerText = watched + "/20 yau";
+      timerText.innerText = "An saka maka ₦10!";
+      btn.innerText = "▶ Kalli • Samu ₦10";
+      btn.disabled = false;
+      alert("Taya murna! Ka samu ₦10");
+    }
+  }, 1000);
 }
-
-const rec = new (window.SpeechRecognition||window.webkitSpeechRecognition)();
-function startVoice(){
- rec.lang=currentLang;
- rec.start();
- document.getElementById('mic').innerText='Ina sauraro... / Listening... / أستمع...';
-}
-rec.onresult=(e)=>{
- document.getElementById('q').value=e.results[0][0].transcript;
- document.getElementById('mic').innerText='🎤 Yi Magana / Speak / تكلم';
- go();
-};
-rec.onerror=()=>{document.getElementById('mic').innerText='🎤 Yi Magana / Speak / تكلم';};
-
-async function go(){
- let query=document.getElementById('q').value.trim(); if(!query) return;
- let chat=document.getElementById('chat');
- let cleanQuery = query.replace(/please search me|search me|nuna min|ka nuna min|bincika min|ابحث لي عن|ابحث عن/gi,'').trim();
- if(!cleanQuery) cleanQuery=query;
-
- chat.innerHTML+=`<div class=user>Kai: ${query}</div>`;
- chat.innerHTML+=`<div class=card ai id=load>🌐 Ina bincika <b>${cleanQuery}</b> a intanet... Ina kawo bayanai, hotuna da video...</div>`;
- chat.scrollTop=chat.scrollHeight;
- document.getElementById('q').value='';
-
- try{
-  // 1. Bincika Wikipedia
-  let s1=await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cleanQuery)}&format=json&origin=*&srlimit=1`);
-  let j1=await s1.json();
-  let title=j1.query.search[0].title;
-  let s2=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
-  let j2=await s2.json();
-
-  let html = `
-  <div class=card>
-    <div class=ai><h3>${j2.title}</h3><p>${j2.extract}</p></div>
-    ${j2.thumbnail? `<img src="${j2.thumbnail.source}">` : ''}
-    <a class=btn href="${j2.content_urls.desktop.page}" target="_blank">Buɗe Cikakken Bayani</a>
-
-    <h4 style="margin-top:15px">🎥 Video na ${j2.title}:</h4>
-    <iframe src="https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(cleanQuery)}" allowfullscreen></iframe>
-
-    <h4 style="margin-top:15px">🌍 Website na gaskiya:</h4>
-    <iframe src="https://duckduckgo.com/?q=${encodeURIComponent(cleanQuery + ' official website')}&ia=web" style="height:300px;background:white"></iframe>
-  </div>
-  `;
-  document.getElementById('load').remove();
-  chat.innerHTML+=html;
-
-  // 2. Yi magana da murya irin ta ChatGPT
-  let speakText = langCode=='ha'? `${j2.title}. ${j2.extract.substring(0,180)}` : langCode=='ar'? `${j2.title}. ${j2.extract.substring(0,180)}` : `${j2.title}. ${j2.extract.substring(0,200)}`;
-  let utter=new SpeechSynthesisUtterance(speakText);
-  utter.lang=currentLang;
-  speechSynthesis.speak(utter);
-
- }catch(e){
-  document.getElementById('load').remove();
-  chat.innerHTML+=`<div class=card ai>Ban samu ba a Wikipedia. Amma zan nuna maka kai tsaye daga Google a ciki:<br><iframe src="https://duckduckgo.com/?q=${encodeURIComponent(cleanQuery)}&ia=web" style="height:350px;background:white"></iframe></div>`;
- }
- chat.scrollTop=chat.scrollHeight;
-}
-document.getElementById('q').addEventListener('keypress',e=>{if(e.key==='Enter')go()});
 </script>
 </body>
 </html>
-"""
