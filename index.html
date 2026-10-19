@@ -3,87 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EarnNaija - Kalli Talla ka Samu Kudi</title>
-
-<!-- NAN NE WAJEN SOCIAL BAR DIN KA, IDAN KANA DA SHI -->
-<!-- <script src="https://...adsterra.com/....js"></script> -->
-
-<style>
-  body{font-family:system-ui;background:#f9fafb;margin:0;padding:15px}
-  .card{background:white;border-radius:20px;padding:18px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-  .btn{width:100%;padding:15px;border-radius:30px;border:2px solid #000;font-weight:bold;font-size:18px;background:white;cursor:pointer}
-  .btn-black{background:#111;color:white}
-  #videoBox{height:200px;background:#f1f2f4;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column}
-</style>
+<title>EarnNaija - Vinci</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- TALLAN KA - SOCIAL BAR -->
+<script src="https://asiafilm.org/4/a787f491de3ec3e46b255d50f4d1b451"></script>
 </head>
-<body>
-
-<div style="display:flex;justify-content:space-between;align-items:center">
-  <h1 style="margin:0">EarnNaija</h1>
-  <div style="display:flex;gap:8px">
-    <div style="border:2px solid #000;border-radius:20px;padding:6px 15px;font-weight:bold">₦ <span id="bal">10.00</span></div>
-    <button style="background:#111;color:white;border-radius:20px;padding:6px 18px;border:0">Cire</button>
-  </div>
+<body class="bg-[#070f08] text-white min-h-screen">
+<!-- HEADER kamar hoton ka -->
+<div class="bg-[#0f1f11] p-4 flex justify-between items-center">
+<div class="w-10 h-10 bg-[#1a2e1e] rounded-full flex items-center justify-center">✕</div>
+<div class="flex gap-3">
+<div class="w-10 h-10 bg-[#1a2e1e] rounded-full flex items-center justify-center">&lt;/&gt;</div>
+<div class="w-10 h-10 bg-[#1a2e1e] rounded-full flex items-center justify-center">•••</div>
 </div>
-<p style="text-align:right;color:gray;margin:5px 0" id="counter">1/20 yau</p>
-
-<div class="card">
-  <div style="display:flex;justify-content:space-between">
-    <div><b style="font-size:20px">Kalli Talla</b><br><span style="color:gray">Kalli 30s - Samu ₦10</span></div>
-    <div style="background:#f1f2f4;border-radius:20px;padding:8px 15px">₦10</div>
-  </div>
-
-  <div id="videoBox">
-    <div id="playIcon" style="width:80px;height:80px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px">▶</div>
-    <p id="timerText" style="background:white;padding:5px 15px;border-radius:20px;margin-top:10px;color:gray">Danna Kalli don fara</p>
-  </div>
-
-  <button class="btn" id="watchBtn" onclick="startAd()">▶ Kalli • Samu ₦10</button>
-  <p style="text-align:center;color:#aaa;font-size:13px">Kalli talla na 30s sannan a saka maka ₦10</p>
 </div>
+
+<main class="max-w-md mx-auto p-3 space-y-4">
+<!-- TASK 3 - JUMIA -->
+<div class="bg-[#111f13] border-2 border-[#1aff6c]/50 rounded-[22px] p-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 bg-[#2a3a2e] rounded-xl"></div>
+<div class="flex-1">
+<p class="text-[11px] text-orange-400 bg-orange-900/30 px-2 py-1 rounded-full inline-block">JIRA 25S...</p>
+<p class="font-bold mt-1 text-sm">Jumia Black Friday Preview</p>
+<p class="text-xs text-gray-400 mt-1">Jumia • Siyayya • 30s <span class="float-right text-green-400 font-bold">₦10</span></p>
+<button onclick="startTask(3)" id="btn-3" class="w-full mt-3 py-3 bg-[#8a5a1a] rounded-full font-bold text-sm">Jira 25s...</button>
+</div>
+</div>
+</div>
+
+<!-- TASK 4 - BET9JA - DAIDAI DA HOTON KA -->
+<div class="bg-[#111f13] border-2 border-[#1aff6c] rounded-[22px] p-4 shadow-[0_0_15px_rgba(26,255,108,0.2)]">
+<div class="flex gap-3">
+<div class="w-10 h-10 bg-[#1a2e1e] rounded-xl flex items-center justify-center">🎮</div>
+<div class="flex-1">
+<div class="flex justify-between"><p class="font-bold text-[15px]">Task 4: Gwada Wasanni</p><div class="w-8 h-8 border border-gray-600 rounded-full flex items-center justify-center text-sm">4</div></div>
+<p class="text-[11px] text-orange-400 bg-orange-900/30 px-2 py-1 rounded-full inline-block mt-1">JIRA 27S...</p>
+<p class="font-semibold mt-1 text-sm text-gray-300">Bet9ja Instant Play</p>
+<p class="text-xs text-gray-400 mt-1">Bet9ja • Wasanni • 30s <span class="float-right text-green-400 font-bold">₦10</span></p>
+</div>
+</div>
+
+<!-- ANA NUNA TALLA PREVIEW BOX - DAIDAI DA HOTON KA -->
+<div id="adbox-4" class="mt-4 bg-[#0d1a0f] border border-[#1a3a1e] rounded-[18px] p-4">
+<div class="flex items-center gap-2 text-[11px] tracking-widest text-gray-400"><span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span> ANA NUNA TALLA (PREVIEW) <span id="timer-4">27S SAURA</span></div>
+<div class="mt-4 text-center">
+<div class="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center text-2xl">▶</div>
+<p class="font-bold mt-3">Bet9ja Instant Play</p>
+<p class="text-xs text-gray-400 mt-2 leading-relaxed">Wannan wurin ne inda talla zata bayyana. Muna jira lokaci ya cika kafin a ba da lada — ba tare da bude external link ba.</p>
+<div class="flex gap-1 justify-center mt-4"><span class="w-3 h-3 bg-green-500 rounded-full"></span><span class="w-3 h-3 bg-green-500 rounded-full"></span><span class="w-3 h-3 bg-green-500 rounded-full"></span><span class="w-2 h-2 bg-gray-700 rounded-full"></span><span class="w-2 h-2 bg-gray-700 rounded-full"></span><span class="w-2 h-2 bg-gray-700 rounded-full"></span></div>
+</div>
+</div>
+
+<button onclick="startTask(4)" id="btn-4" class="w-full mt-4 py-3 bg-[#8a5a1a] rounded-full font-bold text-sm">Jira 27s...</button>
+</div>
+
+<!-- TASK 5 -->
+<div class="bg-[#111f13] border border-[#1a3a1e] rounded-[22px] p-4 opacity-60">
+<p class="font-bold">Task 5: Sabon Talla</p>
+<p class="text-xs text-gray-400 mt-1">AKWAI - 【entity-Indomie¦canonical_name=Indomie】 Cook Challenge</p>
+</div>
+</main>
 
 <script>
-// ========= SA NAN KA SAKA LINK DIN TALLAN KA =========
-const AD_LINK = "https://www.profitablecpmrate.com/ADSTERRA_DIRECT_LINK_NAKA"; 
-// Misali: https://www.highrevenuegate.com/xxxxx
-
-let bal = parseFloat(localStorage.getItem('earn_bal') || '10');
-let watched = parseInt(localStorage.getItem('earn_count') || '1');
-document.getElementById('bal').innerText = bal.toFixed(2);
-document.getElementById('counter').innerText = watched + "/20 yau";
-
-function startAd(){
-  if(watched >= 20){ alert("Ka cika 20 na yau! Gobe zaka kara."); return; }
-  
-  // 1. Bude tallan
-  window.open(AD_LINK, '_blank');
-
-  // 2. Fara timer
-  let btn = document.getElementById('watchBtn');
-  let timerText = document.getElementById('timerText');
-  let timeLeft = 30;
-  btn.disabled = true;
-  btn.innerText = "Ana Kallo... 30s";
-  
-  let interval = setInterval(()=>{
-    timeLeft--;
-    timerText.innerText = "Jira " + timeLeft + "s... Kada ka rufe shafin";
-    btn.innerText = "Ana Kallo... " + timeLeft + "s";
-    if(timeLeft <= 0){
-      clearInterval(interval);
-      // 3. Bada kudi
-      bal += 10;
-      watched++;
-      localStorage.setItem('earn_bal', bal);
-      localStorage.setItem('earn_count', watched);
-      document.getElementById('bal').innerText = bal.toFixed(2);
-      document.getElementById('counter').innerText = watched + "/20 yau";
-      timerText.innerText = "An saka maka ₦10!";
-      btn.innerText = "▶ Kalli • Samu ₦10";
-      btn.disabled = false;
-      alert("Taya murna! Ka samu ₦10");
-    }
-  }, 1000);
+const AD_LINK = "https://asiafilm.org/4/a787f491de3ec3e46b255d50f4d1b451";
+function startTask(id){
+ // POP PAGE DIN TALLA - SHINE ZAI BAKA KUDI
+ window.open(AD_LINK, '_blank');
+ let sec = 27;
+ const btn = document.getElementById('btn-'+id);
+ const timerEl = document.getElementById('timer-'+id);
+ const interval = setInterval(()=>{
+  if(btn) btn.innerText = `Jira ${sec}s...`;
+  if(timerEl) timerEl.innerText = `${sec}S SAURA`;
+  sec--;
+  if(sec < 0){
+   clearInterval(interval);
+   if(btn){ btn.innerText = "An Gama - ₦10"; btn.className = "w-full mt-4 py-3 bg-gray-700 rounded-full font-bold text-sm"; }
+   let bal = parseInt(localStorage.getItem('earnNaijaBalance')||'0');
+   bal+=10;
+   localStorage.setItem('earnNaijaBalance', bal);
+   alert("An saka maka ₦10! Balance: ₦"+bal);
+  }
+ },1000);
 }
 </script>
 </body>
