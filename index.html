@@ -3,65 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RewardHub</title>
+<title>RewardHub - Samu Lada</title>
+<!-- POPUNDER - Adsterra -->
+<script data-cfasync="false" src="https://afders.org/1/ed48207c42d9e7fc9fd210a6a7331bcb"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:white;font-family:system-ui;display:flex;flex-direction:column;min-height:100vh;padding:16px}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}
-.logo span{background:#00e676;color:black;width:36px;height:36px;display:grid;place-items:center;border-radius:10px}
-.balance{background:#1a1a1a;border:1px solid #333;padding:10px 16px;border-radius:30px;font-size:14px}
-.balance b{color:white;font-size:18px;margin-left:8px}
-.card{background:#151515;border:1px solid #222;border-radius:28px;padding:32px 20px;text-align:center;max-width:380px;width:100%;margin:auto}
-.small{font-size:11px;letter-spacing:2px;color:#aaa;font-weight:700;margin-bottom:20px}
-h1{font-size:32px;line-height:1.1;font-weight:900;margin-bottom:12px}
-.price{font-size:56px;font-weight:900;margin:10px 0}
-.sub{font-size:12px;letter-spacing:1.5px;color:#666;font-weight:700;margin-bottom:28px}
-.btn{display:block;width:100%;padding:18px;border-radius:999px;font-weight:900;font-size:18px;text-decoration:none;text-align:center;margin-bottom:12px;cursor:pointer}
-.btn-green{background:#00e676;color:black}
-.btn-white{background:white;color:black}
-.note{margin-top:24px;font-size:14px;font-weight:600}
-.note2{margin-top:8px;font-size:12px;color:#666}
-.footer{margin-top:auto;text-align:center;padding:20px;font-size:11px;color:#333;letter-spacing:2px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#0b0214;color:#fff;padding-bottom:30px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:linear-gradient(90deg,#7c3aed,#db2777)}
+.logo{font-size:23px;font-weight:900}.logo b{color:#facc15}
+.live{background:#fff;color:#db2777;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:900}
+.hero{text-align:center;padding:22px 16px 8px}
+.hero h1{font-size:34px;line-height:1.05}
+.hero h1 span{background:linear-gradient(90deg,#facc15,#fb7185,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{opacity:.85;margin-top:8px;font-size:14px}
+.balance{margin:16px;background:linear-gradient(135deg,#facc15,#fb923c,#ec4899);color:#1a1a1a;border-radius:20px;padding:20px;text-align:center;box-shadow:0 10px 30px rgba(236,72,153,.4)}
+.balance small{font-weight:900;letter-spacing:1px}
+.balance .num{font-size:44px;font-weight:900}
+.balance .naira{font-weight:700}
+.progress{height:10px;background:rgba(0,0,0,.15);border-radius:20px;margin-top:10px;overflow:hidden}
+.progress div{height:100%;width:25%;background:#111;border-radius:20px}
+.big-btn{display:block;margin:14px 16px 8px;background:linear-gradient(90deg,#22c55e,#16a34a);color:#fff;text-align:center;padding:18px;border-radius:16px;font-weight:900;font-size:18px;text-decoration:none;box-shadow:0 6px 20px rgba(34,197,94,.4)}
+.big-btn:active{transform:scale(.97)}
+.btn2{display:block;margin:0 16px 10px;background:linear-gradient(90deg,#3b82f6,#7c3aed);color:#fff;text-align:center;padding:15px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none}
+.btn3{display:block;margin:0 16px 14px;background:#fff;color:#7c3aed;text-align:center;padding:14px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}
+.card{border-radius:18px;padding:16px;text-align:center;color:#fff}
+.card.c1{background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.card.c2{background:linear-gradient(135deg,#db2777,#f97316)}
+.card.c3{background:linear-gradient(135deg,#0891b2,#06b6d4)}
+.card.c4{background:linear-gradient(135deg,#16a34a,#84cc16);color:#111}
+.card .em{font-size:30px}
+.card h3{margin:8px 0 4px}
+.card p{font-size:12px;line-height:1.4;opacity:.9}
+.card button{margin-top:10px;width:100%;border:none;padding:10px;border-radius:10px;font-weight:800;cursor:pointer;background:#fff;color:#111}
+.section{padding:16px}
+.section h2{margin-bottom:12px}
+.task{display:flex;justify-content:space-between;align-items:center;background:#1e1033;border:1px solid #3b1a6b;padding:14px;border-radius:14px;margin-bottom:10px}
+.task b{font-size:14px}.task span{font-size:12px;opacity:.75}
+.pts{background:#facc15;color:#111;padding:7px 11px;border-radius:20px;font-weight:900;font-size:12px;white-space:nowrap}
+.leader{display:flex;justify-content:space-between;background:#1e1033;padding:12px 14px;border-radius:12px;margin-bottom:8px}
+.toast{position:fixed;left:16px;right:16px;bottom:16px;background:#22c55e;color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:800;display:none;z-index:99}
+.footer{text-align:center;padding:10px 16px;opacity:.65;font-size:12px;line-height:1.6}
 </style>
 </head>
 <body>
+<div class="top"><div class="logo">Reward<b>Hub</b> 🎁</div><div class="live">● LIVE</div></div>
+<div class="hero"><h1>Samu Lada <span>Kullum!</span></h1><p>Kalli talla, kammala task, tara points ka canza zuwa Airtime.</p></div>
+<div class="balance"><small>💰 YOUR BALANCE</small><div class="num"><span id="bal">1,250</span> Pts</div><div class="naira">≈ ₦125 Airtime • ID: 31788379</div><div class="progress"><div id="bar"></div></div><div style="font-size:12px;margin-top:6px">Ka tara 5,000 Pts ka cire Airtime!</div></div>
 
-<div class="header">
-<div class="logo"><span>R</span> RewardHub</div>
-<div class="balance">BALANCE <b id="bal">$2.93</b></div>
+<a class="big-btn" href="https://arwf.org/4/cdf5f2c0cab284beb924740322550862" target="_blank" onclick="addPts(100)">📺 KALLI TALLA & SAMU +100 Pts</a>
+<a class="btn2" href="https://arwf.org/4/cdf5f2c0cab284beb924740322550862" target="_blank" onclick="addPts(50)">🎁 BUDE OFFER NA YAU • +50 Pts</a>
+<a class="btn3" href="javascript:void(0)" onclick="checkIn()">✅ DAILY CHECK-IN • +250 Pts</a>
+
+<div class="grid">
+<div class="card c1"><div class="em">📺</div><h3>Kalli Talla</h3><p>Kalli offer ka tara points</p><button onclick="window.open('https://arwf.org/4/cdf5f2c0cab284beb924740322550862','_blank');addPts(100)">FARA YANZU</button></div>
+<div class="card c2"><div class="em">👥</div><h3>Gayyata Aboki</h3><p>Gayyaci aboki ka samu 200 Pts</p><button onclick="invite()">GAYYATA</button></div>
+<div class="card c3"><div class="em">🎯</div><h3>Daily Task</h3><p>Kammala task 3 ka samu 500 Pts</p><button onclick="doTask()">YI TASK</button></div>
+<div class="card c4"><div class="em">💸</div><h3>Cire Airtime</h3><p>Idan ka kai 5000 Pts</p><button onclick="withdraw()">CIRE YANZU</button></div>
 </div>
 
-<div class="card">
-<div class="small">ID 31788379 • LIVE</div>
-<h1>Watch Ad &<br>Claim Reward</h1>
-<div class="price">$0.15</div>
-<div class="sub">PER CLAIM • ADSTERRA</div>
-
-<!-- NAN NE ZAKA SAKA SABON LINK DINKA - SAU 2 -->
-<a class="btn btn-green" href="https://asiafilm.org/4/a787f491de3ec3e46b255d50f4d1b451" target="_blank" onclick="addReward()">
-📺 Kalli Talla
-</a>
-
-<a class="btn btn-white" href="https://asiafilm.org/4/a787f491de3ec3e46b255d50f4d1b451" target="_blank" onclick="addReward()">
-🎁 Claim Reward
-</a>
-
-<div class="note">Danna zai bude talla, sannan reward zai shigo</div>
-<div class="note2">Jira 2s a talla, lada zai shiga balance kai tsaye.</div>
+<div class="section"><h2>🔥 Tasks Na Yau - Duka Suna Aiki</h2>
+<div class="task"><div><b>1. Kalli Offer Na Yau</b><span>Buɗe offer ka jira 10s</span></div><div><span class="pts" onclick="openOffer(100)" style="cursor:pointer">+100 Pts • DANNA</span></div></div>
+<div class="task"><div><b>2. Bude Offer Na Biyu</b><span>Shiga offer na biyu</span></div><div><span class="pts" onclick="openOffer(150)" style="cursor:pointer">+150 Pts • DANNA</span></div></div>
+<div class="task"><div><b>3. Dawo Gobe</b><span>Shiga gobe ka samu bonus</span></div><div><span class="pts" onclick="checkIn()" style="cursor:pointer">+250 Pts • DANNA</span></div></div>
 </div>
 
-<div class="footer">RewardHub • Adsterra Smartlink • 2026</div>
+<div class="section"><h2>🏆 Manyan Masu Points</h2>
+<div class="leader"><span>🥇 1. Musa A.</span><b>12,400 Pts</b></div>
+<div class="leader"><span>🥈 2. Fatima B.</span><b>9,800 Pts</b></div>
+<div class="leader"><span>🥉 3. Yusuf M.</span><b>7,500 Pts</b></div>
+</div>
 
+<div class="footer">RewardHub • Points ba kudi bane kai tsaye. Ka tara 5000 Pts ka canza zuwa Airtime.<br>© 2026 RewardHub</div>
+<div id="toast" class="toast"></div>
+
+<!-- SOCIAL BAR - Adsterra -->
+<script data-cfasync="false" src="https://bicea.org/14/43fb1d68af6651b11b45eb1cfe7d443c"></script>
 <script>
-let bal = 2.93;
-function addReward(){
-  setTimeout(()=>{
-    bal += 0.15;
-    document.getElementById('bal').innerText = '$' + bal.toFixed(2);
-  }, 500);
-}
+let bal = 1250;
+function showToast(t){ let el=document.getElementById('toast'); el.innerText=t; el.style.display='block'; setTimeout(()=>el.style.display='none',3000); }
+function addPts(n){ bal+=n; document.getElementById('bal').innerText=bal.toLocaleString(); document.getElementById('bar').style.width=Math.min(100,bal/5000*100)+'%'; showToast('🎉 Ka samu +'+n+' Pts! Balance: '+bal.toLocaleString()+' Pts'); }
+function checkIn(){ addPts(250); showToast('✅ Daily Check-in! +250 Pts'); }
+function invite(){ let link=window.location.href; if(navigator.clipboard){ navigator.clipboard.writeText(link); } showToast('🔗 Link din gayyata an kwafe! Tura wa abokanka'); }
+function doTask(){ window.open('https://arwf.org/4/cdf5f2c0cab284beb924740322550862','_blank'); addPts(100); }
+function openOffer(n){ window.open('https://arwf.org/4/cdf5f2c0cab284beb924740322550862','_blank'); addPts(n); }
+function withdraw(){ if(bal<5000){ showToast('⚠️ Kana da '+bal+' Pts. Sai ka kai 5000 Pts zaka iya cirewa'); } else { showToast('💸 Request din ka ya shiga! Za a tura maka Airtime'); } }
 </script>
-
 </body>
 </html>
