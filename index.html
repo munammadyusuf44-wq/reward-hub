@@ -8,7 +8,7 @@
 <script data-cfasync="false" src="https://afders.org/1/ed48207c42d9e7fc9fd210a6a7331bcb"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#0b0214;color:#fff;padding-bottom:30px}
+body{background:#0b0214;color:#fff;padding-bottom:120px !important; overflow-x:hidden;}
 .owner{ text-align:center; padding:18px 16px 6px; background:linear-gradient(180deg,#1e1033,#0b0214); }
 .owner .small{ font-size:11px; letter-spacing:4px; color:#facc15; font-weight:800; }
 .owner h1{ font-size:30px; font-weight:900; line-height:1.1; margin-top:6px; background:linear-gradient(90deg,#facc15,#fb7185,#a78bfa,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-transform:uppercase; }
@@ -47,13 +47,15 @@ body{background:#0b0214;color:#fff;padding-bottom:30px}
 .task b{font-size:14px}.task span{font-size:12px;opacity:.75}
 .pts{background:#facc15;color:#111;padding:7px 11px;border-radius:20px;font-weight:900;font-size:12px;white-space:nowrap}
 .leader{display:flex;justify-content:space-between;background:#1e1033;padding:12px 14px;border-radius:12px;margin-bottom:8px}
-.toast{position:fixed;left:16px;right:16px;bottom:16px;background:#22c55e;color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:800;display:none;z-index:99}
-.footer{text-align:center;padding:10px 16px;opacity:.65;font-size:12px;line-height:1.6}
+/* TOAST - Na canza shi sama don kada ya rufe Social Bar */
+.toast{position:fixed;left:16px;right:16px;top:16px;background:#22c55e;color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:800;display:none;z-index:9999}
+.footer{text-align:center;padding:10px 16px 90px;opacity:.65;font-size:12px;line-height:1.6}
+/* KADA KA RUFE SOCIAL BAR - Adsterra tana bukatar wannan */
+.social-bar, [class*="social"], [id*="social"]{ display:block !important; visibility:visible !important; z-index:99999 !important; }
 </style>
 </head>
 <body>
 
-<!-- SUNAN A SAMA -->
 <div class="owner">
   <div class="small">✨ WELCOME TO ✨</div>
   <h1>MUHAMMAD<br>YUSUF ALBANY</h1>
@@ -91,8 +93,9 @@ body{background:#0b0214;color:#fff;padding-bottom:30px}
 <div class="footer">RewardHub by MUHAMMAD YUSUF ALBANY<br>Ka tara 5000 Pts ka canza zuwa Airtime.<br>© 2026 RewardHub</div>
 <div id="toast" class="toast"></div>
 
-<!-- SOCIAL BAR - Adsterra -->
+<!-- SOCIAL BAR - Adsterra - NA SAKA SHI ANAN KAFIN </body> -->
 <script data-cfasync="false" src="https://bicea.org/14/43fb1d68af6651b11b45eb1cfe7d443c"></script>
+
 <script>
 let bal = 1250;
 function showToast(t){ let el=document.getElementById('toast'); el.innerText=t; el.style.display='block'; setTimeout(()=>el.style.display='none',3000); }
@@ -102,6 +105,8 @@ function invite(){ let link=window.location.href; if(navigator.clipboard){ navig
 function doTask(){ window.open('https://arwf.org/4/cdf5f2c0cab284beb924740322550862','_blank'); addPts(100); }
 function openOffer(n){ window.open('https://arwf.org/4/cdf5f2c0cab284beb924740322550862','_blank'); addPts(n); }
 function withdraw(){ if(bal<5000){ showToast('⚠️ Kana da '+bal+' Pts. Sai ka kai 5000 Pts zaka iya cirewa'); } else { showToast('💸 Request din ka ya shiga! Za a tura maka Airtime'); } }
+// Bincike: idan bicea.org bai loda ba, zai fada maka a console
+window.addEventListener('load', function(){ setTimeout(function(){ console.log('Duba Social Bar: idan bicea.org bai loda ba, Adsterra ce bata kunna shi ba tukuna ko AdBlock ne'); }, 3000); });
 </script>
 </body>
 </html>
